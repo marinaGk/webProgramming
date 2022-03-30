@@ -3,6 +3,7 @@ html {
     font-size: 20px; 
     font-weight: 1000;
     min-width: 100%;
+    background-color: white;
 }
 
 .navbarGen { 
@@ -13,7 +14,7 @@ html {
     position: center;
 }
 
-.navButton { 
+.navbarGen .navButton { 
     display: inline-block;
     position: center;
     width: 220px;
@@ -24,7 +25,7 @@ html {
     cursor: pointer;
 }
 
-.navButton a { 
+.navbarGen .navButton a { 
     display: block;
     font-family: 'Lato';
     font-weight: 1000;
@@ -33,11 +34,11 @@ html {
     color:white;
 }
 
-.navButton:hover .dropdown{ 
+.navbarGen .navButton:hover .dropdown{ 
     display: block;
 }
 
-.dropdown { 
+.navbarGen .dropdown { 
     display: none;
     position: absolute;
     background-color: #fac300;
@@ -46,21 +47,126 @@ html {
     margin-top:25px;
 }
 
-.dd_content { 
+.navbarGen .dd_content { 
     border-top: solid white 1px;
     width: 100%;
     height:50px;
     text-align: center;
 }
 
-.dd_content a{ 
+.navbarGen .dd_content a{ 
     position: center;
 }
 
-.dd_content:hover { 
+.navbarGen .dd_content:hover { 
     background-color: #f78da7;
 }
 
+.card { 
+    background-color: #E0E0E0;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.0));
+    display: block;
+    width: 75%; 
+    height: 1000px;
+    margin: 12.5% auto;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.banner { 
+    height: 300px;
+    margin-top: 0px;
+    background-image: url("tennis1.png");
+    background-position: center;
+    background-size: auto;
+}
+
+.banner #title { 
+
+    color: white;
+    font-style: bold;
+    padding-left: 50px;
+    text-align: left;
+    font-size: 40px;
+    margin-top: 0px;
+    padding-top: 40px;
+    margin-bottom: 0px;
+
+}
+
+.banner #subtitle { 
+
+    color: white;
+    font-style: italic;
+    padding-left: 50px;
+    font-size: 30px;
+    text-align: left;
+    margin-top: 0px;
+}
+
+.intro { 
+
+    width: 100%;
+    height: 300px;
+
+}
+
+.intro #banner { 
+
+    width: 100%;
+    height: 60px;
+    background-color: rgba(202, 49, 164, 1);
+    color: white;
+    font-size: 25px;
+    text-align: left
+
+}
+
+.intro  #banner h1 { 
+    margin-top: 0px;
+    padding: 10px;
+}
+
+.intro #text { 
+    color: rgba(202, 49, 164, 1);
+    font-style: italic;
+    font-size: 18px;
+}
+
+.additional { 
+    width: 100%;
+    height: 60px;
+}
+
+.news #banner { 
+    display: inline-block;
+    position: left;
+    width: 50%;
+    height: 100%;
+    background-color: #fac300;
+    color: white;
+    font-size: 25px;
+    text-align: left
+
+}
+
+.news #banner h1 { 
+    margin: 0px;
+}
 
 
+.announcements #banner { 
+    display: inline-block;
+    position: right;
+    vertical-align: top;
+    width: 50%;
+    height: 100%;
+    background-color: #0091d2;
+    color: white;
+    font-size: 25px;
+    text-align: left
+}
 
+.announcements #banner h1 { 
+    margin: 0px;
+}
