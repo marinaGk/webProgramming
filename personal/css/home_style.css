@@ -4,6 +4,7 @@ html {
     font-weight: 1000;
     min-width: 100%;
     background-color: white;
+    margin: 0px;
 }
 
 .navbarGen { 
@@ -62,12 +63,19 @@ html {
     background-color: #f78da7;
 }
 
+article { 
+    height: 100%;
+    display: block;
+    position: relative;
+    bottom: 0px;
+}
+
 .card { 
     background-color: #E0E0E0;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.0));
     display: block;
-    width: 75%; 
-    height: 1000px;
+    width: 1200px; 
+    height: 100%;
     margin: 12.5% auto;
     margin-top: 0px;
     text-align: center;
@@ -76,13 +84,12 @@ html {
 .banner { 
     height: 300px;
     margin-top: 0px;
-    background-image: url("tennis1.png");
+    background-image: url("/personal/imgs/frPageBanner.png");
     background-position: center;
     background-size: auto;
 }
 
 .banner #title { 
-
     color: white;
     font-style: bold;
     padding-left: 50px;
@@ -91,11 +98,9 @@ html {
     margin-top: 0px;
     padding-top: 40px;
     margin-bottom: 0px;
-
 }
 
 .banner #subtitle { 
-
     color: white;
     font-style: italic;
     padding-left: 50px;
@@ -105,21 +110,17 @@ html {
 }
 
 .intro { 
-
     width: 100%;
     height: 300px;
-
 }
 
 .intro #banner { 
-
     width: 100%;
     height: 60px;
     background-color: rgba(202, 49, 164, 1);
     color: white;
     font-size: 25px;
     text-align: left
-
 }
 
 .intro  #banner h1 { 
@@ -135,38 +136,152 @@ html {
 
 .additional { 
     width: 100%;
+    flex-direction: row;
+    display: flex;
+}
+
+.additional #banner{ 
     height: 60px;
+    color: white;
+    font-size: 25px;
+    text-align: left;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.additional #banner h1 { 
+    margin: 0px;
+    padding-left: 10px;
+    line-height: 60px;
+}
+
+.additional #content { 
+    overflow-y: scroll;
+    width: 100%;
+    height: 400px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.additional #link { 
+    height: 70px; 
+    width: 100%; 
+    border-bottom: 1px gray solid;
+}
+
+.additional #link a{ 
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 70px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+.additional #link a::before { 
+    content: "•";
+}
+
+.news { 
+    display: inline-block;
+    width: 45%;
+    margin-left: 50px;
+    margin-right: 10px;
+    margin-bottom: 50px;
 }
 
 .news #banner { 
-    display: inline-block;
-    position: left;
-    width: 50%;
-    height: 100%;
-    background-color: #fac300;
-    color: white;
-    font-size: 25px;
-    text-align: left
-
+    background-color: #0091d2;
+    width: 100%;
 }
 
-.news #banner h1 { 
-    margin: 0px;
+/*can't left align for some reasons*/
+.news #link a{ 
+    color:rgba(202, 49, 164, 1);
 }
 
+.announcements { 
+    display: inline-block; 
+    width: 45%;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
 
 .announcements #banner { 
-    display: inline-block;
-    position: right;
-    vertical-align: top;
-    width: 50%;
-    height: 100%;
-    background-color: #0091d2;
-    color: white;
-    font-size: 25px;
-    text-align: left
+    background-color: #fac300;
+    width: 100%;
 }
 
-.announcements #banner h1 { 
-    margin: 0px;
+.announcements #link a{ 
+    color:rgb(78, 12, 62);
 }
+
+/*still need to style scrollbar*/
+
+footer { 
+    position: relative;
+    top: 0px;
+}
+
+.footer { 
+    display: block;
+    width: 100%; 
+    background-color: #999999;
+    position: relative;
+    top: 0%;
+    border-top: 1px solid black;
+}
+
+.sections { 
+    display: block;
+    width: 50%;
+    position: relative;
+    top: 0%;
+    left: 30%;
+    margin: 0px;
+    list-style: none;
+    padding:50px;
+}
+
+.sections .ftrSection { 
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.ftrSection a { 
+    text-decoration: none;
+    color: white;
+}
+
+.ftrSection h1 { 
+    font-size: 35px;
+}
+
+.ftrSection .scList { 
+    list-style: none;
+    font-size: 25px;
+    padding: 0px;
+}
+
+.ftrSection .scList .listItem { 
+    margin-top: 30px;
+}
+
+.ftrSection .scList .listItem a{ 
+    color:rgba(202, 49, 164, 1);
+}
+
+.footer hr{ 
+    color: black;
+    margin: 10px;
+}
+
+.footer p { 
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    color:rgba(202, 49, 164, 1); 
+}
+
+
+
