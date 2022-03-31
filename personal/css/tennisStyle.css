@@ -1,0 +1,109 @@
+html {
+    font-family: 'Lato';
+    font-size: 20px; 
+    font-weight: 1000;
+    min-width: 100%;
+    background-color: white;
+    margin: 0px;
+}
+
+body { 
+    display: grid;
+}
+
+section { 
+    height: 100%;
+    display: block;
+    position: relative;
+    bottom: 0px;
+}
+
+.tennis_card{ 
+    background-color: #0091d2;
+    display: block;
+    width: 1200px; 
+    height: 100%;
+    margin: 12.5% auto;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.tennis_banner{ 
+    margin: 0px;
+    background-color: white;
+    height: 300px;
+    width: 100%;
+}
+
+.tennis_banner h1{ 
+    margin: 0px;
+    padding: 20px 0px 20px 0px;
+    text-align: left;
+    font-size: 40px; 
+    font-style: italic;
+    color: #0091d2;
+    position: relative;
+    left: 15%; 
+}
+
+.tennis_banner p{ 
+    font-size: 15px;
+    color: #6c6f6f; 
+    position: relative;
+    left: 15%; 
+    text-align: left;
+}
+
+.tennis_info{ 
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.tennis_info span{ 
+    background-color: white; 
+    width: 40%;
+    box-shadow: 5px 5px #6c6f6f;
+}
+
+.tennis_info .clubs{ 
+    margin: 110px 10px 50px 110px;
+}
+
+.tennis_info .competitions{ 
+    margin: 110px 110px 50px 10px;
+}
+
+.tennis_info #banner { 
+    max-width: 480px;
+    height: 30px; 
+    line-height: 30px;
+    padding: 15px;
+    color: #ca31a4;
+    text-align: left;
+    font-weight: 1000;
+    font-size: 25px;
+}
+
+.tennis_info .clubs #image { 
+    height: 339px;
+    background-image: url("/personal/imgs/clubs.jpg");
+    margin: 0 auto;
+
+}
+
+.tennis_info .competitions #image { 
+    height: 339px;
+    background-image: url("/personal/imgs/competition.jpg");
+    background-position: center;
+    margin: 0 auto;
+}
+
+.tennis_info #text { 
+    padding: 10px;
+    color: #ca31a4;
+}
+
+
+
+

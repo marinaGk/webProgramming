@@ -8,8 +8,9 @@ html {
 }
 
 body {
-    min-height: 100%;
     display: grid;
+    background-image: url("/personal/imgs/seamless.jpg");
+    z-index: -1;
 }
 
 .navbarGen { 
@@ -70,14 +71,14 @@ body {
     background-color: #f78da7;
 }
 
-article { 
+section { 
     height: 100%;
     display: block;
     position: relative;
     bottom: 0px;
 }
 
-.card { 
+.card{ 
     background-color: #E0E0E0;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.0));
     display: block;
@@ -88,7 +89,7 @@ article {
     text-align: center;
 }
 
-.banner { 
+.banner{ 
     height: 300px;
     margin-top: 0px;
     background-image: url("/personal/imgs/frPageBanner.png");
@@ -229,9 +230,7 @@ article {
     width: 100%; 
     background-color: #999999;
     position: relative;
-    top: 0%;
     bottom: 0;
-    border-top: 1px solid black;
 }
 
 .sections { 
