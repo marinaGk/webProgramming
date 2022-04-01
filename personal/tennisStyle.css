@@ -32,7 +32,6 @@ section {
     margin: 0px;
     background-color: white;
     height: 300px;
-    width: 100%;
 }
 
 .tennis_banner h1{ 
@@ -42,15 +41,16 @@ section {
     font-size: 40px; 
     font-style: italic;
     color: #0091d2;
+    width: 100%;
     position: relative;
-    left: 15%; 
+    left: 10%; 
 }
 
 .tennis_banner p{ 
     font-size: 15px;
     color: #6c6f6f; 
     position: relative;
-    left: 15%; 
+    left: 10%; 
     text-align: left;
 }
 
@@ -87,14 +87,13 @@ section {
 
 .tennis_info .clubs #image { 
     height: 339px;
-    background-image: url("/personal/imgs/clubs.jpg");
+    background-image: url("clubs.jpg");
     margin: 0 auto;
-
 }
 
 .tennis_info .competitions #image { 
     height: 339px;
-    background-image: url("/personal/imgs/competition.jpg");
+    background-image: url("competition.jpg");
     background-position: center;
     margin: 0 auto;
 }
@@ -104,6 +103,51 @@ section {
     color: #ca31a4;
 }
 
+.redirects { 
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 
+.redirects span{ 
+    background-color: white; 
+    width: 25%;
+    box-shadow: 5px 5px #6c6f6f;
+}
 
+.redirects #banner { 
+    height: 30px; 
+    line-height: 30px;
+    padding: 15px;
+    color: #ca31a4;
+    text-align: left;
+    font-weight: 1000;
+    font-size: 25px;
+}
+
+.redirects .play_tennis #image { 
+    height: 339px;
+    background-image: url("competition.jpg");
+    background-position: center;
+    margin: 0 auto;
+}
+
+.redirects .tennis_lessons #image { 
+    height: 339px;
+    background-image: url("competition.jpg");
+    background-position: center;
+    margin: 0 auto;
+}
+
+.redirects .tennis_tournaments #image { 
+    height: 339px;
+    background-image: url("competition.jpg");
+    background-position: center;
+    margin: 0 auto;
+}
+
+.redirects #text { 
+    padding: 10px;
+    color: #ca31a4;
+}
 
