@@ -8,77 +8,89 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="lessons_style.css">
+    <link rel="stylesheet" href="lessonsStyle.css">
+    <link rel="stylesheet" href="indexStyle.css">
     <title>Lessons</title>
 </head>
 <body>
     <a name="top"></a>
     <nav class = "navbarGen"> 
-
+        <!--Home Page-->
         <button class = "navButton">
-            <a href="Home"> HOME </a> 
+            <a href="index.html">HOME</a> 
         </button>
-
-        <button class = "navButton"> <a href="Tennis">TENNIS</a>
+        <!--Tennis Page-->
+        <button class = "navButton"> <a href="tennis.html">TENNIS</a>
             <div class = "dropdown">
                 <div class = "dd_content">
-                    <p><a href = "#"> LESSONS </a></p>
+                    <a href = "#">Play Tennis</a>
                 </div>
     
                 <div class = "dd_content">
-                    <p><a href = "#"> TOURNAMENTS </a></p>
+                    <a href = "lessons.html">Tennis Lessons</a>
                 </div>
     
                 <div class = "dd_content">
-                    <p><a href = "#"> COMMUNITY </a></p>
+                    <a href = "#">Tennis Tournaments</a>
                 </div>
             </div> 
         </button>
-
-        <button class = "navButton" onclick > <a href="Facilities">FACILITIES</a> 
+        <!--Facilities Page-->
+        <button class = "navButton"> <a href="spaces.html">SPACES</a> 
             <div class = "dropdown"> 
                 <div class = "dd_content">
-                    <p><a href = "#"> FIELDS </a></p>
+                    <a href = "#">Courts</a>
                 </div>
     
                 <div class = "dd_content">
-                    <p><a href = "#"> POOL </a></p>
+                    <a href = "#">Pool</a>
                 </div>
     
                 <div class = "dd_content">
-                    <p><a href = "#"> MEDICAL FACILITIES </a></p>
+                    <a href = "#">Medical Facilities</a>
+                </div>
+
+                <div class = "dd_content">
+                    <a href = "#">Equipment Store</a>
+                </div>
+
+                <div class = "dd_content">
+                    <a href = "#">Restaurant</a>
                 </div>
             </div> 
         </button>
-
-        <button class = "navButton"> <a href="Events">EVENTS</a> 
+        <!--Events Page-->
+        <button class = "navButton"> <a href="events.html">EVENTS</a> 
             <div class = "dropdown"> 
                 <div class = "dd_content">
-                    <p><a href = "#"> NEWS </a></p>
+                    <a href = "#">Community Events</a>
                 </div>
 
                 <div class = "dd_content">
-                    <p><a href = "#"> PRO TOURNAMENTS </a></p> 
+                    <a href = "#">Pro Tournaments</a>
                 </div>
     
                 <div class = "dd_content">
-                    <p><a href = "#"> PLAYERS & RANKINGS </a></p>
-                </div>
-
-                <div class = "dd_content">
-                    <p><a href = "#"> SUBSCRIBE </a></p>
+                    <a href = "#">Entertainment Events</a>
                 </div>
             </div> 
         </button>
-        
-        <button class = "navButton"> 
-            <a href="Contact info">CONTACT INFO</a> 
-        </button>
+        <!--News & Announcements Page-->
+        <button class = "navButton"> <a href="news_announcements.html">NEWS & ANNOUNCEMENTS</a> 
+            <div class = "dropdown"> 
+                <div class = "dd_content">
+                    <a href = "#">News</a>
+                </div>
 
-        <button class = navButton>
-            <a href="Online booking">ONLINE BOOKING</a> 
+                <div class = "dd_content">
+                    <a href = "#">Announcements</a>
+                </div>
+    
+                <div class = "dd_content">
+                    <a href = "#">Subscribe</a>
+                </div>
+            </div> 
         </button>
-         
     </nav>
 
     <div id = "title">
@@ -101,20 +113,16 @@
                     μαθήματα διαρκούνε περίπου μία με δύο ώρες και γίνονται δύο φορές κάθε βδομάδα. Τα παιδιά ή/και οι γονείς των παιδιών
                     μπορούνε, σε συνεργασία με τους προπονητές, να καθορίσουν το εβδομαδιαίο πρόγραμμα που θα γίνονται τα μαθήματα.
                 </p>
-                <p id="price">
-                    JUNIOR CLASS ΤΙΜΗ ΣΥΝΔΡΟΜΗΣ <br>
-                    • Μηνιαία συνδρομή: 25 € <br>
-                    • Τρίμηνη συνδρομή: 65 € <br>
-                    • Εξάμηνη συνδρομή: 140 € <br>
-                    • Ετήσια συνδρομή: 280 €
-                 </p>
-            </div>
-            <div class="bottom">
-                <p id="photo1"></p>
-                <p id="photo2"></p>
-                <p id="photo3"></p>
-                <p id="photo4"></p>
-                <p id="photo5"></p>
+                <div class="bottom" id="bottomA">
+                    <p class= photo id="photo1"></p>
+                    <p id="price">
+                        JUNIOR CLASS ΤΙΜΗ ΣΥΝΔΡΟΜΗΣ <br>
+                        • Μηνιαία συνδρομή: 25 € <br>
+                        • Τρίμηνη συνδρομή: 65 € <br>
+                        • Εξάμηνη συνδρομή: 140 € <br>
+                        • Ετήσια συνδρομή: 280 €
+                    </p>
+                </div>  
             </div>
         </div>
         <div class="info" id="adults">
@@ -134,20 +142,16 @@
                     ασχοληθούν σοβαρά με το άθλημα, ακόμα και σε επαγγελματικό επίπεδο. Η ομάδα στην οποία κατατάσσεται το κάθε μέλος καθορίζεται
                     από τους προπονητές αφού συνεννοηθούν πρώτα με τους εκπαιδευόμενους.
                 </p>
-                <p id="price">
-                   ADULT CLASS ΤΙΜΗ ΣΥΝΔΡΟΜΗΣ <br>
-                   • Μηνιαία συνδρομή: 30 € <br>
-                   • Τρίμηνη συνδρομή: 80 € <br>
-                   • Εξάμηνη συνδρομή: 170 € <br>
-                   • Ετήσια συνδρομή: 340 €
-                </p>
-            </div>
-            <div class="bottom">
-                <p id="photo1"></p>
-                <p id="photo2"></p>
-                <p id="photo3"></p>
-                <p id="photo4"></p>
-                <p id="photo5"></p>
+                <div class="bottom" id="bottomB">
+                    <p id="price">
+                        ADULT CLASS ΤΙΜΗ ΣΥΝΔΡΟΜΗΣ <br>
+                        • Μηνιαία συνδρομή: 30 € <br>
+                        • Τρίμηνη συνδρομή: 80 € <br>
+                        • Εξάμηνη συνδρομή: 170 € <br>
+                        • Ετήσια συνδρομή: 340 €
+                    </p>
+                    <p class= photo id="photo2"></p>
+                </div>
             </div>
         </div>
         <div class="info" id="intensive">
@@ -161,20 +165,16 @@
                     με έναν από τους προπονητές μας για 2 με 3 ώρες κάθε πέντε με έξι φορές τη βδομάδα. Ο εκπαιδευόμενος δεν είναι απαραίτητο να έχει
                     κάποια προηγούμενη εμπειρία με το τέννις, καθώς μπορεί να μάθει ό,τι χρειάζεται κατα την διάρκεια των εντατικών μαθημάτων.
                 </p>
-                <p id="price">
-                    INTENSIVE CLASS ΤΙΜΗ ΣΥΝΔΡΟΜΗΣ <br>
-                    • Μηνιαία συνδρομή: 55 € <br>
-                    • Τρίμηνη συνδρομή: 145 € <br>
-                    • Εξάμηνη συνδρομή: 290 € <br>
-                    • Ετήσια συνδρομή: 585 €
-                 </p>
-            </div>
-            <div class="bottom">
-                <p id="photo1"></p>
-                <p id="photo2"></p>
-                <p id="photo3"></p>
-                <p id="photo4"></p>
-                <p id="photo5"></p>
+                <div class="bottom" id="bottomA">
+                    <p class= photo id="photo3"></p>
+                    <p id="price">
+                        INTENSIVE CLASS ΤΙΜΗ ΣΥΝΔΡΟΜΗΣ <br>
+                        • Μηνιαία συνδρομή: 55 € <br>
+                        • Τρίμηνη συνδρομή: 145 € <br>
+                        • Εξάμηνη συνδρομή: 290 € <br>
+                        • Ετήσια συνδρομή: 585 €
+                    </p>
+                </div>
             </div>
         </div>
         <div class="info" id="contest">
@@ -190,19 +190,127 @@
                     οριστεί να διαρκούν περίπου τρεις ώρες τη μέρα και να γίνονται κάθε τέσσερις με πέντε μέρες τη βδομάδα. Πριν τους αγώνες ο διαγωνιζόμενος
                     θα προπονείται εντατικά και, την ημέρα διαξαγωγής των αγώνων, θα συμμετάσχει με συνοδεία του προπονητή του.
                 </p>
-                <p id="price">
-                    CONTEST CLASS ΤΙΜΗ ΣΥΝΔΡΟΜΗΣ <br>
-                    • Μηνιαία συνδρομή: 50 € <br>
-                    • Τρίμηνη συνδρομή: 140 € <br>
-                    • Εξάμηνη συνδρομή: 285 € <br>
-                    • Ετήσια συνδρομή: 580 €
-                 </p>
+                <div class="bottom" id="bottomB">
+                    <p id="price">
+                        CONTEST CLASS ΤΙΜΗ ΣΥΝΔΡΟΜΗΣ <br>
+                        • Μηνιαία συνδρομή: 50 € <br>
+                        • Τρίμηνη συνδρομή: 140 € <br>
+                        • Εξάμηνη συνδρομή: 285 € <br>
+                        • Ετήσια συνδρομή: 580 €
+                    </p>
+                    <p class= photo id="photo4"></p>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="membership">
+        <button>
+            <a>ΓΙΝΕ ΜΕΛΟΣ</a>
+        </button>
+        <p id="details">
+            Προκειμένου να μπορέσεις να συμμετάσχεις σε ένα από τα παραπάνω τμήματά μας, θα πρέπει να γίνεις μέλος μας.<br>
+            Για να γίνεις μέλος, θα πρέπει, αρχικά, να υποβάλλεις τα στοιχεία σου στην φόρμα μας και, έπειτα, να κάνεις την αντίστοιχη συνδρομή,
+            ανάλογα με το τμήμα που επιθυμείς να συμμετάσχεις.
+        </p>
+    </div>
+
+    <footer>
+        <div class = "footer">
+            <ul class = "sections">
+                <li class = "ftrSection" id = "Special"> 
+                    <h1> 
+                        <a href = "index.html">HOME</a>
+                    </h1>
+
+                    <h1> 
+                        <a href = "Booking">BOOKING</a>
+                    </h1>
+
+                    <h1> 
+                        <a href = "Membership">MEMBERSHIP</a>
+                    </h1>
+
+                </li>
+                <li class = "ftrSection"> 
+                    <h1> 
+                        <a href = "tennis.html">TENNIS</a>
+                    </h1>
+                    <ul class = "scList">
+                        <li class = "listItem"> 
+                            <a href = "#">Play Tennis</a>
+                        </li>
+                        <li class = "listItem">
+                            <a href = "#">Tennis Lessons</a> 
+                        </li>
+                        <li class = "listItem">
+                            <a href = "#">Tennis Tournaments</a>
+                        </li> 
+                    </ul> 
+                </li>
+                <li class = "ftrSection"> 
+                    <h1> 
+                        <a href = "Spaces">SPACES</a>
+                    </h1>
+                    <ul class = "scList">
+                        <li class = "listItem"> 
+                            <a href = "#">Courts</a>
+                        </li>
+                        <li class = "listItem">
+                            <a href = "#">Pool</a> 
+                        </li>
+                        <li class = "listItem">
+                            <a href = "#">Medical Facilities</a>
+                        </li> 
+                        <li class = "listItem">
+                            <a href = "#">Equipment Store</a>
+                        </li> 
+                        <li class = "listItem">
+                            <a href = "#">Restaurant</a>
+                        </li> 
+                    </ul> 
+                </li>
+                <li class = "ftrSection"> 
+                    <h1> 
+                        <a href = "events.html">EVENTS</a>
+                    </h1>
+                    <ul class = "scList">
+                        <li class = "listItem"> 
+                            <a href = "#">Community</a>
+                        </li>
+                        <li class = "listItem">
+                            <a href = "#">Pro Tournaments</a> 
+                        </li>
+                        <li class = "listItem">
+                            <a href = "#">Entertainment Events</a>
+                        </li> 
+                    </ul> 
+                </li>
+                <li class = "ftrSection"> 
+                    <h1> 
+                        <a href = "news_announcements.html">NEWS & ANNOUNCEMENTS</a>
+                    </h1>
+                    <ul class = "scList">
+                        <li class = "listItem"> 
+                            <a href = "#">News</a>
+                        </li>
+                        <li class = "listItem">
+                            <a href = "#">Announcements</a> 
+                        </li>
+                        <li class = "listItem">
+                            <a href = "#">Subscribe</a>
+                        </li> 
+                    </ul> 
+                </li>
+            </ul>
+            <hr>
+            <p> HELLO THIS IS THE END OF THE FRONT PAGE AND I HAVE GAINED SO MUCH WEIGHT JUST MAKING THIS ONE </p>
+        </div>
+    </footer>
+
     <a href=#top>
         <button id="scroll-up"></button>
     </a>
-    </button>
+
 </body>
 </html>
