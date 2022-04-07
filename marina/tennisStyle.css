@@ -1,11 +1,11 @@
-html {
+/*html {
     font-family: 'Lato';
     font-size: 20px; 
     font-weight: 1000;
     min-width: 100%;
     background-color: white;
     margin: 0px;
-}
+}*/
 
 body { 
     display: grid;
@@ -161,6 +161,7 @@ section {
     color: white;
     display:flex;
     padding: 15px 0px 15px 15px;
+    text-decoration: none;
 }
 
 .redirects .button:hover{ 
