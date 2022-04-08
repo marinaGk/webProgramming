@@ -1,82 +1,15 @@
 html {
     font-family: 'Lato' 'Sans-serif';
-    font-size: 20px; 
-    font-weight: 1000;
-    min-width: 100%;
-    background-color: white;
 }
 
-.navbarGen { 
-    height: 100px; 
-    width: 100%;
-    background-color: #0091d2;
-    margin: 0px;
-    position: center;
-}
-
-.navbarGen .navButton { 
-    display: inline-block;
-    position: center;
-    width: 220px;
-    height: 100px;
-    background-color: inherit;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-}
-
-.navbarGen .navButton a { 
-    display: block;
-    font-family: 'Lato';
-    font-weight: 1000;
-    font-size: 20px;
-    text-decoration: none;
-    color:white;
-}
-
-.navbarGen .navButton:hover .dropdown{ 
-    display: block;
-}
-
-.navbarGen .dropdown { 
-    display: none;
-    position: absolute;
-    background-color: #fac300;
-    min-width: 220px;
-    z-index: 1;
-    margin-top:25px;
-}
-
-.navbarGen .dd_content { 
-    border-top: solid white 1px;
-    width: 100%;
-    height:50px;
-    text-align: center;
-}
-
-.navbarGen .dd_content a{ 
-    position: center;
-}
-
-.navbarGen .dd_content:hover { 
-    background-color: #E0E0E0;
-}
-
-#options {
-    width: 75%;
-    margin: auto;
-    margin-bottom: 0px;
-}
-
-#title { 
+.card #title { 
     height: 300px; 
-    width: 75%;
     margin: auto;
-    position: center;
     color: white;
     background-image: url("tennis3.png");
     background-position: center;
     background-size: cover;
+    text-align: left;
 }
 
 .header {
@@ -84,7 +17,7 @@ html {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
-h1{
+h1 {
     padding-top: 40px;
     padding-left: 30px;
     margin-top: 0px;
@@ -97,10 +30,15 @@ h1{
     padding-left: 30px;
 }
 
+.card #options {
+    margin: auto;
+    margin-bottom: 0px;
+}
+
 .info #banner { 
     width: 100%;
     height: 60px;
-    background-color: rgba(202, 49, 164, 1);
+    background-color: #0091d2;
     color: white;
     font-size: 25px;
     text-align: left;
@@ -126,16 +64,22 @@ h1{
     background-size: 34px;
 }
 
-.info-text{
+.info #text{
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
     padding-top: 10px;
     padding-bottom: 20px;
-    background-color: #e6e6e6;
-    color: rgba(202, 49, 164, 1);
-    background-image: linear-gradient(to bottom, #e6e6e6 95%,rgba(202, 49, 164, 1));
+    text-align: justify;
+    text-justify: inter-word;
+    background-color: white;
+    color: #6c6f6f;
+    background-image: linear-gradient(to bottom, white 98%,#0091d2);
+}
+
+#contest #text {
+    background-image: linear-gradient(to bottom, white , white);
 }
 
 .bottom{
@@ -149,15 +93,16 @@ h1{
 
 #bottomA .photo{
     grid-column: 1 / 2;
+    box-shadow: -5px 5px #6c6f6f;
 }
 
 #bottomB .photo{
     grid-column: 2 / 3;
+    box-shadow: 5px 5px #6c6f6f;
 }
 
 .bottom .photo{
     margin: 0px;
-    box-shadow: 5px 5px #6c6f6f;
 }
 
 #photo1{
@@ -204,40 +149,49 @@ h1{
     padding-top: 50px;
 }
 
-.membership{
-    width: 75%;
+.card hr {
+    width: 60%;
     margin: auto;
-    height: 200px;
-    background-image: linear-gradient(to bottom, rgba(202, 49, 164, 1),rgba(202, 49, 164, 1));
+    margin-top: 20px;
+    margin-bottom: 100px;
 }
 
-.membership button{
+.card #membership{
+    margin: auto;
+    height: 200px;
+}
+
+.card #membership button{
     width: 25%;
     height: 70px;
-    margin-left: 37.5%;
-    margin-top: 60px;
-    color: rgba(202, 49, 164, 1);
+    margin-top: 10px;
+    margin-bottom: 32px;
+    color: white;
+    box-shadow: 2px 2px #6c6f6f;
     font-size: 20px;
     font-weight: bold;
-    background-color: white;
+    background-color: #0091d2;
     border: 0px;
 	border-radius: 10px;
     transition: 0.35s;
 }
 
-.membership #details{
-    color: white;
-    font-size: 8px;
-    font-weight: lighter;
-    margin-top: 45px;
-    margin-bottom: 0px;
-    margin-left: 10px;
+.card #membership button:hover {
+	color: #0091d2;
+    box-shadow: 5px 7px #565858;
+	background-color: #d5f1fe;
+	transition: 0.35s;
 }
 
-.membership button:hover {
-	color: white;
-	background-color: rgb(208, 130, 208);
-	transition: 0.35s;
+.card #membership #details{
+    font-size: 14px;
+    text-decoration: underline 1px;
+    text-underline-offset: 3px;
+    color: red;
+    text-align: left !important;
+    width: 90%;
+    margin: auto;
+    padding-top: 60px;
 }
 
 #scroll-up{
