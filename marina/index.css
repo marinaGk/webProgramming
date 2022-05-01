@@ -1,0 +1,352 @@
+html {
+    font-family: 'Lato';
+    font-size: 20px; 
+    font-weight: 1000;
+    background-color: white;
+    margin: 0px;
+}
+
+body {
+    width: 100%;
+    background-image: url("seamless.jpg");
+    z-index: -1;
+}
+
+#navbarGen {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #0091d2;
+    position: left;
+}
+
+#navbarGen #button_list { 
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 0;
+}
+
+#navbarGen #navButton { 
+    height: 100px;
+    min-width: fit-content;
+    background-color: inherit;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    list-style: none;
+}
+
+#navbarGen #navButton a { 
+    font-family: 'Lato';
+    font-weight: 1000;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    line-height: 100px;
+}
+
+#navbarGen #navButton:hover #dropdown{ 
+    display: flex;
+    flex-direction: column;
+}
+
+#navbarGen #dropdown { 
+    display: none;
+    position: absolute;
+    left:0;
+    background-color: #fac300;
+    width: 100%;
+    z-index: 1;
+}
+
+#navbarGen #dd_content { 
+    position: relative;
+    top: 0;
+    border-top: solid white 1px;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+#navbarGen #dd_content a{ 
+    line-height: 40px;
+}
+
+#navbarGen #dd_content:hover { 
+    background-color: #f78da7;
+}
+
+#navbarGen #connection_list { 
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    right: 0;
+    list-style: none;
+}
+
+#navbarGen #connection_list button { 
+    height: 100px;
+    width: 100%;
+    min-width: fit-content;
+    font-family: "Lato", sans-serif;
+    color:rgb(51, 48, 50);
+    background-color: #fac300;
+    border: none;
+    padding: 0px;
+    text-align: center;
+    cursor: pointer;
+    list-style: none;
+}
+
+#main { 
+    height: 100%;
+    width: 100%;
+}
+
+#card{ 
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    height: 100%;
+    margin: auto;
+}
+
+#banner{ 
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 300px;
+    width: 100%;
+    margin-top: 0px;
+}
+
+#banner #banner_img { 
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#banner #title { 
+    color: white;
+    font-family: 'Lato';
+    font-weight: 1000;
+    font-style: bold;
+    position: absolute;
+    left: 0;
+    text-align: left;
+    padding-left: 50px;
+    font-size: 40px;
+    padding-top: 40px;
+}
+
+#banner #subtitle { 
+    color: white;
+    font-family: 'Lato';
+    font-weight: 1000;
+    font-style: italic;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    padding-left: 50px;
+    font-size: 30px;
+    text-align: left;
+    margin-top: 0px;
+}
+
+#intro { 
+    height: 300px;
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    align-items: start;
+}
+
+
+#intro h1 { 
+    margin-top: 0px;
+    text-align: left; 
+    font-family: 'Lato';
+    font-weight: 1000;
+    font-style: italic;
+
+    font-size: 40px;
+    color: #ca31a4;
+    position: relative;
+    left: 10%;
+}   
+
+#intro p{ 
+    width: 80%;
+    color: #6c6f6f;
+    font-style: italic;
+    font-size: 25px;
+    text-align: left;
+    position: relative;
+    left: 10%;
+}
+
+#additional { 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#additional #head{ 
+    height: 60px;
+    color: white;
+    font-size: 25px;
+    text-align: left;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#additional #head h1 { 
+    margin: 0px;
+    font-family: 'Lato';
+    font-weight: 1000;
+    padding-left: 10px;
+    line-height: 60px;
+}
+
+#additional #content { 
+    overflow-y: scroll;
+    width: 100%;
+    height: 400px;
+    background-color:#E0E0E0;
+    border-radius: 5px;
+}
+
+#additional #link { 
+    height: 70px; 
+    width: 100%; 
+    border-bottom: 1px gray solid;
+}
+
+#additional #link a{ 
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 70px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+#additional #link a::before { 
+    content: "•";
+}
+
+#news { 
+    display: inline-block;
+}
+
+#news #head { 
+    background-color: #0091d2;
+    width: 100%;
+}
+
+/*can't left align for some reasons*/
+#news #link a{ 
+    color:#ca31a4;
+}
+
+#announcements { 
+    display: inline-block; 
+}
+
+#announcements #head { 
+    background-color: #fac300;
+    width: 100%;
+}
+
+#announcements #link a{ 
+    color:rgb(78, 12, 62);
+}
+
+/*still need to style scrollbar*/
+#footer { 
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    font-family: 'Lato';
+    font-weight: 1000;
+    width: 100%; 
+    background-color: #999999;
+    position: relative;
+    bottom: 0;
+}
+
+#sections { 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+    margin: auto;
+    list-style: none;
+    padding:30px 0px 30px 0px;
+}
+
+#sections #ftrSection { 
+    display: inline-block;
+    vertical-align: top;
+    position: center;
+    min-height: 100%;
+}
+
+#sections #ftrSection #Special h1{ 
+    display: block;
+    margin: 10px;
+    padding: 10px;
+}
+
+#ftrSection a { 
+    text-decoration: none;
+    color: white;
+}
+
+#ftrSection h1 { 
+    font-size: 25px;
+    text-align: top;
+}
+
+#ftrSection #scList { 
+    list-style: none;
+    font-size: 20px;
+    padding: 0px;
+}
+
+#ftrSection #scList #listItem { 
+    margin-top: 30px;
+}
+
+#ftrSection #scList #listItem a{ 
+    color:rgb(51, 48, 50);
+}
+
+#footer hr{ 
+    color: black;
+    margin: 10px;
+}
+
+#footer p { 
+    text-align: center;
+    padding: 20px;
+    margin: 0px;
+    font-size: 20px;
+    color:rgba(202, 49, 164, 1); 
+}
+
+@media only screen and (max-width: 1026px) {
+    #sections{
+        display: none;
+    }
+}
+
+
+
