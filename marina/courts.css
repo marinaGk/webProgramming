@@ -1,28 +1,31 @@
 #courts_card { 
-    width: 100%;
     display: flex; 
     flex-direction: column;
-    flex-wrap: wrap;
-    align-items: stretch;
+    /*flex-wrap: wrap;
+    align-items: stretch;*/
+
+    width: 100%;
     height: 100%;
-    margin: auto;
+    margin: auto;;
 }
 
 #courts_banner { 
-    width: 100%;
     display: flex; 
     flex-direction: column;
     flex-wrap: wrap;
-    height: 300px;
+
+    width: 100%;
+    height: fit-content;
+    min-height: 300px;
     background-color: white;
+    padding-bottom: 30px;
 }
 
 #courts_banner #title { 
     text-align: left; 
 
-    font-family: 'Lato';
-    font-weight: 1000;
-    font-style: italic;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
     font-size: 40px;
 
     width: 80%;
@@ -37,9 +40,10 @@
 #courts_banner #subtitle { 
     text-align: left;
     
-    font-family: "Lato";
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
     font-style: italic;
-    font-size: 25px;
+    font-size: 20px;
 
     width: 80%;
     color: #6c6f6f;
@@ -62,28 +66,30 @@
     margin-bottom: 30px;
 }
 
-#info_card #info_banner { 
+#info_card #info_banner {
     width: 100%;
     height: 60px;
     background-color: #ca31a4;
 }
 
 #info_card #info_banner h1 { 
-    font-family: "Lato";
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
     font-size: 40px;
-    font-weight: 1000;
+     
     color: white; 
     width: 95%; 
     margin:auto;
 }
 
 #info_card #info_text p {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px; 
+
     width: 90%; 
     margin: auto;
-    font-family: "Lato";
-    font-size: 20px; 
-    font-weight: 1000; 
-    font-style: italic;
 }
 
 #info_card #info_text { 
