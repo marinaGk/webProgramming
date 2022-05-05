@@ -4,12 +4,16 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet"> 
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
         <link rel="stylesheet" href="logInOrUp.css">
+        
         <title>Villia Tennis Club</title>
     </head>
     
@@ -17,8 +21,14 @@
         <div class = "modal-container"> 
             <div id = "modal" class = "container m-0 "> 
                 <div id = "button_row" class = "row m-0 p-0"> 
-                    <button id = "close" class = "col-1 p-0" >
+                    <button onclick = "closeFunc()" id = "close" class = "col-1 p-0" >
                     </button> 
+                    <script> 
+                        var content = document.querySelector(".modal-container");
+                        function closeFunc () { 
+                            content.style.display = "none";
+                        } 
+                    </script>
                 </div>
                 <form >
                     <div id = "inputs" class = "col m-0">

@@ -8,9 +8,6 @@ body {
 
 /*navigation bar*/
 #navbarGen {
-    font-family: "NotoSans" , sans-serif;
-    font-weight: 100;
-
     display: flex; 
     flex-direction: row;
     flex-wrap: wrap;

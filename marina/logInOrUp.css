@@ -1,5 +1,4 @@
 .modal-container { 
-    
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
@@ -9,7 +8,7 @@
     position: fixed; 
     top: 0; 
     left: 0;
-    
+    z-index: 1;
 }
 
 #modal { 
@@ -44,7 +43,8 @@
 #modal form {
     display: flex;
     flex-direction: column;
-    font-family: "Lato", sans-serif;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
 }
 
 #modal #inputs {
