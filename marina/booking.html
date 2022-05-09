@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet"> 
-        
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         
         <link rel="stylesheet" href="index.css">
-        <link rel = "stylesheet" href = "spaces.css">
+        <link rel= "stylesheet" href = "booking.css"> 
 
-        <title>Villia Tennis Ckub | Spaces</title>
+        <title>Villia Tennis Club | Court Booking</title>
+
     </head>
 
     <body class = "container-fluid p-0 m-0 w-100">
-
+    
         <div id = "popup"></div> 
         <!--NAVIGATION BAR-->
         <nav id = "navbarGen" class = "row m-0 p-0"> 
@@ -66,79 +68,38 @@
                 </li>
             </ul>
         </nav>
+
         <!--MAIN-->
-        <div id = "spaces_main" class = "row p-0 m-0">
-            <div id = "spaces_card" class = "col-lg-9 col-xs-12 p-0">
-                <div id = "spaces_banner" class = "row m-0 p-0"> 
-                    <h1 id = "title" class = "row"> 
-                        Οι χώροι μας 
+        <div id = "booking_main" class = "row m-0">
+            <div id = "booking_card" class = "col-lg-9 col-xs-12 p-0"> 
+                <div id = "booking_banner" class = "row m-0 p-0">
+                    <h1 id = "title" class = "row">
+                        Κράτηση γηπέδου
                     </h1>
                     <p id = "subtitle" class = "row"> 
-                        Χάλια μαυρα, δε μου αρέσει η σελίδα.
+                        hugeigrgnkgn
                     </p>
-                </div>
-                <div id ="spaces_info" class = "row p-0 m-0"> 
-                    <div id = "spaces_info_row" class = "row m-0">
-                        <span id = "courts" class = "col-lg-4 col-md-3 col-xs-7 p-0">
-                            <div id = "info_card">
-                                <div id = "banner"> 
-                                    Γήπεδα
-                                </div>
-                                <div id = "text"> 
-                                    Στο club μας μπορείτε να διαλέξετε ανάμεσα σε 17 γήπεδα όλων των τύπων τη στιγμή που κάνετε την κράτηση. Βρείτε τις
-                                    τοποθεσίες καθώς και πληροφορίες για τα γήπεδα μας παρακάτω.
-                                </div>
-                                <div id = "button"> 
-                                    <a href = "courts.html">Τα γήπεδά μας</a> 
-                                </div>
-                            </div>
-                        </span> 
-                        <span id = "restaurant" class = "col-lg-4 col-md-3 col-xs-7 p-0"> 
-                            <div id = "info_card">
-                                <div id = "banner"> 
-                                    Εστιατόριο
-                                </div>
-                                <div id = "text"> 
-                                    Στο εστιατόριό μας θα βρείτε πιάτα από βραβευμένους chef της χώρας σε προσιτές τιμές και με υπέροχη θέα από το πάρκο μας.
-                                    Δείτε περισσότερες πλληροφορίες παρακάτω.
-                                </div>
-                                <div id = "button"> 
-                                    <a href = "restaurant.html">Το εστιατόριό μας</a>
-                                </div>
-                            </div>
-                        </span>
-                    </div> 
-                    <div id = "spaces_info_row" class = "row m-0"> 
-                        <span id = "pool" class = "col-lg-4 col-md-3 col-xs-7 p-0"> 
-                            <div id = "info_card">
-                                <div id = "banner"> 
-                                    Πισίνα
-                                </div>
-                                <div id = "text"> 
-                                    Τους καλοκαιρινούς μήνες, η πισίνα μας είναι ανοιχτή στα μέλη μας. Οι κρατήσεις γίνονται τηλεφωνικώς ενώ κατά την χρήση 
-                                    απαιτείται κατάλληλος εξοπλισμός για εξασφάλιση των απαραίτητων υγειονομικών συνθηκών. <br />
-                                    <strong>Ωράριο λειτουργίας:</strong> 9.00πμ - 6.00μμ
-                                </div>
-                            </div>
-                        </span>
-                        <span id = "equipment" class = "col-lg-4 col-md-3 col-xs-7 p-0"> 
-                            <div id = "info_card">
-                                <div id = "banner"> 
-                                    Εξοπλισμός
-                                </div>
-                                <div id = "text"> 
-                                    Στο club μας μπορείτε να αγοράσετε ή να νοικιάσετε εξοπλισμό οποιουδήποτε επιπέδου από το κατάστημα εξοπλισμού μας. Αγορές και 
-                                    ενοικιάσεις γίνονται τηλεφωνικώς ή στο χώρο του καταστήματος. Οι υπηρεσίες του καταστήματός μας είναι ανοιχτές σε όλους, χωρίς περιορισμούς. 
-                                    <br /><strong>Ωράριο λειτουργίας:</strong><br />
-                                    για ενοικιάσεις: καθημερινά 9.00πμ - 9.00μμ <br />
-                                    για αγορές: Δευτέρα - Παρασκευή 9.00πμ - 9.00μμ
-                                </div>
-                            </div>
-                        </span>
+                </div> 
+                <div id = "booking_info" class = "row m-0"> 
+                    <div id = "court_booking" class = "row m-0">
+                        <div id = "buttons"> 
+                            <div id = "label"> ΓΗΠΕΔΟ </div>
+                            <button id = "previous"> &laquo; </button>
+                            <div id = "current "> 1 </div>
+                            <button id = "next"> &raquo; </button>
+                        </div>
+                        <div id = "booking_table" class = "col-12 p-0 m-0">
+                            <table id = "table">
+                               
+                            </table> 
+                        </div>
+                        <div id = "legend"> Διαθέσιμο: Μη-διαθέσιμο: </div> 
                     </div>
+                    
                 </div>
             </div>
         </div>
+
         <!--FOOTER-->
         <div id = "footer" class = "row align-items-stretch p-0 m-0">
             <ul id = "sections" class = "col-lg-8 p-x-0">
@@ -198,6 +159,9 @@
             <p> HELLO THIS IS THE END OF THE FRONT PAGE AND I HAVE GAINED SO MUCH WEIGHT JUST MAKING THIS ONE </p>
         </div>
 
+
+        <script type = "text/javascript" src = "data.js"></script>
+        <script type = "text/javascript" src = "booking.js"></script>
         <script type = "text/javascript" src = "popup.js"> </script>
 
     </body>
