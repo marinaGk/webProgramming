@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet"> 
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="index.css">
+        <link rel = "stylesheet" href = "courts.css">
+
+        <title>Villia Tennis Club | Courts</title>
+    </head>
+
+    <body class = "container-fluid p-0 m-0 w-100">
+
+        <div id = "popup"></div>
+        <!--NAVIGATION BAR-->
+        <nav id = "navbarGen" class = "row m-0 p-0"> 
+            <ul id = "button_list" class = "col-10 p-0 m-0">
+                <!--Home Page-->
+                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1">
+                    <a href="index.html">ΑΡΧΙΚΗ</a> 
+                </li>
+                <!--Tennis Page-->
+                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="tennis.html">ΤΕΝΝΙΣ</a>
+                    <div id = "dropdown" class = "col-12 m-0 p-0">
+                        <div id = "dd_content">
+                            <a href = "lessons.html">Μαθήματα Τέννις</a>
+                        </div>
+            
+                        <div id = "dd_content">
+                            <a href = "tournaments.html">Τουρνουά Τέννις</a>
+                        </div>
+                    </div> 
+                </li>
+                <!--Facilities Page-->
+                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="spaces.html">ΧΩΡΟΙ</a> 
+                    <div id = "dropdown" class = "col-12 m-0 p-0"> 
+                        <div id = "dd_content">
+                            <a href = "courts.html">Γήπεδα</a>
+                        </div>
+                        <div id = "dd_content">
+                            <a href = "#">Εστιατόριο</a>
+                        </div>
+                    </div> 
+                </li>
+                <!--Booking Page-->
+                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
+                </li>
+            </ul>
+            <ul id = "connection_list" class = "col-2 p-0 m-0">
+                <li id = "accButton" class="col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+                    <button id = "loginBtn">LOGIN</button> 
+                </li>
+                <li id = "accButton" class = "col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+                    <button id = "signupBtn">SIGN UP</button> 
+                </li>
+            </ul>
+        </nav>
+        <!--MAIN-->
+        <div id = "courts_main" class = "row p-0 m-0"> 
+            <div id = "courts_card" class = "col-lg-9 col-xs-12 p-0">
+                <div id = "courts_banner" class = "row m-0 p-0"> 
+                    <h1 id = "title" class = "row">
+                        Τα γήπεδά μας
+                    </h1>
+                    <p id = "subtitle" class = "row">
+                        Το club μας διαθέτει 17 γήπεδα διαφόρων ειδών, για κάθε προτίμηση. Κατά την κράτηση, ανάλογα με τη διαθεσιμότητα 
+                        και την περιοχή, δίνεται η δυνατότητα επιλογής του επιθυμητού είδους γηπέδου. Στην περίπτωση που δεν γνωρίζετε πιο
+                        είναι το κατάλληλο γήπεδο για εσάς, ακολουθούν κάποιες γενικές πληροφορίες. 
+                    </p>
+                </div>
+                <div id = "courts_info" class = "row p-0 m-0"> 
+                    <div id = "info_card" class = "row p-0 m-0"> 
+                        <div id = "info_banner" class = "row m-0"> 
+                            <h1 id = "title">Hard tennis courts</h1>
+                        </div>
+                        <div id = "info_text" class = "row m-0">
+                            <p>
+                                Hard courts are one of the main types of courts commonly found at parks, 
+                                recreation centers, clubs, and schools. Composed of varying mixtures of 
+                                asphalt and concrete, hard courts also contain an acrylic surface layer 
+                                (like paint or coating) to seal the surface and provide a level of cushioning. 
+                                Hard surface courts have lower energy absorption than clay courts, making the 
+                                tennis ball bounce higher and move faster. Hard courts are an all-around court, 
+                                which makes them ideal for most types of tennis players. The US Open and the 
+                                Australian Open are the only two Grand Slam tournaments that use a hard court surface. 
+                            </p>
+                        </div> 
+                    </div>
+                    <div id = "info_card" class = "row p-0 m-0"> 
+                        <div id = "info_banner" class = "row m-0"> 
+                            <h1>Clay tennis courts</h1>
+                        </div>
+                        <div id = "info_text" class = "row m-0">
+                            <p>
+                                Clay courts mainly come in two different forms: The red clay court is a coarse mixture made from brick,
+                                 and the green clay court, which is a crushed metabasalt, also known as Har-Tru. These materials dry much 
+                                 quicker than standard clay, which is rarely found on modern tennis court surfaces. Due to their textured 
+                                 surfaces, clay courts feature the slowest surface for ball speed. High-bounce serves like topspin are 
+                                 easier to return on this surface due to the ball’s reduced speed. This reduced speed makes points last 
+                                 longer, which is ideal for baseline players who have a more defensive style of play. Clay courts are 
+                                 slightly easier on the human body, as the surface absorbs more shock, and also allows players to slide into 
+                                 place rather than coming to a complete stop, conserving some of their energy. The French Open is the only 
+                                 Grand Slam that uses a clay court. Professionals Roger Federer and Rafael Nadal are considered two of the 
+                                 best players on clay courts to date. 
+                            </p>
+                        </div> 
+                    </div>
+                    <div id = "info_card" class = "row p-0 m-0"> 
+                        <div id = "info_banner" class = "row m-0"> 
+                            <h1>Grass tennis courts</h1>
+                        </div>
+                        <div id = "info_text" class = "row m-0">
+                            <p>Grass courts, also known as lawn courts, used to be the most common type of tennis court surface. However, due to their high cost and maintenance, grass courts are less commonly used than hard courts and clay courts. A grass surface consists of short-cut grass on tightly packed soil, and is the fastest type of court, offering low ball bounces and shorter rallies. This fast surface also provides an advantage to players with big serves, as the ball is harder to return to start the point. There are many variables to how a ball behaves on a grass court, such as how many players have played on it before, how often it is mowed, and the overall health and quality of the grass itself. While all four of the Grand Slam tournaments once used grass courts, Wimbledon is currently the only one that still features a grass court. </p>
+                        </div> 
+                    </div>
+                    <div id = "info_card" class = "row p-0 m-0"> 
+                        <div id = "info_banner" class = "row m-0"> 
+                            <h1>Synthetic tennis courts</h1>
+                        </div>
+                        <div id = "info_text" class = "row m-0">
+                            <p>For the softness and feel of a grass court without the maintenance, some public and private facilities may opt for a synthetic turf court. Synthetic courts usually contain plastic grass fibers with better durability and less upkeep than a standard grass court. The sand-filled topping that layers the surface of a synthetic turf court protects the court itself from weather conditions, allowing it to dry faster, and making it less susceptible to wear over time. The materials used are non-toxic and not prone to pests like real grass.</p>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--FOOTER-->
+        <div id = "footer" class = "row align-items-stretch p-0 m-0">
+            <ul id = "sections" class = "col-lg-8 p-x-0">
+                <li id = "ftrSection" class = "col m-0"> 
+                    <h1> 
+                        <a href = "index.html">ΑΡΧΙΚΗ</a>
+                    </h1>
+
+                    <h1> 
+                        <a href = "login.html">LOG IN</a>
+                    </h1>
+
+                    <h1> 
+                        <a href = "signup.html">SIGN UP</a>
+                    </h1>
+
+                </li>
+                <!--TENNIS-->
+                <li id = "ftrSection" class = "col m-0"> 
+                    <h1> 
+                        <a href = "tennis.html">ΤΕΝΝΙΣ</a>
+                    </h1>
+                    <ul id = "scList">
+                        <li id = "listItem"> 
+                            <a href = "#">Παίξε τέννις</a>
+                        </li>
+                        <li id = "listItem">
+                            <a href = "lessons.html">Μαθήματα τέννις</a> 
+                        </li>
+                        <li id = "listItem">
+                            <a href = "tournaments.html">Τουρνουά τέννις</a>
+                        </li> 
+                    </ul> 
+                </li>
+                <!--SPACES-->
+                <li id = "ftrSection" class = "col m-0"> 
+                    <h1> 
+                        <a href = "spaces.html">ΧΩΡΟΙ</a>
+                    </h1>
+                    <ul id = "scList">
+                        <li id = "listItem"> 
+                            <a href = "courts.html">Γήπεδα</a>
+                        </li>
+                        <li id = "listItem">
+                            <a href = "#">Εστιατόριο</a>
+                        </li> 
+                    </ul> 
+                </li>
+                <!--BOOKING-->
+                <li id = "ftrSection" class = "col m-0"> 
+                    <h1> 
+                        <a href = "booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a>
+                    </h1>
+                </li>
+            </ul>
+            <hr>
+            <p> HELLO THIS IS THE END OF THE FRONT PAGE AND I HAVE GAINED SO MUCH WEIGHT JUST MAKING THIS ONE </p>
+        </div>
+        <script type = "text/javascript" src = "popup.js"> </script>
+
+    </body>
+</html>

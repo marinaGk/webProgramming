@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet"> 
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+        <link rel="stylesheet" href="index.css">
+        <link rel = "stylesheet" href = "spaces.css">
+
+        <title>Villia Tennis Ckub | Spaces</title>
+    </head>
+
+    <body class = "container-fluid p-0 m-0 w-100">
+
+        <div id = "popup"></div> 
+        <!--NAVIGATION BAR-->
+        <nav id = "navbarGen" class = "row m-0 p-0"> 
+            <ul id = "button_list" class = "col-10 p-0 m-0">
+                <!--Home Page-->
+                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1">
+                    <a href="index.html">ΑΡΧΙΚΗ</a> 
+                </li>
+                <!--Tennis Page-->
+                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="tennis.html">ΤΕΝΝΙΣ</a>
+                    <div id = "dropdown" class = "col-12 m-0 p-0">
+                        <div id = "dd_content">
+                            <a href = "lessons.html">Μαθήματα Τέννις</a>
+                        </div>
+            
+                        <div id = "dd_content">
+                            <a href = "tournaments.html">Τουρνουά Τέννις</a>
+                        </div>
+                    </div> 
+                </li>
+                <!--Facilities Page-->
+                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="spaces.html">ΧΩΡΟΙ</a> 
+                    <div id = "dropdown" class = "col-12 m-0 p-0"> 
+                        <div id = "dd_content">
+                            <a href = "courts.html">Γήπεδα</a>
+                        </div>
+                        <div id = "dd_content">
+                            <a href = "#">Εστιατόριο</a>
+                        </div>
+                    </div> 
+                </li>
+                <!--Booking Page-->
+                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
+                </li>
+            </ul>
+            <ul id = "connection_list" class = "col-2 p-0 m-0">
+                <li id = "accButton" class="col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+                    <button id = "loginBtn">LOGIN</button> 
+                </li>
+                <li id = "accButton" class = "col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+                    <button id = "signupBtn">SIGN UP</button> 
+                </li>
+            </ul>
+        </nav>
+        <!--MAIN-->
+        <div id = "spaces_main" class = "row p-0 m-0">
+            <div id = "spaces_card" class = "col-lg-9 col-xs-12 p-0">
+                <div id = "spaces_banner" class = "row m-0 p-0"> 
+                    <h1 id = "title" class = "row"> 
+                        Οι χώροι μας 
+                    </h1>
+                    <p id = "subtitle" class = "row"> 
+                        Χάλια μαυρα, δε μου αρέσει η σελίδα.
+                    </p>
+                </div>
+                <div id ="spaces_info" class = "row p-0 m-0"> 
+                    <div id = "spaces_info_row" class = "row m-0">
+                        <span id = "courts" class = "col-lg-4 col-md-3 col-xs-7 p-0">
+                            <div id = "info_card">
+                                <div id = "banner"> 
+                                    Γήπεδα
+                                </div>
+                                <div id = "text"> 
+                                    Στο club μας μπορείτε να διαλέξετε ανάμεσα σε 17 γήπεδα όλων των τύπων τη στιγμή που κάνετε την κράτηση. Βρείτε τις
+                                    τοποθεσίες καθώς και πληροφορίες για τα γήπεδα μας παρακάτω.
+                                </div>
+                                <div id = "button"> 
+                                    <a href = "courts.html">Τα γήπεδά μας</a> 
+                                </div>
+                            </div>
+                        </span> 
+                        <span id = "restaurant" class = "col-lg-4 col-md-3 col-xs-7 p-0"> 
+                            <div id = "info_card">
+                                <div id = "banner"> 
+                                    Εστιατόριο
+                                </div>
+                                <div id = "text"> 
+                                    Στο εστιατόριό μας θα βρείτε πιάτα από βραβευμένους chef της χώρας σε προσιτές τιμές και με υπέροχη θέα από το πάρκο μας.
+                                    Δείτε περισσότερες πλληροφορίες παρακάτω.
+                                </div>
+                                <div id = "button"> 
+                                    <a href = "restaurant.html">Το εστιατόριό μας</a>
+                                </div>
+                            </div>
+                        </span>
+                    </div> 
+                    <div id = "spaces_info_row" class = "row m-0"> 
+                        <span id = "pool" class = "col-lg-4 col-md-3 col-xs-7 p-0"> 
+                            <div id = "info_card">
+                                <div id = "banner"> 
+                                    Πισίνα
+                                </div>
+                                <div id = "text"> 
+                                    Τους καλοκαιρινούς μήνες, η πισίνα μας είναι ανοιχτή στα μέλη μας. Οι κρατήσεις γίνονται τηλεφωνικώς ενώ κατά την χρήση 
+                                    απαιτείται κατάλληλος εξοπλισμός για εξασφάλιση των απαραίτητων υγειονομικών συνθηκών. <br />
+                                    <strong>Ωράριο λειτουργίας:</strong> 9.00πμ - 6.00μμ
+                                </div>
+                            </div>
+                        </span>
+                        <span id = "equipment" class = "col-lg-4 col-md-3 col-xs-7 p-0"> 
+                            <div id = "info_card">
+                                <div id = "banner"> 
+                                    Εξοπλισμός
+                                </div>
+                                <div id = "text"> 
+                                    Στο club μας μπορείτε να αγοράσετε ή να νοικιάσετε εξοπλισμό οποιουδήποτε επιπέδου από το κατάστημα εξοπλισμού μας. Αγορές και 
+                                    ενοικιάσεις γίνονται τηλεφωνικώς ή στο χώρο του καταστήματος. Οι υπηρεσίες του καταστήματός μας είναι ανοιχτές σε όλους, χωρίς περιορισμούς. 
+                                    <br /><strong>Ωράριο λειτουργίας:</strong><br />
+                                    για ενοικιάσεις: καθημερινά 9.00πμ - 9.00μμ <br />
+                                    για αγορές: Δευτέρα - Παρασκευή 9.00πμ - 9.00μμ
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--FOOTER-->
+        <div id = "footer" class = "row align-items-stretch p-0 m-0">
+            <ul id = "sections" class = "col-lg-8 p-x-0">
+                <li id = "ftrSection" class = "col m-0"> 
+                    <h1> 
+                        <a href = "index.html">ΑΡΧΙΚΗ</a>
+                    </h1>
+
+                    <h1> 
+                        <a href = "login.html">LOG IN</a>
+                    </h1>
+
+                    <h1> 
+                        <a href = "signup.html">SIGN UP</a>
+                    </h1>
+
+                </li>
+                <!--TENNIS-->
+                <li id = "ftrSection" class = "col m-0"> 
+                    <h1> 
+                        <a href = "tennis.html">ΤΕΝΝΙΣ</a>
+                    </h1>
+                    <ul id = "scList">
+                        <li id = "listItem"> 
+                            <a href = "#">Παίξε τέννις</a>
+                        </li>
+                        <li id = "listItem">
+                            <a href = "lessons.html">Μαθήματα τέννις</a> 
+                        </li>
+                        <li id = "listItem">
+                            <a href = "tournaments.html">Τουρνουά τέννις</a>
+                        </li> 
+                    </ul> 
+                </li>
+                <!--SPACES-->
+                <li id = "ftrSection" class = "col m-0"> 
+                    <h1> 
+                        <a href = "spaces.html">ΧΩΡΟΙ</a>
+                    </h1>
+                    <ul id = "scList">
+                        <li id = "listItem"> 
+                            <a href = "courts.html">Γήπεδα</a>
+                        </li>
+                        <li id = "listItem">
+                            <a href = "#">Εστιατόριο</a>
+                        </li> 
+                    </ul> 
+                </li>
+                <!--BOOKING-->
+                <li id = "ftrSection" class = "col m-0"> 
+                    <h1> 
+                        <a href = "booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a>
+                    </h1>
+                </li>
+            </ul>
+            <hr>
+            <p> HELLO THIS IS THE END OF THE FRONT PAGE AND I HAVE GAINED SO MUCH WEIGHT JUST MAKING THIS ONE </p>
+        </div>
+
+        <script type = "text/javascript" src = "popup.js"> </script>
+
+    </body>
+</html>
