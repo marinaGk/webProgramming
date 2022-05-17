@@ -65,6 +65,11 @@
 #court_booking { 
     background-color: #e0e0e0;
     border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+
 }
 
 #booking_table { 
@@ -147,6 +152,8 @@
     font-size: 20px;
     font-weight: 400;
     height: 80px;
+    padding: 20px 0px 20px 0px;
     width: fit-content;
     margin: auto;
+    position: relative; 
 }

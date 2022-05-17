@@ -1,4 +1,4 @@
-const data = [
+const availableHours = [
 
     "ΜΑΙΟΣ", 
     "7.30", 
@@ -14,4 +14,224 @@ const data = [
     "19.10", 
     "20.20", 
     "21.30"
+]
+
+const availability = [
+
+    [
+        //court 1 
+        ["yes", 
+            "no", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "yes", 
+            "no", 
+            "yes"
+        ],
+        
+        ["yes", 
+            "no", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "yes", 
+            "no", 
+            "yes"
+        ],
+    
+        ["yes", 
+            "no", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "yes", 
+            "no", 
+            "yes"
+        ],
+    
+        ["yes", 
+            "no", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "yes", 
+            "no", 
+            "yes"
+        ],
+    
+        ["yes", 
+            "no", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "yes", 
+            "no", 
+            "yes"
+        ],
+    
+        ["yes", 
+            "no", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "yes", 
+            "no", 
+            "yes"
+        ],
+    
+        ["yes", 
+            "no", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "no", 
+            "yes", 
+            "yes", 
+            "no", 
+            "yes"
+        ]
+    ],
+    
+    [
+        //court 2 
+        ["yas", 
+            "no", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "yas", 
+            "no", 
+            "yas"
+        ],
+        
+        ["yas", 
+            "no", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "yas", 
+            "no", 
+            "yas"
+        ],
+    
+        ["yas", 
+            "no", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "yas", 
+            "no", 
+            "yas"
+        ],
+    
+        ["yas", 
+            "no", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "yas", 
+            "no", 
+            "yas"
+        ],
+    
+        ["yas", 
+            "no", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "yas", 
+            "no", 
+            "yas"
+        ],
+    
+        ["yas", 
+            "no", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "yas", 
+            "no", 
+            "yas"
+        ],
+    
+        ["yas", 
+            "no", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "no", 
+            "yas", 
+            "yas", 
+            "no", 
+            "yas"
+        ]
+    ]
+
 ]
