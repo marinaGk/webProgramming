@@ -4,7 +4,7 @@
     /*flex-wrap: wrap;
     align-items: stretch;*/
 
-    width: 100%;
+    width: 75%;
     height: 100%;
     margin: auto;
 }
@@ -73,7 +73,8 @@
 }
 
 #booking_table { 
-    height: 400px;
+    min-height: 400px;
+    height: fit-content;
 }
 
 #table { 
@@ -156,4 +157,10 @@
     width: fit-content;
     margin: auto;
     position: relative; 
+}
+
+@media only screen and (max-width: 1200px) {
+    #booking_card{
+        width: 100%;
+    }
 }

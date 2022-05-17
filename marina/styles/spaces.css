@@ -1,15 +1,15 @@
-#tennis_card { 
+#spaces_card { 
     display: flex; 
     flex-direction: column;
     /*flex-wrap: wrap;
     align-items: stretch;*/
 
-    width: 100%;
+    width: 75%;
     height: 100%;
     margin: auto;
 }
 
-#tennis_banner { 
+#spaces_banner { 
     display: flex; 
     flex-direction: column;
     flex-wrap: wrap;
@@ -21,7 +21,7 @@
     padding-bottom: 30px;
 }
 
-#tennis_banner #title { 
+#spaces_banner #title { 
     text-align: left; 
 
     font-family: 'Comfortaa', sans-serif;
@@ -37,7 +37,7 @@
     word-wrap: normal;
 }
 
-#tennis_banner #subtitle { 
+#spaces_banner #subtitle { 
     text-align: left;
     
     font-family: 'Comfortaa', sans-serif;
@@ -54,32 +54,33 @@
     word-wrap: normal;
 }
 
-#tennis_info { 
+#spaces_info { 
     display: flex;
     flex-direction: column;
 
     width: 100%;
-    background-color: #d7d700;
+    background-color: #fac300;
 }
 
-#tennis_info_row {
+#spaces_info_row { 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-#tennis_info span{ 
+#spaces_info span { 
     display: flex;
     flex-direction: column;
 
+    width: 30%;
     background-color: white; 
     color: #ca31a4;
     box-shadow: 5px 5px #6c6f6f;
     margin: 50px 0px 50px 0px;
 }
 
-#tennis_info #banner { 
+#spaces_info #banner { 
     font-size: 30px;
 
     width: 100%;
@@ -93,40 +94,57 @@
     border-bottom: 1px solid;
 }
 
-#tennis_info #text { 
+#spaces_info #text { 
     padding: 10px;
 }
 
-#tennis_info #button{
-    font-size: 20px;
+#spaces_info #button { 
+    text-align: left;
     min-height: 50px;
     height: fit-content;
-    text-align: left;
+    font-size: 20px;
     background-color: currentColor;
 }
 
-#tennis_info #play_tennis{ 
+#spaces_info #courts { 
     align-self: flex-start;
 }
 
-#tennis_info #tennis_lessons{ 
+#spaces_info #pool { 
     align-self: flex-start;
 }
 
-#tennis_info #tennis_tournaments{ 
+#spaces_info #equipment { 
     align-self: flex-start;
 }
 
-#tennis_info #button a { 
+#spaces_info #restaurant { 
+    align-self: flex-start;
+}
+
+#spaces_info #button a { 
     color: white;
     display:flex;
     padding: 15px;
     text-decoration: none;
 }
 
-#tennis_info #button:hover{ 
-    background-color: #f78da7;
+#spaces_info #button:hover{ 
+    background-color:  #f78da7;
     cursor: pointer;
 }
 
+@media only screen and (max-width: 1200px) {
+    #spaces_card{
+        width: 100%;
+    }
+    #spaces_info span { 
+        width: 75%;
+    }
+}
 
+@media only screen and (min-width: 1200px) { 
+    #spaces_info span{ 
+        width: 35%;
+    }
+}

@@ -1,15 +1,15 @@
-#spaces_card { 
+#tennis_card { 
     display: flex; 
     flex-direction: column;
     /*flex-wrap: wrap;
     align-items: stretch;*/
 
-    width: 100%;
+    width: 75%;
     height: 100%;
     margin: auto;
 }
 
-#spaces_banner { 
+#tennis_banner { 
     display: flex; 
     flex-direction: column;
     flex-wrap: wrap;
@@ -21,7 +21,7 @@
     padding-bottom: 30px;
 }
 
-#spaces_banner #title { 
+#tennis_banner #title { 
     text-align: left; 
 
     font-family: 'Comfortaa', sans-serif;
@@ -37,7 +37,7 @@
     word-wrap: normal;
 }
 
-#spaces_banner #subtitle { 
+#tennis_banner #subtitle { 
     text-align: left;
     
     font-family: 'Comfortaa', sans-serif;
@@ -54,37 +54,37 @@
     word-wrap: normal;
 }
 
-#spaces_info { 
+#tennis_info { 
     display: flex;
     flex-direction: column;
 
     width: 100%;
-    background-color: #fac300;
+    background-color: #d7d700;
 }
 
-#spaces_info_row { 
+#tennis_info_row {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-#spaces_info span { 
+#tennis_info span{ 
     display: flex;
     flex-direction: column;
 
-    width: 30%;
     background-color: white; 
     color: #ca31a4;
     box-shadow: 5px 5px #6c6f6f;
     margin: 50px 0px 50px 0px;
 }
 
-#spaces_info #banner { 
+
+#tennis_info #banner { 
     font-size: 30px;
 
     width: 100%;
-    height: 70px; 
+    height: fit-content; 
     line-height: 40px;
     padding: 15px;
 
@@ -94,42 +94,70 @@
     border-bottom: 1px solid;
 }
 
-#spaces_info #text { 
+#tennis_info #text { 
     padding: 10px;
 }
 
-#spaces_info #button { 
-    text-align: left;
+#tennis_info #button{
+    font-size: 20px;
     min-height: 50px;
     height: fit-content;
-    font-size: 20px;
+    text-align: left;
     background-color: currentColor;
 }
 
-#spaces_info #courts { 
+#tennis_info #play_tennis{ 
     align-self: flex-start;
 }
 
-#spaces_info #pool { 
+#tennis_info #tennis_lessons{ 
     align-self: flex-start;
 }
 
-#spaces_info #equipment { 
+#tennis_info #tennis_tournaments{ 
     align-self: flex-start;
 }
 
-#spaces_info #restaurant { 
-    align-self: flex-start;
-}
-
-#spaces_info #button a { 
+#tennis_info #button a { 
     color: white;
     display:flex;
     padding: 15px;
     text-decoration: none;
 }
 
-#spaces_info #button:hover{ 
-    background-color:  #f78da7;
+#tennis_info #button:hover{ 
+    background-color: #f78da7;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 1200px) {
+    #tennis_card{
+        width: 100%;
+    }
+    #tennis_info span { 
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width: 1200px) { 
+    #tennis_info #clubs{ 
+        width: 35%;
+    }
+    
+    #tennis_info #competitions{ 
+        width: 35%;
+    }
+    
+    #tennis_info #play_tennis{ 
+        width: 25%;
+    }
+    
+    #tennis_info #tennis_lessons{ 
+        width: 25%;
+    }
+    
+    #tennis_info #tennis_tournaments{ 
+        width: 25%;
+    }    
+}
+

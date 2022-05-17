@@ -14,8 +14,6 @@ const tableWidth = 14;
 const tableHeight = 8;
 makeTable();
 
-
-
 function makeTable() {
 
     for (let i = 0; i<tableHeight; i++) { 
@@ -64,7 +62,7 @@ function fillHourRow() {
 
 function fillDayColumn() { 
     
-    const days = document.querySelectorAll("#cell0");
+    const days = document.querySelectorAll("#data_row #cell0");
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     let date = new Date();
