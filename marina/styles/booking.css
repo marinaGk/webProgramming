@@ -1,8 +1,6 @@
 #booking_card { 
     display: flex; 
     flex-direction: column;
-    /*flex-wrap: wrap;
-    align-items: stretch;*/
 
     width: 75%;
     height: 100%;
@@ -22,12 +20,6 @@
 }
 
 #booking_banner #title { 
-    text-align: left; 
-
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 400;
-    font-size: 40px;
-
     width: 80%;
     padding: 20px 0px 20px 0px;
     color: #ca31a4;
@@ -37,14 +29,15 @@
     word-wrap: normal;
 }
 
-#booking_banner #subtitle { 
-    text-align: left;
-    
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 20px;
+#booking_banner h1{ 
+    text-align: left; 
 
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+#booking_banner #subtitle { 
     width: 80%;
     color: #6c6f6f;
     position: relative;
@@ -52,6 +45,15 @@
     padding-bottom: 40px;
 
     word-wrap: normal;
+}
+
+#booking_banner p { 
+    text-align: left;
+    
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
 }
 
 #booking_info { 
@@ -81,6 +83,7 @@
     margin: auto;
     width: 90%;
     table-layout: fixed;
+    font-size: 20px;
 }
 
 #table tbody {
@@ -129,7 +132,6 @@
     width: fit-content;
     margin: auto;
     padding: 30px 0px 30px 0px;
-    
 }
 
 #buttons button { 
@@ -163,4 +165,45 @@
     #booking_card{
         width: 100%;
     }
+}
+
+@media only screen and (max-width: 1350px) {
+
+    #booking_banner h1{ 
+        font-size: 35px;
+    }
+    #booking_banner p{ 
+        font-size: 18px;
+    }
+
+    #table { 
+        font-size: 18px;
+    }
+
+    #legend{ 
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    #booking_banner h1{ 
+        font-size: 30px;
+    }
+    #booking_banner p{ 
+        font-size: 15px;
+    }
+ 
+    #table { 
+        font-size: 14px;
+    }
+/*how to make table overflow on x axis instead of shrink?*/
+    #table tbody { 
+        overflow-x: scroll;
+    }
+
+    #legend { 
+        font-size: 15px;
+    }
+
 }

@@ -1,8 +1,6 @@
 #spaces_card { 
     display: flex; 
     flex-direction: column;
-    /*flex-wrap: wrap;
-    align-items: stretch;*/
 
     width: 75%;
     height: 100%;
@@ -22,12 +20,6 @@
 }
 
 #spaces_banner #title { 
-    text-align: left; 
-
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 400;
-    font-size: 40px;
-
     width: 80%;
     padding: 20px 0px 20px 0px;
     color: #ca31a4;
@@ -37,14 +29,15 @@
     word-wrap: normal;
 }
 
-#spaces_banner #subtitle { 
-    text-align: left;
-    
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 20px;
+#spaces_banner h1{ 
+    text-align: left; 
 
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+#spaces_banner #subtitle { 
     width: 80%;
     color: #6c6f6f;
     position: relative;
@@ -52,6 +45,15 @@
     padding-bottom: 40px;
 
     word-wrap: normal;
+}
+
+#spaces_banner p{ 
+    text-align: left;
+    
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
 }
 
 #spaces_info { 
@@ -95,6 +97,7 @@
 }
 
 #spaces_info #text { 
+    font-size: 20px;
     padding: 10px;
 }
 
@@ -147,4 +150,41 @@
     #spaces_info span{ 
         width: 35%;
     }
+}
+
+@media only screen and (max-width: 1350px) {
+
+    #spaces_banner h1{ 
+        font-size: 35px;
+    }
+    #spaces_banner p{ 
+        font-size: 18px;
+    }
+
+    #spaces_info #banner{ 
+        font-size: 25px;
+    }
+
+    #spaces_info #text{ 
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    #spaces_banner h1{ 
+        font-size: 30px;
+    }
+    #spaces_banner p{ 
+        font-size: 15px;
+    }
+ 
+    #spaces_info #banner { 
+        font-size: 20px;
+    }
+
+    #spaces_info #text{ 
+        font-size: 15px;
+    }
+
 }

@@ -1,8 +1,6 @@
 #courts_card { 
     display: flex; 
     flex-direction: column;
-    /*flex-wrap: wrap;
-    align-items: stretch;*/
 
     width: 75%;
     height: 100%;
@@ -22,12 +20,6 @@
 }
 
 #courts_banner #title { 
-    text-align: left; 
-
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 400;
-    font-size: 40px;
-
     width: 80%;
     padding: 20px 0px 20px 0px;
     color: #ca31a4;
@@ -37,20 +29,30 @@
     word-wrap: normal;
 }
 
-#courts_banner #subtitle { 
-    text-align: left;
-    
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 20px;
+#courts_banner h1{ 
+    text-align: left; 
 
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+#courts_banner #subtitle { 
     width: 80%;
     color: #6c6f6f;
     position: relative;
     left: 10%;
 
     word-wrap: normal;
+}
+
+#courts_banner p{
+    text-align: left;
+    
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
 }
 
 #courts_info { 
@@ -66,13 +68,13 @@
     margin-bottom: 30px;
 }
 
-#info_card #info_banner {
+#courts_info #info_card #info_banner {
     width: 100%;
     height: 60px;
     background-color: #ca31a4;
 }
 
-#info_card #info_banner h1 { 
+#courts_info #info_card #info_banner h1 { 
     font-family: 'Comfortaa', sans-serif;
     font-weight: 300;
     font-size: 40px;
@@ -82,7 +84,7 @@
     margin:auto;
 }
 
-#info_card #info_text p {
+#courts_info #info_card #info_text p {
     font-family: 'Comfortaa', sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -92,7 +94,7 @@
     margin: auto;
 }
 
-#info_card #info_text { 
+#courts_info #info_card #info_text { 
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -101,4 +103,41 @@
     #courts_card{
         width: 100%;
     }
+}
+
+@media only screen and (max-width: 1350px) {
+
+    #courts_banner h1{ 
+        font-size: 35px;
+    }
+    #courts_banner p{ 
+        font-size: 18px;
+    }
+
+    #courts_info #info_card #info_banner h1 { 
+        font-size: 35px;
+    }
+
+    #courts_info #info_card #info_text p{ 
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    #courts_banner h1{ 
+        font-size: 30px;
+    }
+    #courts_banner p{ 
+        font-size: 15px;
+    }
+
+    #courts_info #info_card #info_banner h1 { 
+        font-size: 30px;
+    }
+
+    #courts_info #info_card #info_text p{ 
+        font-size: 15px;
+    }
+
 }
