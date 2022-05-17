@@ -2,8 +2,8 @@ var closeBtn = document.getElementById("close");
 
 closeBtn.addEventListener("click", function() { 
 
-    var content = document.querySelector(".modal-container"); 
-    content.style.display = "none";
+    var content = document.querySelector("#popup"); 
+    content.innerHTML ="";
 
 }); 
 

@@ -20,7 +20,7 @@ const availability = [
 
     [
         //court 1 
-        ["yes", 
+        ['\u2713', 
             "no", 
             "no", 
             "yes", 

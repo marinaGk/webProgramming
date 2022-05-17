@@ -4,7 +4,7 @@
 
     width: 75%;
     height: 100%;
-    margin: auto;;
+    margin: auto;
 }
 
 #courts_banner { 
@@ -63,7 +63,7 @@
     flex-direction: column;
 }
 
-#info-card { 
+#courts_info #info-card { 
     width: 100%;
     margin-bottom: 30px;
 }
