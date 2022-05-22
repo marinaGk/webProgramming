@@ -5,105 +5,9 @@ body {
     background-image: url("../imgs/seamless.jpg");
     z-index: -1;
 }
-/*
 
-#navbarGen {
-    display: flex; 
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: left;
-
-    width: 100%;
-    background-color: #0091d2;
-}
-
-
-#navbarGen #button_list { 
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    left: 0;
-    list-style: none;
-}
-
-#navbarGen #button_list #navButton { 
-    height: 100px;
-    min-width: fit-content;
-    width: 100%;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-}
-
-#navbarGen #navButton a { 
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-    text-decoration: none;
-    color: white;
-    line-height: 100px;
-}
-
-#navbarGen #navButton:hover #dropdown{ 
-    display: flex;
-    flex-direction: column;
-}
-
-#navbarGen #dropdown { 
-    display: none;
-    position: absolute;
-    left:0;
-    background-color: #fac300;
-    width: 100%;
-    z-index: 1;
-}
-
-#navbarGen #dd_content { 
-    position: relative;
-    top: 0;
-    border-top: solid white 1px;
-    width: 100%;
-    height: auto;
-    margin: auto;
-}
-
-#navbarGen #dd_content a{ 
-    line-height: 40px;
-    padding: auto;
-}
-
-#navbarGen #dd_content:hover { 
-    background-color: #f78da7;
-}
-
-
-#navbarGen #connection_list { 
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    right: 0;
-    list-style: none;
-}
-
-#navbarGen #connection_list button { 
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 400;
-
-    height: 100px;
-    width: 100%;
-    min-width: fit-content;
-
-    color:rgb(51, 48, 50);
-    background-color: #fac300;
-    border: none;
-
-    padding: 0px;
-    text-align: center;
-    cursor: pointer;
-}
-*/
 /*page specific content*/
-#card{ 
+.card{ 
     display: flex;
     flex-direction: column;
 
@@ -113,7 +17,7 @@ body {
 }
 
 /*top of page*/
-#card #banner{ 
+.card .banner{ 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -127,14 +31,14 @@ body {
     margin-top: 0px;
 }
 
-#card #banner #banner_img {
+.card .banner .banner_img {
     width: 100%;
     max-height: 400px;
     min-height: 210px;
     margin: auto;
 }
 
-#card #banner #title { 
+.card .banner .title { 
     text-align: left;
 
     font-family: 'Comfortaa', sans-serif;
@@ -150,7 +54,7 @@ body {
 }
 
 /*description*/
-#card #intro { 
+.card .intro { 
     display: flex; 
     flex-direction: column;
     background-color: white;
@@ -162,7 +66,7 @@ body {
     align-items: start;
 }
 
-#card #intro h1 { 
+.card .intro h1 { 
     font-family: 'Comfortaa', sans-serif;
     font-weight: 400;
     font-size: 40px;
@@ -174,7 +78,7 @@ body {
     text-align: left;
 }   
 
-#card #intro p{ 
+.card .intro p{ 
     font-family: 'Comfortaa', sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -189,7 +93,7 @@ body {
 }
 
 /*news & announcements part - might be removed*/
-#card #additional { 
+/*.card .additional { 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -200,7 +104,7 @@ body {
     padding: 60px 0px 0px 0px;
 }
 
-#card #additional #head{ 
+.card .additional #head{ 
     color: white;
     height: 60px;
     margin: 0px;
@@ -211,7 +115,7 @@ body {
     border-top-right-radius: 5px;
 }
 
-#card #additional #head h1{ 
+.card #additional #head h1{ 
     font-family: 'Comfortaa', sans-serif;
     font-weight: 400;
     font-size: 25px;
@@ -219,7 +123,7 @@ body {
     margin: 0;
 }
 
-#card #additional #content { 
+.card #additional #content { 
     overflow-y: scroll;
     width: 100%;
     height: 400px;
@@ -227,13 +131,13 @@ body {
     border-bottom-left-radius: 5px;
 }
 
-#card #additional #link {
+.card #additional #link {
     height: 70px; 
     width: 100%; 
     border-bottom: 1px gray solid;
 }
 
-#card #additional #link a{ 
+.card #additional #link a{ 
     font-family: 'Comfortaa', sans-serif;
     font-weight: 300;
     font-size: 20px;
@@ -242,177 +146,95 @@ body {
     text-decoration: none;
 }
 
-#card #additional #link a::before { 
+.card #additional #link a::before { 
     content: "•";
 }
 
-#card #additional span { 
+.card #additional span { 
     padding-bottom: 50px;
 }
 
-#card #additional #news #head { 
+.card #additional #news #head { 
     background-color: #0091d2;
 }
 
-#card #additional #news #link a{ 
+.card #additional #news #link a{ 
     color:#ca31a4;
 }
 
-#card #additional #announcements #head { 
+.card #additional #announcements #head { 
     background-color: #fac300;
 }
 
-#card #additional #announcements #link a{ 
+.card #additional #announcements #link a{ 
     color:rgb(78, 12, 62);
-}
-
-/*
-#footer { 
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 300;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-
-    width: 100%; 
-    background-color: #999999;
-    position: relative;
-    bottom: 0;
-}
-
-
-#sections { 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    width: fit-content;
-    list-style: none;
-    padding:30px 0px 30px 0px;
-    margin: auto;
-}
-
-
-#sections #ftrSection { 
-    display: flex;
-    flex-direction: column;
-    vertical-align: top; 
-
-    width: 20%;
-    position: center;
-    min-height: 100%;
-}
-
-#ftrSection a { 
-    text-decoration: none;
-    color: white;
-}
-
-#ftrSection h1 { 
-    font-size: 25px;
-    text-align: top;
-}
-
-#ftrSection #scList { 
-    font-size: 20px;
-    padding: 0px;
-    list-style: none;
-}
-
-#ftrSection #scList #listItem { 
-    margin-top: 30px;
-}
-
-#ftrSection #scList #listItem a{ 
-    color:rgb(51, 48, 50);
-}
-
-#footer hr{ 
-    color: black;
-    margin: 10px;
-}
-
-#footer p { 
-    font-size: 20px;
-    color:rgba(202, 49, 164, 1); 
-
-    text-align: center;
-    padding: 20px;
-    margin: 0px;
-}
-
-@media only screen and (max-width: 1026px) {
-    #sections{
-        display: none;
-    }
-}
-*/
+}*/
 
 @media only screen and (max-width: 1200px) {
-    #card{
+    .card{
         width: 100%;
     }
-    #card #additional span{ 
+    /*
+    .card #additional span{ 
         width: 75%;
         margin: auto;
-    }
+    }*/
 }
 
-@media only screen and (min-width: 1200px) {
+/*@media only screen and (min-width: 1200px) {
     #additional span{ 
         width: 35%;
     }
-}
+}*/
 
 @media only screen and (max-width: 1350px) {
-    #card #banner #title h1{ 
+    .card .banner #title h1{ 
         font-size: 35px;
     }
-    #card #banner #title h2{ 
+    .card .banner #title h2{ 
         font-size: 35px;
     }
 
-    #card #intro h1 { 
+    .card #intro h1 { 
         font-size: 35px;
     }
-    #card #intro p{ 
+    .card #intro p{ 
         font-size: 18px;
     }
 
-    #card #additional #head h1{ 
+    /*.card #additional #head h1{ 
         font-size: 22px;
         font-weight: 400;
         line-height: 2;
     }
-    #card #additional #link a{ 
+    .card #additional #link a{ 
         font-size: 18px;
         line-height: 4.67;
-    }
+    }*/
 }
 
 @media only screen and (max-width: 900px) {
-    #card #banner #title h1{ 
+    .card .banner #title h1{ 
         font-size: 30px;
     }
-    #card #banner #title h2{ 
+    .card .banner #title h2{ 
         font-size: 30px;
     }
 
-    #card #intro h1 { 
+    .card #intro h1 { 
         font-size: 30px;
     }
-    #card #intro p{ 
+    .card #intro p{ 
         font-size: 15px;
     }
 
-    #card #additional #head h1{ 
+    /*.card #additional #head h1{ 
         font-size: 20px;
         font-weight: 400;
         line-height: 2;
     }
-    #card #additional #link a{ 
+    .card #additional #link a{ 
         font-size: 15px;
         line-height: 4.67;
-    }
+    }*/
 }

@@ -1,0 +1,58 @@
+.admin_button{ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    height: fit-content; 
+    background-color: white;
+    padding: 20px 0px 20px 0px;
+}
+
+.admin_button button { 
+    position: relative;
+    left: 10%; 
+
+    width: 20%; 
+    height: 60px;
+
+    border: none; 
+    border-radius: 10px; 
+    color: white; 
+    background-color: grey; 
+}
+
+.tournaments_info_row input { 
+    min-height: 20px;
+    height: fit-content;
+    word-wrap: wrap;
+
+    margin: 20px 0px 20px 0px;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.tournament_row input, .tournament_row textarea{ 
+    min-height: 20px;
+    height: fit-content;
+    word-wrap: wrap;
+
+    margin: 20px 0px 20px 0px;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+#month_title { 
+    width: 50%; 
+    margin: auto;
+}
+
+#details { 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /*align-items: flex-start;*/
+    min-height: 200px;
+    word-wrap: wrap;
+}
