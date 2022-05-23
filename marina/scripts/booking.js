@@ -1,4 +1,4 @@
-let table = document.querySelector("#table");
+let table = document.querySelector(".table");
 table.style.tableLayout = "fixed";
 
 let courtNum = 1;
@@ -19,10 +19,10 @@ function makeTable() {
     for (let i = 0; i<tableHeight; i++) { 
         let row = document.createElement("tr");
         if (i == 0) { 
-            row.id = "hours";
+            row.className = "hours";
         }
         else { 
-            row.id = "data_row"
+            row.className = "data_row"
         }
         fillRow(row);
         table.appendChild(row);
@@ -49,7 +49,7 @@ function fillRow(row) {
 
 function fillHourRow() {
 
-    const hours = document.querySelector("#hours");
+    const hours = document.querySelector(".hours");
     let children = hours.children;
     for (let i = 0; i < data_length; i++) {
         let cell = children[i];
@@ -62,7 +62,7 @@ function fillHourRow() {
 
 function fillDayColumn() { 
     
-    const days = document.querySelectorAll("#data_row #cell0");
+    const days = document.querySelectorAll(".data_row #cell0");
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     let date = new Date();
@@ -78,7 +78,7 @@ function fillDayColumn() {
 
 function fillDataColumns() { 
 
-    const dataRows = document.querySelectorAll("#data_row"); 
+    const dataRows = document.querySelectorAll(".data_row"); 
     const availableHoursCourt = availability[courtNum-1]; 
 
     for (let i = 0; i<dataRows.length; i++) { 

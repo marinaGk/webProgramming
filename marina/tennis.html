@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,52 +24,56 @@
     <body class = "container-fluid p-0 m-0 w-100">
         <div id = "popup"> </div>
         <!--NAVIGATION BAR-->
-        <nav id = "navbarGen" class = "row m-0 p-0"> 
-            <ul id = "button_list" class = "col-10 p-0 m-0">
+        <div class = "navbarGen row m-0 p-0">
+            <ul class = "button_list col-10 p-0 m-0">
                 <!--Home Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1">
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1">
                     <a href="index.html">ΑΡΧΙΚΗ</a> 
                 </li>
                 <!--Tennis Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="tennis.html">ΤΕΝΝΙΣ</a>
-                    <div id = "dropdown" class = "col-12 m-0 p-0">
-                        <div id = "dd_content">
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1"> 
+                    <a href="tennis.html">ΤΕΝΝΙΣ</a>
+                    <div class = "dropdown col-12 m-0 p-0">
+                        <div class = "dd_content">
                             <a href = "lessons.html">Μαθήματα Τέννις</a>
                         </div>
             
-                        <div id = "dd_content">
+                        <div class = "dd_content">
                             <a href = "tournaments.html">Τουρνουά Τέννις</a>
                         </div>
                     </div> 
                 </li>
                 <!--Facilities Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="spaces.html">ΧΩΡΟΙ</a> 
-                    <div id = "dropdown" class = "col-12 m-0 p-0"> 
-                        <div id = "dd_content">
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1"> 
+                    <a href="spaces.html">ΧΩΡΟΙ</a> 
+                    <div class = "dropdown col-12 m-0 p-0"> 
+                        <div class = "dd_content">
                             <a href = "courts.html">Γήπεδα</a>
                         </div>
-                        <div id = "dd_content">
+                        <div class = "dd_content">
                             <a href = "#">Εστιατόριο</a>
                         </div>
                     </div> 
                 </li>
                 <!--Booking Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1"> 
+                    <a href="booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
                 </li>
             </ul>
-            <ul id = "connection_list" class = "col-2 p-0 m-0">
-                <li id = "accButton" class="col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+            <ul class = "connection_list col-2 p-0 m-0">
+                <li class="accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
                     <button id = "loginBtn">LOGIN</button> 
                 </li>
-                <li id = "accButton" class = "col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+                <li class = "accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
                     <button id = "signupBtn">SIGN UP</button> 
                 </li>
             </ul>
-        </nav>
+        </div>
+
         <!--MAIN-->
-        <section id = "tennis_main" class = "row p-0 m-0"> 
-            <div id = "tennis_card" class = "p-0"> 
-                <div id = "tennis_banner" class = "row m-0 p-0"> 
+        <section class = "tennis_main row p-0 m-0"> 
+            <div class = "tennis_card p-0"> 
+                <div class = "tennis_banner row m-0 p-0"> 
                     <h1 id = "title" class = "row">
                         Τέννις, άθληση και κοινωνικοποίηση
                     </h1>
@@ -82,16 +87,16 @@
                         αλλά και να διασκεδάσει στους χώρους μας.
                     </p>
                 </div>
-                <div id = "tennis_info" class = "row m-0 p-0">
-                    <div id = "tennis_info_row" class = "row m-0">
+                <div class = "tennis_info row m-0 p-0">
+                    <div class = "tennis_info_row row m-0">
                         <span id = "clubs" class = "p-0">
-                            <div id = "info_card" > 
-                                <div id = "banner">
+                            <div class = "info_card" > 
+                                <div class = "banner">
                                     Clubs
                                 </div> 
-                                <div id = "image"> 
+                                <div class = "image"> 
                                 </div>
-                                <div id = "text"> 
+                                <div class = "text"> 
                                     Αν θέλετε να γνωρίσετε άλλους λάτρεις του αθλήματος αλλά και να συνεργαστείτε με εκείνους, είτε καθώς μαθαίνετε, είτε σε ανταγωνισμό, 
                                     τα clubs που τρέχουν στο χώρο μας, οργανωμένα από την κοινότητα, είναι η καλύτερη ευκαιρία. Απευθύνονται σε άτομα διαφορετικών 
                                     επιπέδων ικανοτήτων και στόχων ενώ η συμμετοχή σε αυτά είναι ανοιχτή σε όλους. <br /> 
@@ -102,13 +107,13 @@
                             </div>
                         </span>
                         <span id = "competitions" class = "p-0"> 
-                            <div id = "info_card" >
-                                <div id = "banner"> 
+                            <div class = "info_card" >
+                                <div class = "banner"> 
                                     Διαγωνισμοί
                                 </div>
-                                <div id = "image"> 
+                                <div class = "image"> 
                                 </div>
-                                <div id = "text">
+                                <div class = "text">
                                     Αν είστε λάτρης του υγιούς ανταγωνισμού, είναι χαρά μας να σας ενημερώσουμε ότι στο χώρο μας πραγματοποιούνται διαγωνισμοί, διοργανωμένοι 
                                     από την κοινότητα, σε εβδομαδιαία βάση. Ελάτε Πέμπτη ή Σάββατο και συμμετάσχετε σε αγώνες μέχρι τη τελική νίκη ή ήττα σας, στα καθορισμένα
                                     γήπεδά μας και γνωρίστε τα μέλη της κοινότητας μας. Τα γήπεδα για τους διαγωνισμούς διατίθονται δωρεάν σε μέλη του κλαμπ και με ελάχιστο
@@ -117,57 +122,57 @@
                             </div>
                         </span> 
                     </div>
-                    <div id = "tennis_info_row" class = "row m-0"> 
+                    <div class = "tennis_info_row row m-0"> 
                         <span id = "play_tennis" class = "p-0">
-                            <div id = "info_card">
-                                <div  id = "banner">  
+                            <div class = "info_card">
+                                <div  class = "banner">  
                                     Παίξτε Τέννις 
                                 </div>
-                                <div id = "image"> 
+                                <div class = "image"> 
                                     
                                 </div>
-                                <div id = "text"> 
+                                <div class = "text"> 
                                     Τα γήπεδά μας διατίθονται στο κοινό για προπόνηση ατομικά, σε ζευγάρια και σε ομάδες. Απαιτείται online ή τηλεφωνική κράτηση 
                                     στην οποία μπορείτε να διευκρινήσετε την ημερομηνία και ώρα επίσκεψής σας, το χρόνο κατά τον οποίο θα χρειαστείτε το χώρο, το
                                     είδος του γηπέδου που προτιμάτε, ακόμα και εξοπλισμό που πιθανώς θέλετε να νοικιάσετε. 
                                 </div>
-                                <div id = "button"> 
+                                <div class = "button"> 
                                     <a>Κράτηση γηπέδου</a>
                                 </div>
                             </div>
                         </span>
                         <span id = "tennis_lessons" class = "p-0">  
-                            <div id = "info_card">
-                                <div id = "banner"> 
+                            <div class = "info_card">
+                                <div class = "banner"> 
                                     Μαθήματα Τέννις
                                 </div>
-                                <div id = "image"> 
+                                <div class = "image"> 
 
                                 </div>
-                                <div id = "text"> 
+                                <div class = "text"> 
                                     Στο χώρο του club μας δίνεται η δυνατότητα σε άτομα κάθε επιπέδου να μάθουν τέννις ή να βελτιώσουν τις ικανότητές τους με 
                                     συμμετοχή στα μαθήματά μας. Μαθήματα κλείνονται στο χώρο του club ή με επικοινωνία με κάποιον εκ των προπονητών μας, για 
                                     ομάδες των 2 ή 4 ατόμων ή ατομικά. 
                                 </div>
-                                <div id = "button"> 
+                                <div class = "button"> 
                                     <a href = "lessons.html">Περισσότερες πληροφορίες για τα μαθήματα</a>
                                 </div>
                             </div>
                         </span>
                         <span id = "tennis_tournaments" class = "p-0"> 
-                            <div id = "info_card"> 
-                                <div id = "banner"> 
+                            <div class = "info_card"> 
+                                <div class = "banner"> 
                                     Τουρνουά Τέννις
                                 </div>
-                                <div id = "image"> 
+                                <div class = "image"> 
         
                                 </div>
-                                <div id = "text"> 
+                                <div class = "text"> 
                                     Στο χώρο μας, σε μηνιαία βάση, διοργανώνονται τουρνουά ανοιχτά σε όλους με βαθμίδες για διαφορετικά επίπεδα 
                                     ικανοτήτων. Για συμμετοχή χρειάζεται εμπρόθεσμη συμπλήρωση φόρμας συμμετοχής που μπορεί να γίνει online ή στους 
                                     χώρους του club. Η συμμετοχή είναι δωρεάν για όλους. 
                                 </div>
-                                <div id = "button"> 
+                                <div class = "button"> 
                                     <a href="tournaments.html">Περισσότερες πληροφορίες για τα τουρνουά</a>
                                 </div>
                             </div>
@@ -176,56 +181,57 @@
                 </div>
             </div>
         </section> 
+
         <!--FOOTER-->
-        <div id = "footer" class = "row align-items-stretch p-0 m-0">
-            <ul id = "sections" class = "col-lg-8 p-x-0">
-                <li id = "ftrSection" class = "col m-0"> 
+        <div class = "footer row align-items-stretch p-0 m-0">
+            <ul class = "sections col-lg-8 p-x-0">
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "index.html">ΑΡΧΙΚΗ</a>
                     </h1>
-
+    
                     <h1> 
                         <a href = "login.html">LOG IN</a>
                     </h1>
-
+    
                     <h1> 
                         <a href = "signup.html">SIGN UP</a>
                     </h1>
-
+    
                 </li>
                 <!--TENNIS-->
-                <li id = "ftrSection" class = "col m-0"> 
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "tennis.html">ΤΕΝΝΙΣ</a>
                     </h1>
-                    <ul id = "scList">
-                        <li id = "listItem"> 
+                    <ul class = "scList">
+                        <li class = "listItem"> 
                             <a href = "#">Παίξε τέννις</a>
                         </li>
-                        <li id = "listItem">
+                        <li class = "listItem">
                             <a href = "lessons.html">Μαθήματα τέννις</a> 
                         </li>
-                        <li id = "listItem">
+                        <li class = "listItem">
                             <a href = "tournaments.html">Τουρνουά τέννις</a>
                         </li> 
                     </ul> 
                 </li>
                 <!--SPACES-->
-                <li id = "ftrSection" class = "col m-0"> 
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "spaces.html">ΧΩΡΟΙ</a>
                     </h1>
-                    <ul id = "scList">
-                        <li id = "listItem"> 
+                    <ul class = "scList">
+                        <li class = "listItem"> 
                             <a href = "courts.html">Γήπεδα</a>
                         </li>
-                        <li id = "listItem">
+                        <li class = "listItem">
                             <a href = "#">Εστιατόριο</a>
                         </li> 
                     </ul> 
                 </li>
                 <!--BOOKING-->
-                <li id = "ftrSection" class = "col m-0"> 
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a>
                     </h1>
@@ -237,4 +243,5 @@
 
         <script type = "text/javascript" src = "scripts/popup.js"> </script>
     </body>
+
 </html>

@@ -1,4 +1,4 @@
-#tennis_card { 
+.tennis_card { 
     display: flex; 
     flex-direction: column;
 
@@ -7,7 +7,7 @@
     margin: auto;
 }
 
-#tennis_banner { 
+.tennis_banner { 
     display: flex; 
     flex-direction: column;
     flex-wrap: wrap;
@@ -19,7 +19,7 @@
     padding-bottom: 30px;
 }
 
-#tennis_banner #title { 
+.tennis_banner #title { 
     width: 80%;
     padding: 20px 0px 20px 0px;
     color: #ca31a4;
@@ -29,7 +29,7 @@
     word-wrap: normal;
 }
 
-#tennis_banner h1 { 
+.tennis_banner h1 { 
     text-align: left; 
 
     font-family: 'Comfortaa', sans-serif;
@@ -37,7 +37,7 @@
     font-size: 40px;
 }
 
-#tennis_banner #subtitle { 
+.tennis_banner #subtitle { 
     width: 80%;
     color: #6c6f6f;
     position: relative;
@@ -47,7 +47,7 @@
     word-wrap: normal;
 }
 
-#tennis_banner p{
+.tennis_banner p{
     text-align: left;
     
     font-family: 'Comfortaa', sans-serif;
@@ -56,7 +56,7 @@
     font-size: 20px;
 }
 
-#tennis_info { 
+.tennis_info { 
     display: flex;
     flex-direction: column;
 
@@ -64,14 +64,14 @@
     background-color: #d7d700;
 }
 
-#tennis_info_row {
+.tennis_info_row {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-#tennis_info span{ 
+.tennis_info span{ 
     display: flex;
     flex-direction: column;
 
@@ -81,7 +81,7 @@
     margin: 50px 0px 50px 0px;
 }
 
-#tennis_info #banner { 
+.tennis_info .banner { 
     font-size: 30px;
 
     width: 100%;
@@ -94,12 +94,12 @@
     border-bottom: 1px solid;
 }
 
-#tennis_info #text { 
+.tennis_info .text { 
     font-size: 20px;
     padding: 10px;
 }
 
-#tennis_info #button{
+.tennis_info .button{
     font-size: 20px;
     min-height: 50px;
     height: fit-content;
@@ -107,93 +107,93 @@
     background-color: currentColor;
 }
 
-#tennis_info #play_tennis{ 
+.tennis_info #play_tennis{ 
     align-self: flex-start;
 }
 
-#tennis_info #tennis_lessons{ 
+.tennis_info #tennis_lessons{ 
     align-self: flex-start;
 }
 
-#tennis_info #tennis_tournaments{ 
+.tennis_info #tennis_tournaments{ 
     align-self: flex-start;
 }
 
-#tennis_info #button a { 
+.tennis_info .button a { 
     color: white;
     display:flex;
     padding: 15px;
     text-decoration: none;
 }
 
-#tennis_info #button:hover{ 
+.tennis_info .button:hover{ 
     background-color: #f78da7;
     cursor: pointer;
 }
 
 @media only screen and (max-width: 1200px) {
-    #tennis_card{
+    .tennis_card{
         width: 100%;
     }
-    #tennis_info span { 
+    .tennis_info span { 
         width: 75%;
     }
 }
 
 @media only screen and (min-width: 1200px) { 
-    #tennis_info #clubs{ 
+    .tennis_info #clubs{ 
         width: 35%;
     }
     
-    #tennis_info #competitions{ 
+    .tennis_info #competitions{ 
         width: 35%;
     }
     
-    #tennis_info #play_tennis{ 
+    .tennis_info #play_tennis{ 
         width: 25%;
     }
     
-    #tennis_info #tennis_lessons{ 
+    .tennis_info #tennis_lessons{ 
         width: 25%;
     }
     
-    #tennis_info #tennis_tournaments{ 
+    .tennis_info #tennis_tournaments{ 
         width: 25%;
     }    
 }
 
 @media only screen and (max-width: 1350px) {
 
-    #tennis_banner h1{ 
+    .tennis_banner h1{ 
         font-size: 35px;
     }
-    #tennis_banner p{ 
+    .tennis_banner p{ 
         font-size: 18px;
     }
 
-    #tennis_info #banner{ 
+    .tennis_info .banner{ 
         font-size: 25px;
     }
 
-    #tennis_info #text{ 
+    .tennis_info .text{ 
         font-size: 18px;
     }
 }
 
 @media only screen and (max-width: 900px) {
 
-    #tennis_banner h1{ 
+    .tennis_banner h1{ 
         font-size: 30px;
     }
-    #tennis_banner p{ 
+    .tennis_banner p{ 
         font-size: 15px;
     }
 
-    #tennis_info #banner{ 
+    .tennis_info .banner{ 
         font-size: 20px;
     }
 
-    #tennis_info #text{ 
+    .tennis_info .text{ 
         font-size: 15px;
     }
 

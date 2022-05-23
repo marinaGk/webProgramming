@@ -1,4 +1,4 @@
-#spaces_card { 
+.spaces_card { 
     display: flex; 
     flex-direction: column;
 
@@ -7,7 +7,7 @@
     margin: auto;
 }
 
-#spaces_banner { 
+.spaces_banner { 
     display: flex; 
     flex-direction: column;
     flex-wrap: wrap;
@@ -19,7 +19,7 @@
     padding-bottom: 30px;
 }
 
-#spaces_banner #title { 
+.spaces_banner #title { 
     width: 80%;
     padding: 20px 0px 20px 0px;
     color: #ca31a4;
@@ -29,7 +29,7 @@
     word-wrap: normal;
 }
 
-#spaces_banner h1{ 
+.spaces_banner h1{ 
     text-align: left; 
 
     font-family: 'Comfortaa', sans-serif;
@@ -37,7 +37,7 @@
     font-size: 40px;
 }
 
-#spaces_banner #subtitle { 
+.spaces_banner #subtitle { 
     width: 80%;
     color: #6c6f6f;
     position: relative;
@@ -47,7 +47,7 @@
     word-wrap: normal;
 }
 
-#spaces_banner p{ 
+.spaces_banner p{ 
     text-align: left;
     
     font-family: 'Comfortaa', sans-serif;
@@ -56,7 +56,7 @@
     font-size: 20px;
 }
 
-#spaces_info { 
+.spaces_info { 
     display: flex;
     flex-direction: column;
 
@@ -64,14 +64,14 @@
     background-color: #fac300;
 }
 
-#spaces_info_row { 
+.spaces_info_row { 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-#spaces_info span { 
+.spaces_info span { 
     display: flex;
     flex-direction: column;
 
@@ -82,7 +82,7 @@
     margin: 50px 0px 50px 0px;
 }
 
-#spaces_info #banner { 
+.spaces_info .banner { 
     font-size: 30px;
 
     width: 100%;
@@ -96,12 +96,12 @@
     border-bottom: 1px solid;
 }
 
-#spaces_info #text { 
+.spaces_info .text { 
     font-size: 20px;
     padding: 10px;
 }
 
-#spaces_info #button { 
+.spaces_info .button { 
     text-align: left;
     min-height: 50px;
     height: fit-content;
@@ -109,81 +109,81 @@
     background-color: currentColor;
 }
 
-#spaces_info #courts { 
+.spaces_info #courts { 
     align-self: flex-start;
 }
 
-#spaces_info #pool { 
+.spaces_info #pool { 
     align-self: flex-start;
 }
 
-#spaces_info #equipment { 
+.spaces_info #equipment { 
     align-self: flex-start;
 }
 
-#spaces_info #restaurant { 
+.spaces_info #restaurant { 
     align-self: flex-start;
 }
 
-#spaces_info #button a { 
+.spaces_info .button a { 
     color: white;
     display:flex;
     padding: 15px;
     text-decoration: none;
 }
 
-#spaces_info #button:hover{ 
+.spaces_info .button:hover{ 
     background-color:  #f78da7;
     cursor: pointer;
 }
 
 @media only screen and (max-width: 1200px) {
-    #spaces_card{
+    .spaces_card{
         width: 100%;
     }
-    #spaces_info span { 
+    .spaces_info span { 
         width: 75%;
     }
 }
 
 @media only screen and (min-width: 1200px) { 
-    #spaces_info span{ 
+    .spaces_info span{ 
         width: 35%;
     }
 }
 
 @media only screen and (max-width: 1350px) {
 
-    #spaces_banner h1{ 
+    .spaces_banner h1{ 
         font-size: 35px;
     }
-    #spaces_banner p{ 
+    .spaces_banner p{ 
         font-size: 18px;
     }
 
-    #spaces_info #banner{ 
+    .spaces_info .banner{ 
         font-size: 25px;
     }
 
-    #spaces_info #text{ 
+    .spaces_info .text{ 
         font-size: 18px;
     }
 }
 
 @media only screen and (max-width: 900px) {
 
-    #spaces_banner h1{ 
+    .spaces_banner h1{ 
         font-size: 30px;
     }
-    #spaces_banner p{ 
+    .spaces_banner p{ 
         font-size: 15px;
     }
  
-    #spaces_info #banner { 
+    .spaces_info .banner { 
         font-size: 20px;
     }
 
-    #spaces_info #text{ 
+    .spaces_info .text{ 
         font-size: 15px;
     }
 

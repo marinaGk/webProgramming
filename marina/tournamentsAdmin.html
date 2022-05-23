@@ -25,50 +25,55 @@
 
     <body class = "container-fluid p-0 m-0 w-100">
         <!--<a name="top"></a>-->
+
         <!--NAVIGATION BAR-->
-        <nav id = "navbarGen" class = "row m-0 p-0"> 
-            <ul id = "button_list" class = "col-10 p-0 m-0">
+        <div class = "navbarGen row m-0 p-0">
+            <ul class = "button_list col-10 p-0 m-0">
                 <!--Home Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1">
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1">
                     <a href="index.html">ΑΡΧΙΚΗ</a> 
                 </li>
                 <!--Tennis Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="tennis.html">ΤΕΝΝΙΣ</a>
-                    <div id = "dropdown" class = "col-12 m-0 p-0">
-                        <div id = "dd_content">
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1"> 
+                    <a href="tennis.html">ΤΕΝΝΙΣ</a>
+                    <div class = "dropdown col-12 m-0 p-0">
+                        <div class = "dd_content">
                             <a href = "lessons.html">Μαθήματα Τέννις</a>
                         </div>
             
-                        <div id = "dd_content">
+                        <div class = "dd_content">
                             <a href = "tournaments.html">Τουρνουά Τέννις</a>
                         </div>
                     </div> 
                 </li>
                 <!--Facilities Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="spaces.html">ΧΩΡΟΙ</a> 
-                    <div id = "dropdown" class = "col-12 m-0 p-0"> 
-                        <div id = "dd_content">
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1"> 
+                    <a href="spaces.html">ΧΩΡΟΙ</a> 
+                    <div class = "dropdown col-12 m-0 p-0"> 
+                        <div class = "dd_content">
                             <a href = "courts.html">Γήπεδα</a>
                         </div>
-                        <div id = "dd_content">
+                        <div class = "dd_content">
                             <a href = "#">Εστιατόριο</a>
                         </div>
                     </div> 
                 </li>
                 <!--Booking Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1"> 
+                    <a href="booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
                 </li>
             </ul>
-            <ul id = "connection_list" class = "col-2 p-0 m-0">
-                <li id = "accButton" class="col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+            <ul class = "connection_list col-2 p-0 m-0">
+                <li class="accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
                     <button id = "loginBtn">LOGIN</button> 
                 </li>
-                <li id = "accButton" class = "col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+                <li class = "accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
                     <button id = "signupBtn">SIGN UP</button> 
                 </li>
             </ul>
-        </nav>
+        </div>
 
+        <!--MAIN-->
         <div class = "tournaments_main row p-0 m-0">
             <div class = "tournaments_card p-0">
                 <div class = "tournaments_banner_title row m-0 p-0">
@@ -204,56 +209,57 @@
             </div>
             <script type = "text/javascript" src = "scripts/addTournaments.js"> </script>
         </div>
+
         <!--FOOTER-->
-        <div id = "footer" class = "row align-items-stretch p-0 m-0">
-            <ul id = "sections" class = "col-lg-8 p-x-0">
-                <li id = "ftrSection" class = "col m-0"> 
+        <div class = "footer row align-items-stretch p-0 m-0">
+            <ul class = "sections col-lg-8 p-x-0">
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "index.html">ΑΡΧΙΚΗ</a>
                     </h1>
-
+    
                     <h1> 
                         <a href = "login.html">LOG IN</a>
                     </h1>
-
+    
                     <h1> 
                         <a href = "signup.html">SIGN UP</a>
                     </h1>
-
+    
                 </li>
                 <!--TENNIS-->
-                <li id = "ftrSection" class = "col m-0"> 
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "tennis.html">ΤΕΝΝΙΣ</a>
                     </h1>
-                    <ul id = "scList">
-                        <li id = "listItem"> 
+                    <ul class = "scList">
+                        <li class = "listItem"> 
                             <a href = "#">Παίξε τέννις</a>
                         </li>
-                        <li id = "listItem">
+                        <li class = "listItem">
                             <a href = "lessons.html">Μαθήματα τέννις</a> 
                         </li>
-                        <li id = "listItem">
+                        <li class = "listItem">
                             <a href = "tournaments.html">Τουρνουά τέννις</a>
                         </li> 
                     </ul> 
                 </li>
                 <!--SPACES-->
-                <li id = "ftrSection" class = "col m-0"> 
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "spaces.html">ΧΩΡΟΙ</a>
                     </h1>
-                    <ul id = "scList">
-                        <li id = "listItem"> 
+                    <ul class = "scList">
+                        <li class = "listItem"> 
                             <a href = "courts.html">Γήπεδα</a>
                         </li>
-                        <li id = "listItem">
+                        <li class = "listItem">
                             <a href = "#">Εστιατόριο</a>
                         </li> 
                     </ul> 
                 </li>
                 <!--BOOKING-->
-                <li id = "ftrSection" class = "col m-0"> 
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a>
                     </h1>
@@ -263,9 +269,12 @@
             <p> HELLO THIS IS THE END OF THE FRONT PAGE AND I HAVE GAINED SO MUCH WEIGHT JUST MAKING THIS ONE </p>
         </div>
 
+        <!--
         <a href=#top>
             <button id="scroll-up"></button>
         </a>
-
+        -->
+        
+        <script type = "text/javascript" src = "scripts/popup.js"> </script>
     </body>
 </html>

@@ -1,4 +1,4 @@
-#lessons_card { 
+.lessons_card { 
     display: flex; 
     flex-direction: column;
 
@@ -7,7 +7,7 @@
     margin: auto;
 }
 
-#lessons_card #lessons_banner { 
+.lessons_card .lessons_banner { 
     display: flex; 
     flex-direction: column;
     flex-wrap: wrap;
@@ -25,7 +25,7 @@
     background-size: cover;
 }
 
-#lessons_card #lessons_banner #title{
+.lessons_card .lessons_banner #title{
     text-align: left;
 
     font-family: 'Comfortaa', sans-serif;
@@ -41,7 +41,7 @@
     word-wrap: normal;
 }
 
-#lessons_card #lessons_info {
+.lessons_card .lessons_info {
     width: 100%;
     background-color: white;
 
@@ -49,7 +49,7 @@
     flex-direction: column;
 }
 
-#lessons_info #info_card{ 
+.lessons_info .info_card{ 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -58,18 +58,18 @@
     margin-bottom: 30px;
 }
 
-#lessons_info #info_card div{ 
+.lessons_info .info_card div{ 
     width: 100%;
 }
 
-#lessons_info #info_card #info_banner { 
+.lessons_info .info_card .info_banner { 
     width: 100%;
     min-height: 60px;
     height: fit-content;
     background-color: #0091d2;
 }
 
-#lessons_info #info_card #info_banner h4{
+.lessons_info .info_card .info_banner h4{
     font-family: 'Comfortaa', sans-serif;
     font-weight: 300;
     font-size: 40px;
@@ -79,14 +79,14 @@
     margin:auto;
 }
 
-#lessons_info #info_row {
+.lessons_info .info_row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-#info_row #text{
+.info_row .text{
     font-family: 'Comfortaa', sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -98,7 +98,7 @@
     padding-top: 20px;
 }
 
-#info_row span{ 
+.info_row span{ 
     display: flex;
     flex-direction: column;
 
@@ -108,7 +108,7 @@
     margin: 50px 0px 50px 0px;
 }
 
-#info_row #side_text{ 
+.info_row .side_text{ 
     font-family: 'Comfortaa', sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -117,35 +117,35 @@
     color: #6c6f6f;
 }
 
-#junior #photo{
+#junior .photo{
     box-shadow: -5px 5px #6c6f6f;
 }
 
-#adults #photo{
+#adults .photo{
     box-shadow: 5px 5px #6c6f6f;
 }
 
-#intensive #photo{ 
+#intensive .photo{ 
     box-shadow: -5px 5px #6c6f6f;
 }
 
-#contest #photo{ 
+#contest .photo{ 
     box-shadow: 5px 5px #6c6f6f;
 }
 
 @media only screen and (max-width: 1350px) {
 
-    #lessons_card #lessons_banner #title{ 
+    .lessons_card .lessons_banner #title{ 
         font-size: 35px;
     }
 
-    #lessons_info #info_card #info_banner h4{ 
+    .lessons_info .info_card .info_banner h4{ 
         font-size: 35px;
     }
-    #info_row #text{ 
+    .info_row .text{ 
         font-size: 18px;
     }
-    #info_row #side_text{ 
+    .info_row .side_text{ 
         font-size: 18px;
     }
 
@@ -153,34 +153,34 @@
 
 @media only screen and (max-width: 900px) {
 
-    #lessons_card #lessons_banner #title{ 
+    .lessons_card .lessons_banner #title{ 
         font-size: 30px;
     }
 
-    #lessons_info #info_card #info_banner h4{ 
+    .lessons_info .info_card .info_banner h4{ 
         font-size: 30px;
     }
-    #info_row #text{ 
+    .info_row .text{ 
         font-size: 15px;
     }
-    #info_row #side_text{ 
+    .info_row .side_text{ 
         font-size: 15px;
     }
 
 }
 
 @media only screen and (max-width: 1200px) {
-    #lessons_card{
+    .lessons_card{
         width: 100%;
     }
 }
 
 @media only screen and (max-width: 700px) {
-    #info_row #side_text, #info_row #photo {
+    .info_row .side_text, .info_row .photo {
         min-width: 80%;
     }
 
-    #junior #info_row #side_text, #intensive #info_row #side_text {
+    #junior .info_row .side_text, #intensive .info_row .side_text {
         margin-top: 0px;
     }
 }
