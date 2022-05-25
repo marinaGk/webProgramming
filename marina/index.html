@@ -17,14 +17,94 @@
         <link rel="stylesheet" href="styles/index.css">
         <link rel="stylesheet" href="styles/footer.css">
         <link rel="stylesheet" href="styles/navBar.css"> 
+        <link rel="stylesheet" href="styles/logInOrUp.css">
 
         <title>Villia Tennis Club</title>
     </head>
 
     <body class = "container-fluid p-0 m-0 w-100">
         
-        <div id = "popup"></div>
+        <!--LOGIN & SIGNUP-->
+        <div class = "popup" id = "login">
+            <div class = "modal-container"> 
+                <div class = "modal"> 
+                    <div class = "button_row row m-0 p-0"> 
+                        <button class = "close col-1 p-0">
+                        </button> 
+                    </div>
+                    <form class = "form">
+                        <div class = "inputs col m-0">
+                            <div class="title row m-0 p-0"> 
+                                <h1>
+                                    LOGIN
+                                </h1> 
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "e-mail" class = "field_name col-5 p-0"> E-mail or username </label>
+                                <input type="text" name="e-mail" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "password" class = "field_name col-5 p-0"> Password </label>
+                                <input type="text" name="password" class = "field_input col-5 p-0">
+                            </div> 
+                        </div>
+                        <div class = "redirect row m-0 p-0">
+                            <a> I don't have an account &rarr;</a>
+                        </div>
+                        <button type = "submit" class = "submit"> 
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
        
+        <div class = "popup" id = "signup"> 
+            <div class = "modal-container"> 
+                <div class = "modal m-0"> 
+                    <div class = "button_row row m-0 p-0"> 
+                        <button class = "close col-1 p-0" >
+                        </button> 
+                    </div>
+                    <form class = "form">
+                        <div class = "inputs col m-0">
+                            <div class="title row m-0 p-0"> 
+                                <h1>
+                                    SIGN UP
+                                </h1> 
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "e-mail" class = "field_name col-5 p-0"> E-mail </label>
+                                <input type="text" name="e-mail" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "name" class = "field_name col-5 p-0"> Username </label>
+                                <input type="text" name="user_name" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "full_name" class = "field_name col-5 p-0"> Full name </label>
+                                <input type="text" name="e-mail" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "password" class = "field_name col-5 p-0"> Password </label>
+                                <input type="text" name="password" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "repeat_password" class = "field_name col-5 p-0"> Repeat password </label>
+                                <input type="text" name="repeat_password" class = "field_input col-5 p-0">
+                            </div> 
+                        </div>
+                        <div class = "redirect row m-0 p-0">
+                            <a> I already have an account &rarr;</a>
+                        </div>
+                        <button type = "submit" class = "submit"> 
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!--NAVIGATION BAR-->
         <div class = "navbarGen row m-0 p-0">
             <ul class = "button_list col-10 p-0 m-0">
@@ -243,6 +323,6 @@
             <p> HELLO THIS IS THE END OF THE FRONT PAGE AND I HAVE GAINED SO MUCH WEIGHT JUST MAKING THIS ONE </p>
         </div>
         
-        <script type = "text/javascript" src = "scripts/popup.js"> </script>
+        <script type = "text/javascript" src = "scripts/popup_new.js"> </script>
     </body>
 </html>
