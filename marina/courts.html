@@ -14,62 +14,147 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="index.css">
-        <link rel = "stylesheet" href = "courts.css">
+        <link rel="stylesheet" href="styles/footer.css">
+        <link rel="stylesheet" href="styles/navBar.css"> 
+        <link rel = "stylesheet" href = "styles/courts.css">
 
         <title>Villia Tennis Club | Courts</title>
     </head>
 
     <body class = "container-fluid p-0 m-0 w-100">
 
-        <div id = "popup"></div>
+        <!--LOGIN & SIGNUP-->
+        <div class = "popup" id = "login">
+            <div class = "modal-container"> 
+                <div class = "modal"> 
+                    <div class = "button_row row m-0 p-0"> 
+                        <button class = "close col-1 p-0">
+                        </button> 
+                    </div>
+                    <form class = "form">
+                        <div class = "inputs col m-0">
+                            <div class="title row m-0 p-0"> 
+                                <h1>
+                                    LOGIN
+                                </h1> 
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "e-mail" class = "field_name col-5 p-0"> E-mail or username </label>
+                                <input type="text" name="e-mail" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "password" class = "field_name col-5 p-0"> Password </label>
+                                <input type="text" name="password" class = "field_input col-5 p-0">
+                            </div> 
+                        </div>
+                        <div class = "redirect row m-0 p-0">
+                            <a> I don't have an account &rarr;</a>
+                        </div>
+                        <button type = "submit" class = "submit"> 
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class = "popup" id = "signup"> 
+            <div class = "modal-container"> 
+                <div class = "modal m-0"> 
+                    <div class = "button_row row m-0 p-0"> 
+                        <button class = "close col-1 p-0" >
+                        </button> 
+                    </div>
+                    <form class = "form">
+                        <div class = "inputs col m-0">
+                            <div class="title row m-0 p-0"> 
+                                <h1>
+                                    SIGN UP
+                                </h1> 
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "e-mail" class = "field_name col-5 p-0"> E-mail </label>
+                                <input type="text" name="e-mail" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "name" class = "field_name col-5 p-0"> Username </label>
+                                <input type="text" name="user_name" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "full_name" class = "field_name col-5 p-0"> Full name </label>
+                                <input type="text" name="e-mail" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "password" class = "field_name col-5 p-0"> Password </label>
+                                <input type="text" name="password" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "repeat_password" class = "field_name col-5 p-0"> Repeat password </label>
+                                <input type="text" name="repeat_password" class = "field_input col-5 p-0">
+                            </div> 
+                        </div>
+                        <div class = "redirect row m-0 p-0">
+                            <a> I already have an account &rarr;</a>
+                        </div>
+                        <button type = "submit" class = "submit"> 
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+                
         <!--NAVIGATION BAR-->
-        <nav id = "navbarGen" class = "row m-0 p-0"> 
-            <ul id = "button_list" class = "col-10 p-0 m-0">
+        <div class = "navbarGen row m-0 p-0">
+            <ul class = "button_list col-10 p-0 m-0">
                 <!--Home Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1">
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1">
                     <a href="index.html">ΑΡΧΙΚΗ</a> 
                 </li>
                 <!--Tennis Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="tennis.html">ΤΕΝΝΙΣ</a>
-                    <div id = "dropdown" class = "col-12 m-0 p-0">
-                        <div id = "dd_content">
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1"> 
+                    <a href="tennis.html">ΤΕΝΝΙΣ</a>
+                    <div class = "dropdown col-12 m-0 p-0">
+                        <div class = "dd_content">
                             <a href = "lessons.html">Μαθήματα Τέννις</a>
                         </div>
             
-                        <div id = "dd_content">
+                        <div class = "dd_content">
                             <a href = "tournaments.html">Τουρνουά Τέννις</a>
                         </div>
                     </div> 
                 </li>
                 <!--Facilities Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="spaces.html">ΧΩΡΟΙ</a> 
-                    <div id = "dropdown" class = "col-12 m-0 p-0"> 
-                        <div id = "dd_content">
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1"> 
+                    <a href="spaces.html">ΧΩΡΟΙ</a> 
+                    <div class = "dropdown col-12 m-0 p-0"> 
+                        <div class = "dd_content">
                             <a href = "courts.html">Γήπεδα</a>
                         </div>
-                        <div id = "dd_content">
+                        <div class = "dd_content">
                             <a href = "#">Εστιατόριο</a>
                         </div>
                     </div> 
                 </li>
                 <!--Booking Page-->
-                <li id = "navButton" class = "col-lg-2 col-md-1 col-sm-1"> <a href="booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
+                <li class = "navButton col-lg-2 col-md-1 col-sm-1"> 
+                    <a href="booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
                 </li>
             </ul>
-            <ul id = "connection_list" class = "col-2 p-0 m-0">
-                <li id = "accButton" class="col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+            <ul class = "connection_list col-2 p-0 m-0">
+                <li class="accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
                     <button id = "loginBtn">LOGIN</button> 
                 </li>
-                <li id = "accButton" class = "col-lg-6 col-md-6 col-sm-6 p-0 m-0">
+                <li class = "accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
                     <button id = "signupBtn">SIGN UP</button> 
                 </li>
             </ul>
-        </nav>
+        </div>
+
         <!--MAIN-->
-        <div id = "courts_main" class = "row p-0 m-0"> 
-            <div id = "courts_card" class = "col-lg-9 col-xs-12 p-0">
-                <div id = "courts_banner" class = "row m-0 p-0"> 
+        <div class = "courts_main row p-0 m-0"> 
+            <div class = "courts_card p-0">
+                <div class = "courts_banner row m-0 p-0"> 
                     <h1 id = "title" class = "row">
                         Τα γήπεδά μας
                     </h1>
@@ -79,12 +164,12 @@
                         είναι το κατάλληλο γήπεδο για εσάς, ακολουθούν κάποιες γενικές πληροφορίες. 
                     </p>
                 </div>
-                <div id = "courts_info" class = "row p-0 m-0"> 
-                    <div id = "info_card" class = "row p-0 m-0"> 
-                        <div id = "info_banner" class = "row m-0"> 
+                <div class = "courts_info row p-0 m-0"> 
+                    <div class = "info_card row p-0 m-0"> 
+                        <div class = "info_banner row m-0"> 
                             <h1 id = "title">Hard tennis courts</h1>
                         </div>
-                        <div id = "info_text" class = "row m-0">
+                        <div class = "info_text row m-0">
                             <p>
                                 Hard courts are one of the main types of courts commonly found at parks, 
                                 recreation centers, clubs, and schools. Composed of varying mixtures of 
@@ -97,11 +182,11 @@
                             </p>
                         </div> 
                     </div>
-                    <div id = "info_card" class = "row p-0 m-0"> 
-                        <div id = "info_banner" class = "row m-0"> 
+                    <div class = "info_card row p-0 m-0"> 
+                        <div class = "info_banner row m-0"> 
                             <h1>Clay tennis courts</h1>
                         </div>
-                        <div id = "info_text" class = "row m-0">
+                        <div class = "info_text row m-0">
                             <p>
                                 Clay courts mainly come in two different forms: The red clay court is a coarse mixture made from brick,
                                  and the green clay court, which is a crushed metabasalt, also known as Har-Tru. These materials dry much 
@@ -116,75 +201,76 @@
                             </p>
                         </div> 
                     </div>
-                    <div id = "info_card" class = "row p-0 m-0"> 
-                        <div id = "info_banner" class = "row m-0"> 
+                    <div class = "info_card row p-0 m-0"> 
+                        <div class = "info_banner row m-0"> 
                             <h1>Grass tennis courts</h1>
                         </div>
-                        <div id = "info_text" class = "row m-0">
+                        <div class = "info_text row m-0">
                             <p>Grass courts, also known as lawn courts, used to be the most common type of tennis court surface. However, due to their high cost and maintenance, grass courts are less commonly used than hard courts and clay courts. A grass surface consists of short-cut grass on tightly packed soil, and is the fastest type of court, offering low ball bounces and shorter rallies. This fast surface also provides an advantage to players with big serves, as the ball is harder to return to start the point. There are many variables to how a ball behaves on a grass court, such as how many players have played on it before, how often it is mowed, and the overall health and quality of the grass itself. While all four of the Grand Slam tournaments once used grass courts, Wimbledon is currently the only one that still features a grass court. </p>
                         </div> 
                     </div>
-                    <div id = "info_card" class = "row p-0 m-0"> 
-                        <div id = "info_banner" class = "row m-0"> 
+                    <div class = "info_card row p-0 m-0"> 
+                        <div class = "info_banner row m-0"> 
                             <h1>Synthetic tennis courts</h1>
                         </div>
-                        <div id = "info_text" class = "row m-0">
+                        <div class = "info_text row m-0">
                             <p>For the softness and feel of a grass court without the maintenance, some public and private facilities may opt for a synthetic turf court. Synthetic courts usually contain plastic grass fibers with better durability and less upkeep than a standard grass court. The sand-filled topping that layers the surface of a synthetic turf court protects the court itself from weather conditions, allowing it to dry faster, and making it less susceptible to wear over time. The materials used are non-toxic and not prone to pests like real grass.</p>
                         </div> 
                     </div>
                 </div>
             </div>
         </div>
+
         <!--FOOTER-->
-        <div id = "footer" class = "row align-items-stretch p-0 m-0">
-            <ul id = "sections" class = "col-lg-8 p-x-0">
-                <li id = "ftrSection" class = "col m-0"> 
+        <div class = "footer row align-items-stretch p-0 m-0">
+            <ul class = "sections col-lg-8 p-x-0">
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "index.html">ΑΡΧΙΚΗ</a>
                     </h1>
-
+    
                     <h1> 
                         <a href = "login.html">LOG IN</a>
                     </h1>
-
+    
                     <h1> 
                         <a href = "signup.html">SIGN UP</a>
                     </h1>
-
+    
                 </li>
                 <!--TENNIS-->
-                <li id = "ftrSection" class = "col m-0"> 
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "tennis.html">ΤΕΝΝΙΣ</a>
                     </h1>
-                    <ul id = "scList">
-                        <li id = "listItem"> 
+                    <ul class = "scList">
+                        <li class = "listItem"> 
                             <a href = "#">Παίξε τέννις</a>
                         </li>
-                        <li id = "listItem">
+                        <li class = "listItem">
                             <a href = "lessons.html">Μαθήματα τέννις</a> 
                         </li>
-                        <li id = "listItem">
+                        <li class = "listItem">
                             <a href = "tournaments.html">Τουρνουά τέννις</a>
                         </li> 
                     </ul> 
                 </li>
                 <!--SPACES-->
-                <li id = "ftrSection" class = "col m-0"> 
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "spaces.html">ΧΩΡΟΙ</a>
                     </h1>
-                    <ul id = "scList">
-                        <li id = "listItem"> 
+                    <ul class = "scList">
+                        <li class = "listItem"> 
                             <a href = "courts.html">Γήπεδα</a>
                         </li>
-                        <li id = "listItem">
+                        <li class = "listItem">
                             <a href = "#">Εστιατόριο</a>
                         </li> 
                     </ul> 
                 </li>
                 <!--BOOKING-->
-                <li id = "ftrSection" class = "col m-0"> 
+                <li class = "ftrSection col m-0"> 
                     <h1> 
                         <a href = "booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a>
                     </h1>
@@ -193,7 +279,8 @@
             <hr>
             <p> HELLO THIS IS THE END OF THE FRONT PAGE AND I HAVE GAINED SO MUCH WEIGHT JUST MAKING THIS ONE </p>
         </div>
-        <script type = "text/javascript" src = "popup.js"> </script>
+        
+        <script type = "text/javascript" src = "scripts/popup_new.js"> </script>
 
     </body>
 </html>
