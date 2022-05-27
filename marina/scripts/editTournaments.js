@@ -67,8 +67,6 @@ function normalMode(){
 
     mode = 0;
 
-    console.log("called");
-
     buttons.innerHTML = "";
 
     let delBtns = document.querySelectorAll(".delete_button.month");

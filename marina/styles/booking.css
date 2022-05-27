@@ -125,6 +125,14 @@
     border-collapse: collapse;
 }
 
+.booking_button { 
+    border: none; 
+    height: 100%; 
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0);
+    color: #34354b;
+}
+
 .buttons { 
     display: flex;
     flex-direction: row;

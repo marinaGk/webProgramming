@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="styles/footer.css">
         <link rel="stylesheet" href="styles/navBar.css"> 
         <link rel="stylesheet" href="styles/logInOrUp.css">
+        <link rel = "stylesheet" href = "styles/randomStyle.css">
 
         <title>Villia Tennis Club</title>
     </head>
@@ -105,8 +106,37 @@
             </div>
         </div>
 
+        <!--SIDENAV-->
+        <div class = "sidenav">
+            <div class = "sidenav-container"> 
+                <div class = "sidenavbar"> 
+                    <ul class = "side_button_list row m-0"> 
+                        <li class = "side_navButton">
+                            <a href = "index.html">ΑΡΧΙΚΗ</a>
+                        </li>
+                        <li class = "side_navButton"> 
+                            <a href="tennis.html">ΤΕΝΝΙΣ</a>
+                        </li>
+                        <li class = "side_navButton"> 
+                            <a href="spaces.html">ΧΩΡΟΙ</a>
+                        </li>
+                        <li class = "side_navButton">
+                            <a href = "booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a>
+                        </li> 
+                    </ul>
+                    <ul class = "side_connection_list row m-0">
+                        <li class = "side_accButton">
+                            <button id = "loginBtn">LOGIN</button>
+                        </li> 
+                        <li class = "side_accButton">
+                            <button id = "signBtn">SIGN UP</button>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
         <!--NAVIGATION BAR-->
-        <div class = "navbarGen row m-0 p-0">
+        <nav class = "navbarGen row m-0 p-0">
             <ul class = "button_list col-10 p-0 m-0">
                 <!--Home Page-->
                 <li class = "navButton col-lg-2 col-md-1 col-sm-1">
@@ -142,7 +172,7 @@
                     <a href="booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
                 </li>
             </ul>
-            <ul class = "connection_list col-2 p-0 m-0">
+            <ul class = "connection_list navbar-nav col-2 p-0 m-0">
                 <li class="accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
                     <button id = "loginBtn">LOGIN</button> 
                 </li>
@@ -150,7 +180,10 @@
                     <button id = "signupBtn">SIGN UP</button> 
                 </li>
             </ul>
-        </div>
+            <button class = "collapse_button col-2 p-0 m-0"> 
+                &#9776;
+            </button>
+        </nav>
 
         <!--MAIN-->
         <div class = "main row m-0"> 
