@@ -112,7 +112,7 @@
             
                     <div class = "popup" id = "join-tournament">
                         <div class = "modal-container"> 
-                            <div class = "modal" id = "tournaments_modal">
+                            <div class = "modal" style = "width : 70%">
         
                                 <!-- close button x -->
                                 <div class = "button_row row m-0 p-0"> 
@@ -128,44 +128,50 @@
                                                 ΦΟΡΜΑ ΔΗΛΩΣΗΣ ΣΥΜΜΕΤΟΧΗΣ ΣΕ ΤΟΥΡΝΟΥΑ
                                             </h1> 
                                         </div>
-                                        <div class = "field row mb-3 p-0"> 
-                                            <label for = "first-name" class = "field_name col-6 p-0"> Όνομα<span style = "color:red">*</span> </label>
-                                            <input type="text" name="first-name" class = "field_input col-6 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
-                                        </div>
-                                        <div class = "field row mb-3 p-0"> 
-                                            <label for = "last-name" class = "field_name col-6 p-0"> Επώνυμο<span style = "color:red">*</span> </label>
-                                            <input type="text" name="last-name" class = "field_input col-6 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
-                                        </div>
-                                        <div class = "field row mb-3 p-0">
-                                            <label for = "gender" class = "field_name col-6 p-0"> Φύλο<span style = "color:red">*</span> </label>
-                                            <div class = "field_name col-6 p-0">
-                                                <input type="radio" name="gender" class = "col-0 p-0" value="male" checked>&nbsp;Άνδρας
-                                                <input type="radio" name="gender" class = "col-0 p-0" style = "margin-left : 30px;" value="female">&nbsp;Γυναίκα
-                                                <input type="radio" name="gender" class = "col-0 p-0" style = "margin-left : 30px;" value="other">&nbsp;Άλλο
+                                        <div class = "row">
+                                            <div class = "col-6">
+                                                <div class = "field row mb-4 p-0"> 
+                                                    <label for = "first-name" class = "field_name col-7 p-0"> Όνομα<span style = "color:red">*</span> </label>
+                                                    <input type="text" name="first-name" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                                </div>
+                                                <div class = "field row mb-4 p-0"> 
+                                                    <label for = "last-name" class = "field_name col-7 p-0"> Επώνυμο<span style = "color:red">*</span> </label>
+                                                    <input type="text" name="last-name" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                                </div>
+                                                <div class = "field row mb-4 p-0">
+                                                    <label for = "gender" class = "field_name col-7 p-0"> Φύλο<span style = "color:red">*</span> </label>
+                                                    <div class = "field_name col-7 p-0">
+                                                        <input type="radio" name="gender" class = "col-0 p-0" value="male" checked>&nbsp;Άνδρας
+                                                        <input type="radio" name="gender" class = "col-0 p-0" style = "margin-left : 30px;" value="female">&nbsp;Γυναίκα
+                                                        <input type="radio" name="gender" class = "col-0 p-0" style = "margin-left : 30px;" value="other">&nbsp;Άλλο
+                                                    </div>
+                                                </div>
+                                                <div class = "field row mb-4 p-0"> 
+                                                    <label for = "birthday" class = "field_name col-7 p-0"> Έτος γεννήσεως<span style = "color:red">*</span> </label>
+                                                    <input type="date" name="birthday" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                                </div>
+                                                <div class = "field row mb-4 p-0"> 
+                                                    <label for = "mobilephone" class = "field_name col-7 p-0"> Κινητό τηλέφωνο<span style = "color:red">*</span> </label>
+                                                    <input type="text" name="mobilephone" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                                </div>
+                                            </div>
+                                            <div class = "col-6">
+                                                <div class = "field row mb-4 p-0"> 
+                                                    <label for = "telephone" class = "field_name col-7 p-0"> Σταθερό τηλέφωνο </label>
+                                                    <input type="text" name="telephone" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                                </div>
+                                                <div class = "field row mb-4 p-0"> 
+                                                    <label for = "tournament" class = "field_name col-7 p-0"> Τουρνουά<span style = "color:red">*</span> </label>
+                                                    <select name="tournament" class = "field_input col-7 p-0">
+                                                        
+                                                    </select>
+                                                </div>
+                                                <div class = "field row mb-4 p-0"> 
+                                                    <label for = "comments" class = "field_name col-7 p-0"> Σχόλια </label>
+                                                    <textarea name="comments" rows="5" class = "field_input col-7 p-0" placeholder="Εισάγετε εδώ τα σχόλιά σας&#10;(π.χ. μέρες που δεν μπορείτε να συμμετάσχετε)"></textarea>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class = "field row mb-3 p-0"> 
-                                            <label for = "birthday" class = "field_name col-6 p-0"> Έτος γεννήσεως<span style = "color:red">*</span> </label>
-                                            <input type="date" name="birthday" class = "field_input col-6 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
-                                        </div>
-                                        <div class = "field row mb-3 p-0"> 
-                                            <label for = "mobilephone" class = "field_name col-6 p-0"> Κινητό τηλέφωνο<span style = "color:red">*</span> </label>
-                                            <input type="text" name="mobilephone" class = "field_input col-6 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
-                                        </div>
-                                        <div class = "field row mb-3 p-0"> 
-                                            <label for = "telephone" class = "field_name col-6 p-0"> Σταθερό τηλέφωνο </label>
-                                            <input type="text" name="telephone" class = "field_input col-6 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
-                                        </div>
-                                        <div class = "field row mb-3 p-0"> 
-                                            <label for = "tournament" class = "field_name col-6 p-0"> Τουρνουά<span style = "color:red">*</span> </label>
-                                            <select name="tournament" class = "field_input col-6 p-0">
-                                                
-                                            </select>
-                                        </div>
-                                        <div class = "field row mb-0 p-0"> 
-                                            <label for = "comments" class = "field_name col-6 p-0"> Σχόλια </label>
-                                            <textarea name="comments" class = "field_input col-6 p-0" placeholder="Εισάγετε εδώ τα σχόλιά σας (μέρες που δεν μπορείτε να συμμετάσχετε, κ.λ.π.)"></textarea>
-                                        </div>  
                                     </div>
                                     <button type = "submit" class = "submit"> 
                                         Υποβολή
