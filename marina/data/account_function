@@ -1,0 +1,20 @@
+/* creates function that will pull ids from account and make new rows
+on admin and user */ 
+
+CREATE FUNCTION separate_accounts() RETURNS TRIGGER AS $$
+    
+    BEGIN 
+        RAISE NOTICE '%', NEW;
+        IF (NEW.AdminRights) THEN
+            INSERT INTO ADMINACCOUNT(AdminAccountID) VALUES (NEW.AccountID);
+        ELSE 
+            INSERT INTO USERACCOUNT(UserAccountID) VALUES(NEW.AccountID);
+        END IF;        
+        RETURN NEW;
+    END;
+    
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER add_to_admin_user AFTER INSERT ON ACCOUNT 
+    FOR EACH ROW
+    EXECUTE PROCEDURE separate_accounts();
