@@ -1,5 +1,7 @@
 let loginBtn = document.querySelector("#loginBtn"); 
 let signupBtn = document.querySelector("#signupBtn");
+
+//tournaments page
 let joinTournamentBtn = document.querySelector('#joinTournamentBtn');
 
 let closeBtn;
@@ -91,7 +93,42 @@ function joinTournamentPopup() {
     modal.style.zIndex = "500";
     modal.style.display = "flex";
 
+
 }
+
+
+//available court popup opens
+
+function availableCourt(courtNumber){
+    popup = document.querySelector("#available");
+    modal = popup.querySelector(".modal-container");
+
+    // court = document.querySelector("#court_choise");
+    // court.setAttribute("value", courtNumber);
+
+    closeBtn = popup.querySelector(".close");
+    closeBtn.addEventListener("click", closePopup); 
+
+    document.body.style.overflow = "hidden";
+    modal.style.zIndex = "500";
+    modal.style.display = "flex";
+}
+
+
+//not available court popup opens
+
+function notAvailableCourt(){
+    popup = document.querySelector("#unavailable");
+    modal = popup.querySelector(".modal-container");
+
+    closeBtn = popup.querySelector(".close");
+    closeBtn.addEventListener("click", closePopup); 
+
+    document.body.style.overflow = "hidden";
+    modal.style.zIndex = "500";
+    modal.style.display = "flex";
+}
+
 
 //function that closes popup window when close button is pressed
 
