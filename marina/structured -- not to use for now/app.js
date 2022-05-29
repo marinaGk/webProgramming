@@ -1,12 +1,17 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const bodyParser = require('body-parser');
+
+const model = require(path.join( __dirname, "/model/model_pg.js" ));
 
 const app = express(); 
 
 app.engine('hbs', exphbs.engine({extname: 'hbs', defaultLayout: 'main', layoutsDir:__dirname + '/views/layouts'}));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 
 const router = express.Router();
 
@@ -57,4 +62,29 @@ app.get('/booking', (req, res) => {
   res.render('booking', {title: "Villia Tennis Club | Booking", style: "booking.css", scripts: scripts});
 });
 
+app.get('/login', (req, res) => { 
+  let userName; let passWord;
+  console.log('Login form created');
+  response = { 
+    userName: req.query.username, 
+    passWord: req.query.password
+  }
+  //model.createUser(response.userName, response.passWord);
+  res.redirect('back');
+});
 
+app.get('/signup', (req, res) => { 
+  let username; let email; let firstname; let lastname; let password; let passwordrepeat;
+  console.log('Signup form created');
+  response = { 
+    email: req.query.email,
+    username: req.query.username, 
+    firstname: req.query.firstname, 
+    lastname: req.query.lastname, 
+    password: req.query.password,
+    passwordrepeat: req.query.repeat_password
+  };
+  console.log(response);
+  //model.createUser(response.userName, response.passWord);
+  res.redirect('back');
+});

@@ -30,7 +30,7 @@
                         <button class = "close col-1 p-0">
                         </button> 
                     </div>
-                    <form class = "form">
+                    <form class = "form" action = "/login">
                         <div class = "inputs col m-0">
                             <div class="title row m-0 p-0"> 
                                 <h1>
@@ -38,12 +38,12 @@
                                 </h1> 
                             </div>
                             <div class = "field row m-0 p-0"> 
-                                <label for = "e-mail" class = "field_name col-5 p-0"> E-mail or username </label>
-                                <input type="text" name="e-mail" class = "field_input col-5 p-0">
+                                <label for = "username" class = "field_name col-5 p-0"> Username </label>
+                                <input type="text" name="username" class = "field_input col-5 p-0" value = "">
                             </div>
                             <div class = "field row m-0 p-0"> 
                                 <label for = "password" class = "field_name col-5 p-0"> Password </label>
-                                <input type="text" name="password" class = "field_input col-5 p-0">
+                                <input type="text" name="password" class = "field_input col-5 p-0" value = "">
                             </div> 
                         </div>
                         <div class = "redirect row m-0 p-0">
@@ -64,7 +64,7 @@
                         <button class = "close col-1 p-0" >
                         </button> 
                     </div>
-                    <form class = "form">
+                    <form class = "form" action = "/signup">
                         <div class = "inputs col m-0">
                             <div class="title row m-0 p-0"> 
                                 <h1>
@@ -72,16 +72,20 @@
                                 </h1> 
                             </div>
                             <div class = "field row m-0 p-0"> 
-                                <label for = "e-mail" class = "field_name col-5 p-0"> E-mail </label>
-                                <input type="text" name="e-mail" class = "field_input col-5 p-0">
+                                <label for = "email" class = "field_name col-5 p-0"> E-mail </label>
+                                <input type="text" name="email" class = "field_input col-5 p-0">
                             </div>
                             <div class = "field row m-0 p-0"> 
-                                <label for = "name" class = "field_name col-5 p-0"> Username </label>
-                                <input type="text" name="user_name" class = "field_input col-5 p-0">
+                                <label for = "username" class = "field_name col-5 p-0"> Username </label>
+                                <input type="text" name="username" class = "field_input col-5 p-0">
                             </div>
                             <div class = "field row m-0 p-0"> 
-                                <label for = "full_name" class = "field_name col-5 p-0"> Full name </label>
-                                <input type="text" name="e-mail" class = "field_input col-5 p-0">
+                                <label for = "firstname" class = "field_name col-5 p-0"> First name </label>
+                                <input type="text" name="firstname" class = "field_input col-5 p-0">
+                            </div>
+                            <div class = "field row m-0 p-0"> 
+                                <label for = "lastname" class = "field_name col-5 p-0"> Last name </label>
+                                <input type="text" name="lastname" class = "field_input col-5 p-0">
                             </div>
                             <div class = "field row m-0 p-0"> 
                                 <label for = "password" class = "field_name col-5 p-0"> Password </label>
@@ -171,10 +175,10 @@
             </ul>
             <ul class = "connection_list navbar-nav col-2 p-0 m-0">
                 <li class="accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
-                    <button id = "loginBtn">LOGIN</button> 
+                    <button id = "loginBtn" href = "/login">LOGIN</button> 
                 </li>
                 <li class = "accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
-                    <button id = "signupBtn">SIGN UP</button> 
+                    <button id = "signupBtn" href = "/signup">SIGN UP</button> 
                 </li>
             </ul>
             <button class = "collapse_button col-2 p-0 m-0"> 

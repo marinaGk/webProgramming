@@ -1,17 +1,6 @@
 const pg = require('pg');
-const dotevn = require('dotenv');
-
-dotevn.config();
-
-export let availableHours;
-
-const pool = new pg.Pool({
-    user: 'marty',
-    host: 'localhost',
-    database: 'tennis_club',
-    password: 'madagascar1234',
-    port: 5432,
-    });
+const dotenv = require('dotenv');
+dotenv.config();
 
 async function connect() { 
 
@@ -25,7 +14,7 @@ async function connect() {
 
 }
 
-export async function getTimeslots (callback) { 
+async function getTimeslots (callback) { 
     const sql = `SELECT * FROM "TIMESLOT"`;
     try { 
         const client = await connect(); 
@@ -39,3 +28,10 @@ export async function getTimeslots (callback) {
         callback(err, null);
     }
 }
+
+function createUser(userName, passWord) { 
+    //console.log(userName);
+    //console.log(passWord);
+}
+
+module.exports = {createUser};
