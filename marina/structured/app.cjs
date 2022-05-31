@@ -14,7 +14,7 @@ app.use(express.static('public'));
 const routes = require('./routes/routes.cjs');
 
 app.use('/', routes.router);
-console.log(routes.courtVariable);
+
 app.engine('hbs', exphbs.engine({
   extname: 'hbs', 
   defaultLayout: 'main', 

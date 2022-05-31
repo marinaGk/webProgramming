@@ -7,11 +7,6 @@ const max = 4;
 const min = 1; 
 let courtNum = 1;
 
-const nextBtn = document.querySelector("#next"); 
-nextBtn.addEventListener("click", nextButton);
-const prevButton = document.querySelector("#previous");
-prevButton.addEventListener("click", previousButton);
-
 //const data_length = availableHours.length;
 const tableWidth = 14;
 const tableHeight = 8;
@@ -63,35 +58,6 @@ function fillDataColumns() {
 
     }
 
-}
-
-function nextButton() { 
-    if (courtNum == max) { 
-        courtNum = max; 
-    }
-    else {
-        courtNum++;
-    } 
-    //fillDataColumns();
-    setCounterField();
-}
-
-function previousButton () { 
-    if (courtNum == min) { 
-        courtNum = min; 
-    }
-    else {
-        courtNum--;
-    } 
-    //fillDataColumns();
-    setCounterField();
-}
-
-function setCounterField() { 
-    const field = document.querySelector("#current");
-    field.innerHTML = "";
-    let text = document.createTextNode(courtNum); 
-    field.appendChild(text);
 }
 
 let fillRow = (row) => { 

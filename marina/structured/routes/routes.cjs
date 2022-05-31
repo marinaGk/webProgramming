@@ -4,12 +4,12 @@ const router = express.Router();
 const dotenv = require('dotenv');
 dotenv.config();
 
-let courtVariable = 1;
 const max = 4; 
 const min = 1;
 //const tournamentsContoller = require('../controller/tournamentsController.cjs'); 
 
 const bookingController = require('../controller/bookingController.cjs');
+let courtVariable = bookingController.courtVariable;
 
 //const loginController = require('../controller/loginControllerPasword.cjs');
 
@@ -69,29 +69,11 @@ router.route('/signup').get((req, res) => {
     res.redirect('back');
 });
 
-router.route('/booking/courts/next').get((req, res) => {
-    if(courtVariable == max) { 
-        courtVariable = max;
-    }
-    else { 
-        courtVariable++;
-    }
-    res.redirect('/booking');
-});
-
-router.route('/booking/courts/previous').get((req, res) => {
-    if(courtVariable == min) { 
-        courtVariable = min;
-    }
-    else { 
-        courtVariable--;
-    }
-    res.redirect('/index');
-});
+router.get('/booking/courts/next', bookingController.increment);
+router.get('/booking/courts/previous', bookingController.decrement);
 
 router.get('/booking/courts', bookingController.timeslots);
-router.get('/booking', bookingController.render);
+router.get('/booking', bookingController.renderBooking);
 
 exports.router = router;
-exports.courtVariable = courtVariable;
 
