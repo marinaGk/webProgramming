@@ -1,3 +1,5 @@
+//Required for admin view
+
 let months_list = document.getElementsByClassName('tournaments_info_row');
 let months_counter = months_list.length;
 let tournaments_list = document.getElementsByClassName('tournament_row');
@@ -19,8 +21,6 @@ function edit() {
 
 function newMonthField() {
 
-    months_counter +=1;
-
     if (current_month_row != undefined){ 
         let list = current_month_row.classList; 
         list.remove("current_month");
@@ -29,9 +29,8 @@ function newMonthField() {
     let field = document.querySelector('.tournament_rows');
 
     current_month_row = document.createElement('div');
-    current_month_row.className = 'tournaments_info_row';
+    current_month_row.className = 'tournaments_info_row'; 
     current_month_row.classList.add("current_month");
-    current_month_row.setAttribute('id', `month${months_counter}`);
 
     let monthRow = document.createElement("div"); 
     monthRow.className = "month_row"; 
@@ -65,21 +64,9 @@ function newMonthField() {
     field.appendChild(current_month_row);
 }
 
-function addMonthTitle(event) {
-
-    if (event.key == 'Enter') {
-        let inputVar = month_input.value;
-        month_input.remove();
-        let field = document.querySelector('.tournaments_info_row.current_month');
-        field = field.querySelector('h4');
-        let text = document.createTextNode(inputVar);
-        field.appendChild(text)
-    }
-
-}
-
 function newTournamentField() {
 
+    //current tourn works the same way as current month
     if (current_tournament_row != undefined){ 
         let list = current_tournament_row.classList; 
         list.remove("current_tourn");
@@ -152,6 +139,38 @@ function createTournamentRow() {
     return row
 }
 
+function fillTable(input) { 
+
+    let table_field = document.querySelector(".board");
+    let row = document.createElement("tr"); 
+    row.setAttribute("id", `row${input}`);
+
+    for (let i = 0; i<rowLength; i++) { 
+        let cell = document.createElement("td"); 
+        if (i == 2) {
+            cell.appendChild(document.createTextNode(input));
+        }
+        cell.contentEditable = true;
+        row.append(cell);
+    }
+    table_field.append(row);
+}
+
+//event listener functions
+
+function addMonthTitle(event) {
+
+    if (event.key == 'Enter') {
+        let inputVar = month_input.value;
+        month_input.remove();
+        let field = document.querySelector('.tournaments_info_row.current_month');
+        field = field.querySelector('h4');
+        let text = document.createTextNode(inputVar);
+        field.appendChild(text)
+    }
+
+}
+
 function addTournamentTitle(event) {
 
     if (event.key=='Enter') { 
@@ -178,35 +197,11 @@ function addTournamentDetails(event) {
     }
 }
 
-function fillTable(input) { 
-
-    let table_field = document.querySelector(".board");
-    let row = document.createElement("tr"); 
-    row.setAttribute("id", `row${input}`);
-
-    for (let i = 0; i<rowLength; i++) { 
-        let cell = document.createElement("td"); 
-        if (i == 2) {
-            cell.appendChild(document.createTextNode(input));
-        }
-        cell.contentEditable = true;
-        row.append(cell);
-    }
-    table_field.append(row);
-}
-
-function loadPage(href) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', href, false);
-    xmlhttp.send();
-    return xmlhttp.responseText;
-}
-
 function monthDel (){ 
 
-        let row = this.parentNode;
-        let month = row.parentNode; 
-        month.parentNode.remove();
+    let row = this.parentNode;
+    let month = row.parentNode; 
+    month.parentNode.remove();
 
 }
 
