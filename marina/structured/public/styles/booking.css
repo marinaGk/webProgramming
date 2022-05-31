@@ -86,7 +86,6 @@
 }
 
 .table tbody {
-    width: 80%; 
     margin: auto;
 }
 
@@ -111,18 +110,25 @@
     color: #4387cd;
 }
 
-.table td { 
+.table td{ 
+    padding: 0px;
     height: 100%;
     text-align: center;
+    vertical-align: middle;
     background-color: #f5f7f9;
     border: 2px solid white;
 }
 
-.table .hours td { 
+.table .hours td{ 
+    text-align: center;
     background-color: #34354b;
     color: white;
     border: 2px solid white;
     border-collapse: collapse;
+}
+
+.table .hours td p{ 
+    margin: 12.5%;
 }
 
 .booking_button { 

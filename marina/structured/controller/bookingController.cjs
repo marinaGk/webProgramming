@@ -41,6 +41,17 @@ function timeslots(req, res) {
     });
 }
 
+function tablehours(req, res) { 
+    model.getTablehours(function(err, rows) { 
+        if(err) { 
+            res.send(err);
+        }
+        else { 
+            res.send(rows);
+        }
+    });
+}
+
 function renderBooking(req, res) { 
     let scripts = [];
     res.render('booking', {title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts});
@@ -50,3 +61,4 @@ exports.timeslots = timeslots;
 exports.renderBooking = renderBooking;
 exports.increment = increment;
 exports.decrement = decrement;
+exports.tablehours = tablehours;

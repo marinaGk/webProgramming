@@ -1,83 +1,86 @@
-let timeslots;
-
 let table = document.querySelector(".table");
-table.style.tableLayout = "fixed";
 
-const max = 4; 
-const min = 1; 
-let courtNum = 1;
-
-//const data_length = availableHours.length;
 const tableWidth = 14;
 const tableHeight = 8;
 
-function fillHourRow() {
+function book() { 
+    alert("Hello world");
+}
 
+function fillHourRow(hourslots) {
+
+    const data_length = hourslots.length;
     const hours = document.querySelector(".hours");
     let children = hours.children;
-    for (let i = 0; i <data_length; i++) {
-        let cell = children[i];
-        let hour = availableHours[i];
+
+    for (let i = 0; i<data_length; i++) {
+
+        let cell = children[i+1];
+        let hour = hourslots[i].tablehour;
+        hour = hour.substr(0, 5);
         let text = document.createTextNode(hour);
-        cell.appendChild(text);
+        let p = document.createElement('p'); 
+        p.appendChild(text);
+        cell.appendChild(p);
     }
     
 }
 
+function fillDataColumns(timeslots) { 
+
+    const data = document.querySelectorAll(".data_row td"); 
+
+    for (let i = 0; data.length; i++) { 
+        let availability = timeslots[i].availability;
+        if (availability == true) { 
+            data[i].innerHTML = "&#10003;";
+
+        }
+        else if (availability == false) { 
+            let text = document.createTextNode("no");
+            data[i].innerHTML = "&#88;";
+            data[i].style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
+        }
+    }
+
+}
+
 function fillDayColumn() { 
+
+    const month_cell = document.querySelector(".hours #cell0"); 
+    let text = document.createTextNode("Για την επόμενη εβδομάδα");
+    month_cell.append(text);
     
     const days = document.querySelectorAll(".data_row #cell0");
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-    let date = new Date();
     let cellDate = new Date();
 
     for (let i = 0; i<days.length; i++) { 
-        cellDate.setDate(date.getDate() + i);
+        cellDate.setDate(new Date().getDate() + i);
+        console.log(cellDate);
         let text = document.createTextNode(cellDate.toLocaleDateString('el-GR', options));
         days[i].append(text);
     }
 
 }
 
-function fillDataColumns() { 
-
-    const dataRows = document.querySelectorAll(".data_row"); 
-    const availableHoursCourt = availability[courtNum-1]; 
-
-    for (let i = 0; i<dataRows.length; i++) { 
-        let children = dataRows[i].children;
-        let childrenAvailability = availableHoursCourt[i];
-
-        for (let k = 1; k<children.length; k++) { 
-            let cellAvailability = childrenAvailability[k-1];
-            let text = document.createTextNode(cellAvailability);
-            children[k].innerHTML = "";
-            children[k].append(text);
-        }
-
-    }
-
-}
-
 let fillRow = (row) => { 
 
-    let text = document.createTextNode("I hate myself");
-    row.appendChild(text);
-    /*let cell = document.createElement("th");
+    let cell = document.createElement("th");
 
     cell.style.width = "20%";
 
     for (let i = 0; i<tableWidth; i++) { 
         if (i != 0) { 
             cell = document.createElement("td");
-            //cell.addEventListener("click", book);
+            cell.addEventListener("click", book);
             cell.style.colSpan = "1";
         }
         cell.id = `cell${i}`;
 
         row.appendChild(cell);
-    }*/
+    }
 
 }
 
@@ -92,20 +95,22 @@ let makeTable = () => {
         else { 
             row.className = "data_row"
         }
-        //fillRow(row);
+        fillRow(row);
         table.appendChild(row);
     }
     //fillHourRow();
-    //fillDayColumn();
+    fillDayColumn();
     //fillDataColumns();
 }
 
 //don't mess with those
 
-let renderTimeslots = (slotJson) => { 
-    //now you have the slots. 
-    //act wisely you shit.
-    return slotJson;
+let renderTimeslots = (timeslots) => { 
+    fillDataColumns(timeslots);
+}
+
+let renderTablehours = (hourslots) => { 
+    fillHourRow(hourslots);
 }
 
 let fetchTimeslots = () => { 
@@ -116,9 +121,17 @@ let fetchTimeslots = () => {
     )
 }
 
+let fetchTablehours = () => { 
+    fetch('/booking/hours')
+    .then(
+        (response) => response.json()
+        .then((json) => renderTablehours(json))
+    )
+}
+
 window.addEventListener('DOMContentLoaded', (event) => { 
-    timeslots = fetchTimeslots();
-    //organizeSlots(slotJson);
     makeTable();
+    fetchTimeslots();
+    fetchTablehours();
 });
 

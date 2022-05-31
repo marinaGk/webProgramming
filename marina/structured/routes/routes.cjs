@@ -71,7 +71,7 @@ router.route('/signup').get((req, res) => {
 
 router.get('/booking/courts/next', bookingController.increment);
 router.get('/booking/courts/previous', bookingController.decrement);
-
+router.get('/booking/hours', bookingController.tablehours);
 router.get('/booking/courts', bookingController.timeslots);
 router.get('/booking', bookingController.renderBooking);
 
