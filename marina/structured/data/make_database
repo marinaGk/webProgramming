@@ -50,14 +50,6 @@ CREATE TABLE TABLEDATES (
     PRIMARY KEY(TableDateID)
 );
 
-/*SC_int where int is same as respective court*/ 
-
-CREATE TABLE SCHEDULE (
-    ScheduleID varchar(100) NOT NULL, 
-    CourtID varchar(100) NOT NULL, 
-    FOREIGN KEY(CourtID) REFERENCES COURT(CourtID),
-    PRIMARY KEY(ScheduleID)
-);
  
 /*TS_int where int is a combination of day and time ints, gets updated with each new day*/
 /*this one will be updated from server everyday at midnight: contents will be copied > table will be truncated > 
@@ -67,10 +59,10 @@ CREATE TABLE TIMESLOT (
 	DayID varchar(100) NOT NULL, 
     TimeID varchar(100) NOT NULL, 
     Availability boolean DEFAULT TRUE NOT NULL, 
-    ScheduleID varchar(100) NOT NULL, 
+    CourtID varchar(100) NOT NULL, 
     FOREIGN KEY(TimeID) REFERENCES TABLETIMES(TableTimeID), 
     FOREIGN KEY(DayID) REFERENCES TABLEDATES(TableDateID), 
-    FOREIGN KEY(ScheduleID) REFERENCES SCHEDULE(ScheduleID),
+    FOREIGN KEY(CourtID) REFERENCES COURT(CourtID),
     PRIMARY KEY(TimeSlotID)
 );
 

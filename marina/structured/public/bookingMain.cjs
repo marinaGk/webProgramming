@@ -3,6 +3,12 @@ let table = document.querySelector(".table");
 const tableWidth = 14;
 const tableHeight = 8;
 
+function confirmForm() { 
+    let modal_form = document.querySelector("#accept_decline .modal-container");
+    modal_form.style.zIndex = "500";
+    modal_form.style.display = "flex";
+}
+
 function book() { 
     alert("Hello world");
 }
@@ -35,6 +41,7 @@ function fillDataColumns(timeslots) {
         if (availability == true) { 
             data[counter].innerHTML = "&#10003;";
             //data[counter].addEventListener("click", book);
+            data[counter].addEventListener("click", confirmForm);
         }
         else if (availability == false) { 
             let text = document.createTextNode("no");

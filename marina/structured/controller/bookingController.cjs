@@ -53,7 +53,7 @@ function tablehours(req, res) {
 }
 
 function renderBooking(req, res) { 
-    let scripts = [{script: 'scripts/confirm_form_popup.js'}];
+    let scripts = [{script: '/scripts/confirm_form_popup.js'}];
     //let scripts = [];
     //res.render('booking', {title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts});
     res.render('bookingAdmin', {title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts});

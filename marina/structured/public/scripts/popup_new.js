@@ -34,7 +34,6 @@ function signupPopup() {
     closeBtn = popup.querySelector(".close");
     closeBtn.addEventListener("click", closePopup); 
 
-    document.body.style.overflow = "hidden";
     modal.style.zIndex = "500";
     modal.style.display = "flex";
 

@@ -3,11 +3,11 @@ const sql = require('./db.pg.js');
 
 //needs to be called with courts global variable
 let getTimeslots = (court, callback) => {
-    let scheduleId = `SC_${court}`;
+    let courtId = `C_${court}`;
     const query = { 
         text: 
         `select timeslotid, availability, tabledate, tablehour from timeslot JOIN tabledates ON tabledateid = dayid 
-        JOIN tabletimes on tabletimeid = timeid WHERE scheduleid = '${scheduleId}' ORDER BY tabledate, tablehour;`
+        JOIN tabletimes on tabletimeid = timeid WHERE courtid = '${courtId}' ORDER BY tabledate, tablehour;`
     }
 
     sql.query(query, (err, timeslots) => { 
