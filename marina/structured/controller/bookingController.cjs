@@ -7,7 +7,6 @@ const max = 4;
 const min = 1;
 let courtVariable = min;
 
-
 function increment(req, res) { 
     if (courtVariable == max){ 
         courtVariable = max;
@@ -52,11 +51,32 @@ function tablehours(req, res) {
     });
 }
 
-function renderBooking(req, res) { 
+function renderBookingAdmin(req, res) { 
     let scripts = [{script: '/scripts/confirm_form_popup.js'}];
-    //let scripts = [];
-    //res.render('booking', {title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts});
     res.render('bookingAdmin', {title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts});
+}
+
+function renderBooking(req, res) { 
+    let scripts = [];
+    res.render('booking', {title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts});
+}
+
+function changeBooking(req, res) { 
+    model.changeSlotAvailability(req.params.TimeSlotID, function(err, rows) { 
+        if (err) { 
+            res.send(err);
+        }
+        else { 
+            model.getTimeslots(courtVariable, function (err, rows) { 
+                if (err) { 
+                    res.send(err);
+                }
+                else { 
+                    res.send(rows);
+                }
+            });
+        }
+    })
 }
 
 exports.timeslots = timeslots;
@@ -64,3 +84,5 @@ exports.renderBooking = renderBooking;
 exports.increment = increment;
 exports.decrement = decrement;
 exports.tablehours = tablehours;
+exports.renderBookingAdmin = renderBookingAdmin;
+exports.changeBooking = changeBooking;

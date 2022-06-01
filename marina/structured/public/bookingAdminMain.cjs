@@ -3,11 +3,34 @@ let table = document.querySelector(".table");
 const tableWidth = 14;
 const tableHeight = 8;
 
-function book() { 
-    alert("Hello world");
+let changeBooking = (event) => { 
+    console.log("changingBooking");
+    let timeslot = event.target.getAttribute("timeslotid");
+    let modal_form = document.querySelector("#accept_decline .modal-container");
+    modal_form.style.zIndex = "-1";
+    modal_form.style.display = "none";
+
+    fetch('/booking/change/' + timeslot)
+    .then(
+        (response) => response.json()
+        .then((json) => renderTimeslots(json))
+    )
 }
 
-function fillHourRow(hourslots) {
+let  confirmForm = (timeslotid) => { 
+    let modal_form = document.querySelector("#accept_decline .modal-container");
+    modal_form.style.zIndex = "500";
+    modal_form.style.display = "flex";
+    let proceedWithChange = modal_form.querySelector("#proceedBtn"); 
+    proceedWithChange.setAttribute("timeslotid", timeslotid);
+    proceedWithChange.addEventListener("click", changeBooking);
+}
+
+let getIdForBookingChange = (event) => { 
+    confirmForm(event.target.id);
+}
+
+let fillHourRow = (hourslots) => {
 
     const data_length = hourslots.length;
     const hours = document.querySelector(".hours");
@@ -26,8 +49,7 @@ function fillHourRow(hourslots) {
     
 }
 
-//changes on admin
-function fillDataColumns(timeslots) { 
+let fillDataColumns = (timeslots) => { 
     let counter=0;
     const data = document.querySelectorAll(".data_row td"); 
     for (let i of timeslots) { 
@@ -35,16 +57,17 @@ function fillDataColumns(timeslots) {
         data[counter].id = i.timeslotid;
         if (availability == true) { 
             data[counter].innerHTML = "&#10003;";
-            data[counter].addEventListener("click", book);
+            data[counter].style.backgroundColor = '#f5f7f9';
+            //data[counter].addEventListener("click", confirmForm);
         }
         else if (availability == false) { 
             let text = document.createTextNode("no");
             data[counter].innerHTML = "&#88;";
             data[counter].style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
+            data[counter].addEventListener("click", getIdForBookingChange);
         }
         counter++;
     }
-
 }
 
 function fillDayColumn() { 
@@ -104,7 +127,6 @@ let makeTable = () => {
 }
 
 //don't mess with those
-
 let renderTimeslots = (timeslots) => { 
     fillDataColumns(timeslots);
 }

@@ -10,7 +10,6 @@ let cancelBtn = document.querySelector("#cancelBtn");
 cancelBtn.addEventListener("click", closeConfirmForm);
 
 function closeConfirmForm() { 
-    document.body.style.overflow = "scroll";
     modal_form.style.zIndex = "-1";
     modal_form.style.display = "none";
 }
