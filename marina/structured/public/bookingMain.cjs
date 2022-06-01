@@ -27,31 +27,32 @@ function fillHourRow(hourslots) {
 }
 
 function fillDataColumns(timeslots) { 
-
+    let counter=0;
     const data = document.querySelectorAll(".data_row td"); 
-
-    for (let i = 0; data.length; i++) { 
-        let availability = timeslots[i].availability;
+    for (let i of timeslots) { 
+        let availability = i.availability;
+        data[counter].id = i.timeslotid;
         if (availability == true) { 
-            data[i].innerHTML = "&#10003;";
-
+            data[counter].innerHTML = "&#10003;";
+            //data[counter].addEventListener("click", book);
         }
         else if (availability == false) { 
             let text = document.createTextNode("no");
-            data[i].innerHTML = "&#88;";
-            data[i].style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
+            data[counter].innerHTML = "&#88;";
+            data[counter].style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
         }
+        counter++;
     }
 
 }
 
 function fillDayColumn() { 
 
-    const month_cell = document.querySelector(".hours #cell0"); 
+    const month_cell = document.querySelector(".hours .cell0"); 
     let text = document.createTextNode("Για την επόμενη εβδομάδα");
     month_cell.append(text);
     
-    const days = document.querySelectorAll(".data_row #cell0");
+    const days = document.querySelectorAll(".data_row .cell0");
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     let cellDate = new Date();
@@ -74,10 +75,10 @@ let fillRow = (row) => {
     for (let i = 0; i<tableWidth; i++) { 
         if (i != 0) { 
             cell = document.createElement("td");
-            cell.addEventListener("click", book);
             cell.style.colSpan = "1";
         }
-        cell.id = `cell${i}`;
+        cell.classList.add(`cell${i}`);
+        cell.classList.add("bookingTableCell");
 
         row.appendChild(cell);
     }
@@ -85,7 +86,6 @@ let fillRow = (row) => {
 }
 
 let makeTable = () => {
-
     for (let i = 0; i<tableHeight; i++) { 
         let row = document.createElement("tr");
         console.log(typeof(row));
@@ -98,9 +98,8 @@ let makeTable = () => {
         fillRow(row);
         table.appendChild(row);
     }
-    //fillHourRow();
+
     fillDayColumn();
-    //fillDataColumns();
 }
 
 //don't mess with those
@@ -130,8 +129,8 @@ let fetchTablehours = () => {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => { 
-    makeTable();
     fetchTimeslots();
     fetchTablehours();
+    makeTable();
 });
 

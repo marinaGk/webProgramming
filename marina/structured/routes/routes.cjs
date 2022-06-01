@@ -9,7 +9,6 @@ const min = 1;
 //const tournamentsContoller = require('../controller/tournamentsController.cjs'); 
 
 const bookingController = require('../controller/bookingController.cjs');
-let courtVariable = bookingController.courtVariable;
 
 //const loginController = require('../controller/loginControllerPasword.cjs');
 
@@ -26,11 +25,6 @@ router.route('/lessons').get((req, res) => {
     let scripts = [];
     res.render('lessons', {title: "Villia Tennis Club | Lessons", style: "lessons.css", scripts: scripts});
 })
-
-router.route('/tournaments').get((req, res) => { 
-    let scripts = []; 
-    res.render('tournaments', {title: "Villia Tennis Club | Tournaments", style: "tournaments.css", scripts: scripts}); 
-});
 
 router.route('/spaces').get((req, res) => { 
     let scripts = [];
@@ -69,11 +63,18 @@ router.route('/signup').get((req, res) => {
     res.redirect('back');
 });
 
+//booking routers 
 router.get('/booking/courts/next', bookingController.increment);
 router.get('/booking/courts/previous', bookingController.decrement);
 router.get('/booking/hours', bookingController.tablehours);
 router.get('/booking/courts', bookingController.timeslots);
 router.get('/booking', bookingController.renderBooking);
+
+//tournaments routers
+router.route('/tournaments').get((req, res) => { 
+    let scripts = []; 
+    res.render('tournaments', {title: "Villia Tennis Club | Tournaments", style: "tournaments.css", scripts: scripts}); 
+});
 
 exports.router = router;
 

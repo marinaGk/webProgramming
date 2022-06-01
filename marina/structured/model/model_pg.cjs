@@ -4,7 +4,6 @@ const sql = require('./db.pg.js');
 //needs to be called with courts global variable
 let getTimeslots = (court, callback) => {
     let scheduleId = `SC_${court}`;
-    console.log(scheduleId);
     const query = { 
         text: 
         `select timeslotid, availability, tabledate, tablehour from timeslot JOIN tabledates ON tabledateid = dayid 

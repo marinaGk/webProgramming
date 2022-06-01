@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -25,11 +26,11 @@
         <div class = "popup" id = "login">
             <div class = "modal-container"> 
                 <div class = "modal"> 
-                    <div class = "button_row row m-0 p-0"> 
+                    <div class = "button_row_close row m-0 p-0"> 
                         <button class = "close col-1 p-0">
                         </button> 
                     </div>
-                    <form class = "form" action = "/login">
+                    <form class = "form row" action = "/login">
                         <div class = "inputs col m-0">
                             <div class="title row m-0 p-0"> 
                                 <h1>
@@ -48,9 +49,11 @@
                         <div class = "redirect row m-0 p-0">
                             <a> I don't have an account &rarr;</a>
                         </div>
-                        <button type = "submit" class = "submit"> 
-                            Submit
-                        </button>
+                        <div class = "button_row_form row"> 
+                            <button type = "submit" class = "submit" id = "submit"> 
+                                Submit
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -59,11 +62,11 @@
         <div class = "popup" id = "signup"> 
             <div class = "modal-container"> 
                 <div class = "modal m-0"> 
-                    <div class = "button_row row m-0 p-0"> 
+                    <div class = "button_row_close row m-0 p-0"> 
                         <button class = "close col-1 p-0" >
                         </button> 
                     </div>
-                    <form class = "form" action = "/signup">
+                    <form class = "form row" action = "/signup">
                         <div class = "inputs col m-0">
                             <div class="title row m-0 p-0"> 
                                 <h1>
@@ -98,9 +101,11 @@
                         <div class = "redirect row m-0 p-0">
                             <a> I already have an account &rarr;</a>
                         </div>
-                        <button type = "submit" class = "submit"> 
-                            Submit
-                        </button>
+                        <div  class = "button_row_form row"> 
+                            <button type = "submit" class = "submit" id = "submit"> 
+                                Submit
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

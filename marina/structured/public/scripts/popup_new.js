@@ -15,7 +15,6 @@ function loginPopup() {
     closeBtn = popup.querySelector(".close");
     closeBtn.addEventListener("click", closePopup); 
 
-    document.body.style.overflow = "hidden";
     modal.style.zIndex = "500";
     modal.style.display = "flex";
 
@@ -49,7 +48,6 @@ function signupPopup() {
 
 function closePopup() { 
 
-    document.body.style.overflow = "scroll";
     modal.style.zIndex = "-1";
     modal.style.display = "none";
 
