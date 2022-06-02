@@ -2,10 +2,10 @@ let loginBtn = document.querySelector("#loginBtn");
 let signupBtn = document.querySelector("#signupBtn");
 let closeBtn;
 let modal;
+let message;
 
 loginBtn.addEventListener("click", loginPopup); 
 signupBtn.addEventListener("click", signupPopup);
-
 
 function loginPopup() {
 

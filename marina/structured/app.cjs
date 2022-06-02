@@ -5,15 +5,21 @@ const dotenv = require('dotenv');
 dotenv.config(); 
 
 const exphbs = require('express-handlebars');
-//session here
 
 app.use(express.urlencoded({extended: false}));
 
+const currentSession = require("./app-setup/app_setup_session.cjs");
+app.use(currentSession);
+
 app.use(express.static('public'));
 
-const routes = require('./routes/routes.cjs');
+app.use((req, res, next) => {
+  res.locals.userId = req.session.loggedUserId;
+  next();
+})
 
-app.use('/', routes.router);
+const routes = require('./routes/routes.cjs');
+app.use('/', routes);
 
 app.engine('hbs', exphbs.engine({
   extname: 'hbs', 

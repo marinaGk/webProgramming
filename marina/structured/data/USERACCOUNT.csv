@@ -1,3 +1,3 @@
-﻿UserAccountID;FirstName;LastName;PhoneNumber;Birthday;Membership
-Ac_2;Μαρίνα;Γκιόκα;;;
-Ac_4;;;;;
+﻿UserAccountID;UserName
+1;martyPickles
+2;kalliaVas

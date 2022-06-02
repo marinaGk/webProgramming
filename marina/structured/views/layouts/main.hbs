@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="styles/{{style}}">
         <link rel="stylesheet" href="styles/footer.css">
         <link rel="stylesheet" href="styles/navBar.css"> 
-        <link rel="stylesheet" href="styles/logInOrUp.css">
+        <link rel="stylesheet" href="styles/signInOrUp.css">
 
         <title>{{{title}}}</title>
     </head>
@@ -23,14 +23,15 @@
     <body class = "container-fluid p-0 m-0 w-100">
         
         <!--LOGIN & SIGNUP-->
-        <div class = "popup" id = "login">
+
+        <!--<div class = "popup" id = "login">
             <div class = "modal-container"> 
                 <div class = "modal"> 
                     <div class = "button_row_close row m-0 p-0"> 
                         <button class = "close col-1 p-0">
                         </button> 
                     </div>
-                    <form class = "form row" action = "/login">
+                    <form class = "form row" id = "loginForm" action = "/loginForm" method = "post">
                         <div class = "inputs col m-0">
                             <div class="title row m-0 p-0"> 
                                 <h1>
@@ -54,19 +55,22 @@
                                 Submit
                             </button>
                         </div>
+                        <div class = "error_field row m-0 p-0">
+                            <p>{{message}}</p>
+                        </div> 
                     </form>
                 </div>
             </div>
-        </div>
+        </div>-->
     
-        <div class = "popup" id = "signup"> 
+        <!--<div class = "popup" id = "signup"> 
             <div class = "modal-container"> 
                 <div class = "modal m-0"> 
                     <div class = "button_row_close row m-0 p-0"> 
                         <button class = "close col-1 p-0" >
                         </button> 
                     </div>
-                    <form class = "form row" action = "/signup">
+                    <form class = "form row" action = "/signupForm">
                         <div class = "inputs col m-0">
                             <div class="title row m-0 p-0"> 
                                 <h1>
@@ -93,9 +97,8 @@
                                 <label for = "password" class = "field_name col-5 p-0"> Password </label>
                                 <input type="text" name="password" class = "field_input col-5 p-0">
                             </div>
-                            <div class = "field row m-0 p-0"> 
-                                <label for = "repeat_password" class = "field_name col-5 p-0"> Repeat password </label>
-                                <input type="text" name="repeat_password" class = "field_input col-5 p-0">
+                            <div class = "error_field row m-0 p-0">
+                                <p>{{message}}</p>
                             </div> 
                         </div>
                         <div class = "redirect row m-0 p-0">
@@ -109,7 +112,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <!--SIDENAV
         <div class = "sidenav">
@@ -179,10 +182,11 @@
             </ul>
             <ul class = "connection_list navbar-nav col-2 p-0 m-0">
                 <li class="accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
-                    <button id = "loginBtn" href = "/login">LOGIN</button> 
+                    <a href = "/login"><button id = "loginBtn">LOGIN</button></a>
+
                 </li>
                 <li class = "accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
-                    <button id = "signupBtn" href = "/signup">SIGN UP</button> 
+                    <a href = "/signup"> <button id = "signupBtn">SIGN UP</button> </a>
                 </li>
             </ul>
             <button class = "collapse_button col-2 p-0 m-0"> 
@@ -248,7 +252,7 @@
             <p> HELLO THIS IS THE END OF THE FRONT PAGE AND I HAVE GAINED SO MUCH WEIGHT JUST MAKING THIS ONE </p>
         </div>
 
-        <script type = "application/javascript" src = "scripts/popup_new.js"></script> 
+        <script type = "application/javascript" src = "scripts/popup_new.js"></script>
         {{#each scripts}}
             <script type = "application/javascript" src={{script}}></script>
         {{/each}}

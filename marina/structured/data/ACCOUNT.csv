@@ -1,5 +1,5 @@
-AcountID;UserName;AccountPassword;Email;AdminRights
-Ac_1;martyAdmin;xY4iD68Mhg;mmggk2000@gmail.com;"true"
-Ac_2;martyPickles;snkgas2097sgj2;mmggk2000@gmail.com;"false"
-Ac_3;kalliaAdmin;jghe2d52gsj35;mmggk2000@gmail.com;"true"
-Ac_4;kalliaVas;ns83yugvm29;mmggk2000@gmail.com;"false"
+﻿AccountID;AccountName;AccountPassword;FullName;Email;AdminRights
+1;martyAdmin;xY4iD68Mhg;;somemail@net.com;TRUE
+2;martyPickles;snkgas2097sgj2;;someothermail@net.com;FALSE
+3;kalliaAdmin;jghe2d52gsj35;;thirdmail@net.com;TRUE
+4;kalliaVas;ns83yugvm29;;mail@net.com;FALSE

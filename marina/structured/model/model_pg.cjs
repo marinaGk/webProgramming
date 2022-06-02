@@ -1,5 +1,6 @@
 'use strict';
 const sql = require('./db.pg.js');
+const bcrypt = require('bcrypt');
 
 //needs to be called with courts global variable
 let getTimeslots = (court, callback) => {
@@ -61,4 +62,60 @@ let changeSlotAvailability = (timeslotid, callback) => {
     })
 }
 
-module.exports = {getTimeslots, getTablehours, changeSlotAvailability};
+let getUserByUsername = (username, callback) => { 
+
+    const query = { 
+        text: 
+        `SELECT * FROM account WHERE accountname = $1`, 
+        values: [username],
+    }
+
+    sql.query(query, (err, user) => { 
+
+        if(err) { 
+            console.log(err.stack)
+            callback(err.stack)
+        }
+        else { 
+            callback(null, user.rows[0])
+        }
+
+    });
+
+}
+
+let registerUser = (username, password, email, fullname, callback) => { 
+
+    getUserByUsername(username, async(err, userIdbyUsername) => { 
+
+        if(userIdbyUsername != undefined) { 
+            callback(null, null, {message : "Υπάρχει ήδη χρήστης με αυτό το όνομα"})
+        }
+        else { 
+            try{ 
+                const hashedPassword = await bcrypt.hash(password, 10);
+
+                const query = { 
+                    text: 
+                    `INSERT INTO account(AccountName, AccountPassword, Email, FullName, AdminRights) 
+                    VALUES ($1, $2, $3, $4,'false') RETURNING accountid`,
+                    values: [username, hashedPassword, email, fullname]
+                }
+
+                sql.query(query, (err, result) => {
+                    if (err)
+                        callback(err.stack, null);
+                    else {
+                        callback(null, result.rows[0].accountid)
+                    }
+                })
+            }   
+            catch { 
+                console.log(err)
+                callback(err)
+            }
+        }
+    })
+}
+
+module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getUserByUsername, registerUser};

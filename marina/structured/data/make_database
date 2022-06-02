@@ -1,28 +1,26 @@
 /*account id will have to be something complex, haven't figured it out yet*/
 
-CREATE TABLE ACCOUNT (
-    AccountID varchar(100) NOT NULL, 
-    UserName varchar(16) NOT NULL UNIQUE, 
+CREATE TABLE ACCOUNT ( 
+	AccountID SERIAL NOT NULL,
+    AccountName varchar(16) NOT NULL UNIQUE, 
     AccountPassword varchar(100) NOT NULL, 
-    Email varchar(100) NOT NULL, 
+	FullName varchar(100), 
+	Email varchar(100) NOT NULL,
     AdminRights boolean DEFAULT FALSE NOT NULL, 
     PRIMARY KEY(AccountID)
 );
 
 CREATE TABLE USERACCOUNT ( 
-    UserAccountID varchar(100) NOT NULL, 
-    FirstName varchar(100), 
-    LastName varchar(100), 
-    PhoneNumber varchar(100),
-    Birthday date, 
-    Membership boolean DEFAULT FALSE, 
-    FOREIGN KEY(UserAccountID) REFERENCES ACCOUNT (AccountID),
+	UserAccountID SERIAL NOT NULL, 
+    UserName varchar(100) NOT NULL, 
+    FOREIGN KEY(UserName) REFERENCES ACCOUNT (AccountName),
     PRIMARY KEY(UserAccountID)
 );
 
 CREATE TABLE ADMINACCOUNT  (
-    AdminAccountID varchar(100) NOT NULL, 
-    FOREIGN KEY(AdminAccountID) REFERENCES ACCOUNT (AccountID),
+	AdminAccountID SERIAL NOT NULL, 
+    AdminName varchar(100) NOT NULL, 
+    FOREIGN KEY(AdminName) REFERENCES ACCOUNT (AccountName),
     PRIMARY KEY(AdminAccountID)
 ); 
 
@@ -71,7 +69,7 @@ CREATE TABLE TIMESLOT (
 CREATE TABLE RESERVATION ( 
     ReservationID varchar(100) NOT NULL, 
     TimeSlotID varchar(100) NOT NULL,
-    ReserveeID varchar(100) NOT NULL,
+    ReserveeID integer NOT NULL,
     FOREIGN KEY(TimeSlotID) REFERENCES TIMESLOT (TimeSlotID),
     FOREIGN KEY(ReserveeID) REFERENCES USERACCOUNT (UserAccountID),
     PRIMARY KEY(ReservationID) 
@@ -90,7 +88,7 @@ CREATE TABLE TOURNAMENT (
 );
 
 CREATE TABLE joins ( 
-    ParticipantID varchar(100) NOT NULL, 
+    ParticipantID integer NOT NULL, 
     TournamentID varchar(100) NOT NULL, 
     FOREIGN KEY(ParticipantID) REFERENCES USERACCOUNT(UserAccountID), 
     FOREIGN KEY(TournamentID) REFERENCES TOURNAMENT(TournamentID)
