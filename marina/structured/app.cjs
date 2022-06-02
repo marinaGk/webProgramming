@@ -15,6 +15,7 @@ app.use(express.static('public'));
 
 app.use((req, res, next) => {
   res.locals.userId = req.session.loggedUserId;
+  res.locals.adminRights = req.session.adminRights;
   next();
 })
 

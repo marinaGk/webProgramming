@@ -67,7 +67,7 @@ CREATE TABLE TIMESLOT (
 /*RES_date_int where date is simplified date and int is lenght of selections, deleted when date past*/
 
 CREATE TABLE RESERVATION ( 
-    ReservationID SERIAL NOT NULL, 
+    ReservationID varchar(100) NOT NULL, 
     TimeSlotID varchar(100) NOT NULL,
     ReserveeID integer NOT NULL,
     FOREIGN KEY(TimeSlotID) REFERENCES TIMESLOT (TimeSlotID),

@@ -3,11 +3,38 @@ let table = document.querySelector(".table");
 const tableWidth = 14;
 const tableHeight = 8;
 
-function book() { 
-    alert("Hello world");
+let makeBooking = (event) => { 
+    let timeslot = event.target.getAttribute("timeslotid");
+    closeForm();
+    fetch('/booking/make/' + timeslot)
+    .then(
+        (response) => response.json()
+        .then((json) => renderTimeslots(json))
+    )
 }
 
-function fillHourRow(hourslots) {
+let closeForm = () => { 
+    let modal_form = document.querySelector("#accept_decline .modal-container");
+    modal_form.style.zIndex = "-1";
+    modal_form.style.display = "none";
+}
+
+let confirmForm = (timeslotid) => { 
+    let modal_form = document.querySelector("#accept_decline .modal-container");
+    modal_form.style.zIndex = "500";
+    modal_form.style.display = "flex";
+    let proceedWithChange = modal_form.querySelector("#proceedBtn"); 
+    proceedWithChange.setAttribute("timeslotid", timeslotid);
+    proceedWithChange.addEventListener("click", makeBooking);
+    let cancelChange = modal_form.querySelector("#cancelBtn");
+    cancelChange.addEventListener("click", closeForm);
+}
+
+let getIdForBooking = (event) => { 
+    confirmForm(event.target.id);
+}
+
+let fillHourRow = (hourslots) => {
 
     const data_length = hourslots.length;
     const hours = document.querySelector(".hours");
@@ -27,7 +54,7 @@ function fillHourRow(hourslots) {
 }
 
 //changes on admin
-function fillDataColumns(timeslots) { 
+let fillDataColumns = (timeslots) => { 
     let counter=0;
     const data = document.querySelectorAll(".data_row td"); 
     for (let i of timeslots) { 
@@ -35,7 +62,7 @@ function fillDataColumns(timeslots) {
         data[counter].id = i.timeslotid;
         if (availability == true) { 
             data[counter].innerHTML = "&#10003;";
-            data[counter].addEventListener("click", book);
+            data[counter].addEventListener("click", getIdForBooking);
         }
         else if (availability == false) { 
             let text = document.createTextNode("no");
@@ -47,7 +74,7 @@ function fillDataColumns(timeslots) {
 
 }
 
-function fillDayColumn() { 
+let fillDayColumn = () => { 
 
     const month_cell = document.querySelector(".hours .cell0"); 
     let text = document.createTextNode("Για την επόμενη εβδομάδα");
@@ -104,7 +131,6 @@ let makeTable = () => {
 }
 
 //don't mess with those
-
 let renderTimeslots = (timeslots) => { 
     fillDataColumns(timeslots);
 }
@@ -130,8 +156,8 @@ let fetchTablehours = () => {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => { 
+    makeTable();
     fetchTimeslots();
     fetchTablehours();
-    makeTable();
 });
 

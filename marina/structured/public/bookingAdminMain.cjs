@@ -4,7 +4,6 @@ const tableWidth = 14;
 const tableHeight = 8;
 
 let changeBooking = (event) => { 
-    console.log("changingBooking");
     let timeslot = event.target.getAttribute("timeslotid");
     let modal_form = document.querySelector("#accept_decline .modal-container");
     modal_form.style.zIndex = "-1";
@@ -17,6 +16,12 @@ let changeBooking = (event) => {
     )
 }
 
+let closeForm = () => { 
+    let modal_form = document.querySelector("#accept_decline .modal-container");
+    modal_form.style.zIndex = "-1";
+    modal_form.style.display = "none";
+}
+
 let  confirmForm = (timeslotid) => { 
     let modal_form = document.querySelector("#accept_decline .modal-container");
     modal_form.style.zIndex = "500";
@@ -24,6 +29,8 @@ let  confirmForm = (timeslotid) => {
     let proceedWithChange = modal_form.querySelector("#proceedBtn"); 
     proceedWithChange.setAttribute("timeslotid", timeslotid);
     proceedWithChange.addEventListener("click", changeBooking);
+    let cancelChange = modal_form.querySelector("#cancelBtn");
+    cancelChange.addEventListener("click", closeForm);
 }
 
 let getIdForBookingChange = (event) => { 
@@ -58,7 +65,6 @@ let fillDataColumns = (timeslots) => {
         if (availability == true) { 
             data[counter].innerHTML = "&#10003;";
             data[counter].style.backgroundColor = '#f5f7f9';
-            //data[counter].addEventListener("click", confirmForm);
         }
         else if (availability == false) { 
             let text = document.createTextNode("no");

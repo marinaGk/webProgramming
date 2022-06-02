@@ -50,17 +50,18 @@ router.route('/signup').get((req, res) => {
     res.render('signup', {layout: 'formslayout.hbs', title: "Signup"})
 });
 
-//login routers
+//account form routers
 router.post('/loginForm', loginController.login);
 router.post('/registerForm', loginController.register);
 
 //booking routers 
+router.get('/booking', loginController.checkAuthenticated, bookingController.renderChoice);
+
 router.get('/booking/courts/next', bookingController.increment);
 router.get('/booking/courts/previous', bookingController.decrement);
 router.get('/booking/hours', bookingController.tablehours);
 router.get('/booking/courts', bookingController.timeslots);
-//router.get('/booking', bookingController.renderBookingAdmin);
-router.get('/booking', bookingController.renderBooking);
+router.get('/booking/make/:TimeSlotID', bookingController.makeBooking);
 router.get('/booking/change/:TimeSlotID', bookingController.changeBooking);
 
 

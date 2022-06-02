@@ -52,7 +52,7 @@ let changeSlotAvailability = (timeslotid, callback) => {
         WHERE timeslotid = '${timeslotid}'`
     }
 
-    sql.query(query, (err, timeslots) => { 
+    sql.query(query, (err) => { 
         if(err) { 
             callback(err.stack);
         }
@@ -60,6 +60,26 @@ let changeSlotAvailability = (timeslotid, callback) => {
             callback(null, true)
         }
     })
+}
+
+let bookSlot = (userid, timeslotid, callback) => { 
+    
+    const query = { 
+        text: 
+        `INSERT INTO reservation(timeslotid, reserveeid)
+        VALUES ($2, $1)`,
+        values: [userid, timeslotid]
+    }
+
+    sql.query(query, (err) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, true);
+        }
+    })
+
 }
 
 let getUserByUsername = (username, callback) => { 
@@ -118,4 +138,4 @@ let registerUser = (username, password, email, fullname, callback) => {
     })
 }
 
-module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getUserByUsername, registerUser};
+module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getUserByUsername, registerUser, bookSlot};
