@@ -30,7 +30,7 @@ let getTablehours = (callback) => {
 
     const query = { 
         text: 
-        `select tablehour from tabletimes ORDER BY tablehour;`
+        `SELECT tablehour FROM tabletimes ORDER BY tablehour;`
     }
 
     sql.query(query, (err, tablehours) => { 
@@ -38,7 +38,7 @@ let getTablehours = (callback) => {
             callback(err.stack);
         }
         else { 
-            callback(null, tablehours.rows)
+            callback(null, tablehours.rows);
         }
     })
 }
@@ -138,4 +138,102 @@ let registerUser = (username, password, email, fullname, callback) => {
     })
 }
 
-module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getUserByUsername, registerUser, bookSlot};
+let getTabledays = (callback) => { 
+
+    const query = { 
+        text: 
+        `SELECT CAST (tabledate AS text) FROM tabledates ORDER BY tabledate`
+    }
+
+    sql.query(query, (err, tabledates) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, tabledates.rows);
+        }
+    })
+
+}
+
+let changeDate = (date, dateid, callback) => { 
+    
+    const query = { 
+        text: 
+        `UPDATE tabledates SET tabledate = $1 WHERE tabledateid = $2`, 
+        values: [date, dateid],
+    }
+
+    sql.query(query, (err) => { 
+        if(err) { 
+            console.log(err);
+            callback(err.stack);
+        }
+        else { 
+            callback(null, true);
+        }
+    })
+}
+
+let getReservations = (courtid, callback) => { 
+
+    const query = { 
+        text: 
+        `SELECT reservation.timeslotid 
+        FROM reservation 
+        JOIN timeslot 
+        ON reservation.timeslotid = timeslot.timeslotid AND timeslot.courtid = $1`, 
+        values: [courtid],
+    }
+
+    sql.query(query, function(err, reservations){ 
+        if(err) {
+            console.log(err);
+            callback(err.stack);
+        }
+        else{
+            callback(null, reservations.rows);
+        }
+    })
+
+}
+
+let deleteReservation = (slot, callback) => { 
+
+    const query = { 
+        text: 
+        `DELETE FROM reservation WHERE timeslotid = $1`, 
+        values: [slot],
+    }
+
+    sql.query(query, (err, state) => { 
+        if(err){ 
+            callback(err.stack)
+        }
+        else{ 
+            callback(null, true);
+        }
+    })
+
+}
+
+let updateReservation = (slot, new_slot, callback) => { 
+
+    const query = { 
+        text: 
+        `UPDATE reservation SET timeslotid = $1 WHERE timeslotid = $2;`,
+        values: [new_slot, slot],
+    }
+
+    sql.query(query, (err, state) => { 
+        if(err){ 
+            callback(err.stack);
+        }
+        else{ 
+            callback(null, true);
+        }
+    })
+
+}
+
+module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getUserByUsername, registerUser, bookSlot, getTabledays, changeDate, getReservations, deleteReservation, updateReservation};

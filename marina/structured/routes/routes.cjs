@@ -4,8 +4,8 @@ const router = express.Router();
 const dotenv = require('dotenv');
 dotenv.config();
 
-const max = 4; 
-const min = 1;
+const updates = require("../updatedatabase.cjs")
+
 //const tournamentsContoller = require('../controller/tournamentsController.cjs'); 
 
 const bookingController = require('../controller/bookingController.cjs');

@@ -22,6 +22,9 @@ app.use((req, res, next) => {
 const routes = require('./routes/routes.cjs');
 app.use('/', routes);
 
+const updates = require("./updatedatabase.cjs")
+updates.update();
+
 app.engine('hbs', exphbs.engine({
   extname: 'hbs', 
   defaultLayout: 'main', 

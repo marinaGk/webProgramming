@@ -62,7 +62,6 @@ function renderBooking(req, res) {
 }
 
 function renderChoice(req, res) { 
-    console.log("render");
     if(req.session.adminRights) { 
         renderBookingAdmin(req, res);
     }
@@ -90,7 +89,6 @@ function changeBooking(req, res) {
 }
 
 function makeBooking(req, res) {
-    console.log("called"); 
     model.bookSlot(req.session.loggedUserId, req.params.TimeSlotID, function(err, rows) { 
         if(err) { 
             res.send(err);

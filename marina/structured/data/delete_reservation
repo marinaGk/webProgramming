@@ -1,0 +1,13 @@
+CREATE FUNCTION delete_reservation() RETURNS TRIGGER AS $delete_reservation$
+
+    BEGIN 
+        UPDATE TIMESLOT 
+        SET Availability = 'true'
+        WHERE TimeSlotId = OLD.TimeSlotId;
+        RETURN NULL;
+    END;
+$delete_reservation$ LANGUAGE plpgsql;
+    
+CREATE TRIGGER delete_reservation AFTER DELETE OR UPDATE ON RESERVATION
+    FOR EACH ROW 
+    EXECUTE PROCEDURE delete_reservation();

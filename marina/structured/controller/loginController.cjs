@@ -8,7 +8,6 @@ let register = (req, res) => {
     let check = true; 
     for (let key of Object.keys(req.body)) {
         if(req.body[key] == "") { 
-            console.log("false");
             break;
         }
     }
@@ -43,7 +42,8 @@ let login = (req, res) => {
             const match = bcrypt.compare(req.body.password, user.accountpassword, (err, match) => { 
                 if (match) { 
                     req.session.loggedUserId = user.accountid;
-                    req.session.adminRights = user.adminRights;
+                    req.session.loggedUserName = user.accountname;
+                    req.session.adminRights = user.adminrights;
                     res.redirect('/');
                 }
                 else { 
@@ -58,20 +58,14 @@ let login = (req, res) => {
 let checkAuthenticated = (req, res, next) => { 
     if (req.session.loggedUserId){ 
         console.log("user is authenticated", req.originalUrl); 
-        if(req.session.adminRights){ 
-            console.log("user is admin");
-        }
-        else{ 
-            console.log("user not admin");
-        }
         next();
     }
     else{ 
+        console.log("user not authenticated")
         if ((req.originalUrl == '/login') || (req.originalUrl == '/register')) { 
             next(); 
         }
-        else { 
-            console.log("not authenticated, redirecting to login"); 
+        else {  
             res.redirect('/login');
         }
     }

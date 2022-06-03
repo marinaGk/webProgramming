@@ -53,7 +53,6 @@ let fillHourRow = (hourslots) => {
     
 }
 
-//changes on admin
 let fillDataColumns = (timeslots) => { 
     let counter=0;
     const data = document.querySelectorAll(".data_row td"); 
