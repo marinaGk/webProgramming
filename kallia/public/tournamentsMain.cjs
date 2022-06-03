@@ -6,28 +6,24 @@ let existing_months =[];
 let mode;
 
 
-
-
-
-function newMonthField(tournaments) {
-    
+function appendMonthsTournaments(tournaments) {
     for (let tour of tournaments){
-        
         tour.startdate = new Date(tour.startdate);
         let tourMonth = tour.startdate.getMonth();
-        console.log("Month", tourMonth);
+        let existing = false;
 
         for (month of existing_months){
             if (tourMonth === month){
-                newTournamentField(tour,tourMonth);
-                return;
+                newTournamentField_NE(tour,tourMonth);
+                existing = true;
             }
         }
+
+        if (existing === true) continue;
 
             // months_counter +=1;
 
         existing_months.push(tourMonth);
-        console.log("existing months:",existing_months);
 
     //current month item is the item with undefined current month row
     
@@ -84,9 +80,7 @@ function newMonthField(tournaments) {
     monthRow.append(month_title_field);
     tourInfoRow.appendChild(monthRow);
 
-    console.log(tourInfoRow.id);
     let allMonths = field.children;
-    console.log(allMonths);
     let next = allMonths[allMonths.length-1];
     for (let i of allMonths){
         if (tourInfoRow.id < i.id && i.id < next.id){
@@ -94,11 +88,10 @@ function newMonthField(tournaments) {
         }
     }
     // field.appendChild(tourInfoRow);
-    console.log("IS THIS IT", next);
     if (next=== undefined || tourInfoRow.id < next.id) field.insertBefore(tourInfoRow, next);
     else field.appendChild(tourInfoRow);
-    addMonthTitle(tourInfoRow.id, monthNums[tourMonth]);
-    newTournamentField(tour,tourMonth);
+    addMonthTitleDB(tourInfoRow.id, monthNums[tourMonth]);
+    newTournamentField_NE(tour,tourMonth);
 
 
     //new input for month title (input type = "text" id = "month-title" placeholder = "Εισάγετε όνομα μήνα" onClick = "addMonthTitle()") 
@@ -118,7 +111,7 @@ function newMonthField(tournaments) {
 //function used to append month title to tournaments page. Called when a month title is given in the moth title placeholder.
 //month item that is in edit mode has an additional class called current_month
 
-function addMonthTitle(monthId, monthName) {
+function addMonthTitleDB(monthId, monthName) {
 
     // if (event.key == 'Enter') {
         // let inputVar = month_input.value;
@@ -134,19 +127,22 @@ function addMonthTitle(monthId, monthName) {
 
 
 //creates tournament item
+//NE -> No Edit
 
-function newTournamentField(tour, tourMonth) {
+function newTournamentField_NE(tour, tourMonth) {
 
     // if (current_tournament_row != undefined){ 
     //     let list = current_tournament_row.classList; 
     //     list.remove("current_tourn");
     // }
     
-    tournament_row = createTournamentRow();
+    tournament_row = createTournamentRow_NE();
     //month = document.querySelector('.tournaments_info_row month${tourMonth}');
     let month = document.getElementById("month"+tourMonth);
     month.appendChild(tournament_row);
-    addTournamentTitle(tournament_row.id, tour.title);
+    addTournamentTitleDB(tournament_row.id, tour.title);
+    addTournamentDetailsDB(tournament_row.id, tour.details);
+    addTournamentPosterDB(tournament_row.id, tour.poster);
 
     // title_input = document.createElement('input');
     // title_input.setAttribute('type', 'text');
@@ -163,7 +159,10 @@ function newTournamentField(tour, tourMonth) {
     // details_input.addEventListener('keypress', addTournamentDetails);
 }
 
-function createTournamentRow() { 
+
+// NE -> No Edit
+
+function createTournamentRow_NE() { 
 
     //tournaments_counter +=1; 
 
@@ -217,34 +216,35 @@ function createTournamentRow() {
     return row
 }
 
-function addTournamentTitle(tourId, tourTitle) {
+function addTournamentTitleDB(tourId, tourTitle) {
 
-    // if (event.key=='Enter') { 
-        // let inputVar = title_input.value;
-        //title_input.remove();
         let tournament = document.getElementById(tourId);
         tournament.querySelector('.info_row').setAttribute("id", tourTitle);
-        //current_tournament_row.querySelector(".info_row").setAttribute("id", tourTitle);
         let field = document.getElementById(tourTitle).querySelector('.tournament_description .tournament_title');
-        // let field = document.querySelector('.tournament_row.current_tourn');
-        //field = field.querySelector('.tournament_title');
         let text = document.createTextNode(tourTitle);
         field.appendChild(text);
-        //fillTable(title);
-    // }
-    
 }
 
-// function addTournamentDetails(event) { 
-//     if (event.key=='Enter') { 
-//         let inputVar = details_input.value;
-//         details_input.remove();
-//         let field = document.querySelector('.current_tourn');
-//         field = field.querySelector('.tournament_details');
-//         let text = document.createTextNode(inputVar);
-//         field.appendChild(text)
-//     }
-// }
+
+function addTournamentDetailsDB(tourId, tourDetails) { 
+
+        let tournament = document.getElementById(tourId);
+        let field = tournament.querySelector('.info_row .tournament_description .tournament_details');
+        let text = document.createTextNode(tourDetails);
+        if (tourDetails === null) text = document.createTextNode('Δεν υπάρχει περιγραφή... Για να ενημερωθείτε για το τουρνουά, επικοινωνήστε μαζί μας μέσω τηλεφώνου ή e-mail.');
+        field.appendChild(text);
+
+}
+
+function addTournamentPosterDB(tourId, tourPoster) { 
+    let tournament = document.getElementById(tourId);
+    let field = tournament.querySelector('.info_row .tournament_poster');
+    let poster = document.createElement('img');
+    if (tourPoster === null) poster = document.createTextNode('Δεν υπάρχει εικόνα...');
+    else poster.src = 'data:image/jpeg;base64,' + tourPoster;
+    field.appendChild(poster);
+
+}
 
 
 
@@ -306,7 +306,6 @@ function fillTable(tournaments) {
             cell.setAttribute("id", i);
             tour.startdate = new Date(tour.startdate);
             tour.enddate = new Date(tour.enddate);
-            console.log(tour.startdate.getYear());
             if (i==0) cell.appendChild(document.createTextNode(formatDate(tour.startdate)));
             if (i==1) cell.appendChild(document.createTextNode(formatDate(tour.enddate)));
             if (i==2) cell.appendChild(document.createTextNode(tour.title));
@@ -319,9 +318,6 @@ function fillTable(tournaments) {
     }
 }
 
-
-
-
 let fetchAllTournaments = () => { 
     fetch('/tournaments/allTournaments')     //the fetched result is a list of strings
     .then(
@@ -331,10 +327,7 @@ let fetchAllTournaments = () => {
 }
 
 let renderAllTournaments = (tournaments) => {
-    for (let tour of tournaments){
-        tour.startdate = new Date(tour.startdate);
-        console.log(tour.startdate);}
-    newMonthField(tournaments);
+    appendMonthsTournaments(tournaments);
     fillTable(tournaments);
 }
 
