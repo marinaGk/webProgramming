@@ -75,7 +75,9 @@ router.get('/booking/change/:TimeSlotID', bookingController.changeBooking);
 
 //tournaments routers
 router.get('/tournaments', tournamentsController.renderTournament);
+router.get('/tournamentForm', tournamentsController.renderTournamentForm);
 router.get('/tournaments/allTournaments', tournamentsController.allTournaments);
+router.get('/selectedTournament', tournamentsController.addTournamentToForm, tournamentsController.renderTournamentForm);
 
 
 // router.route('/tournaments').get((req, res) => { 

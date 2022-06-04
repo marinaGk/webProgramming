@@ -80,16 +80,7 @@ function appendMonthsTournaments(tournaments) {
     monthRow.append(month_title_field);
     tourInfoRow.appendChild(monthRow);
 
-    let allMonths = field.children;
-    let next = allMonths[allMonths.length-1];
-    for (let i of allMonths){
-        if (tourInfoRow.id < i.id && i.id < next.id){
-            next = i;
-        }
-    }
-    // field.appendChild(tourInfoRow);
-    if (next=== undefined || tourInfoRow.id < next.id) field.insertBefore(tourInfoRow, next);
-    else field.appendChild(tourInfoRow);
+    field.appendChild(tourInfoRow);
     addMonthTitleDB(tourInfoRow.id, monthNums[tourMonth]);
     newTournamentField_NE(tour,tourMonth);
 
@@ -251,31 +242,34 @@ function addTournamentPosterDB(tourId, tourPoster) {
 const rowLength = 5;
 
 //makes tournament's table (static)
-function addTableInfo() { 
+function addTableHeaders() { 
     
     //makes table's title (static)
     let table_field = document.querySelector(".board"); 
-    let title = document.createElement("tr"); 
-    title.setAttribute("id", "board_title");
-    let text = document.createTextNode("Πίνακας Τουρνουά"); 
-    title.appendChild(text); 
-    table_field.appendChild(title); 
+    let title = document.querySelector(".board #board_title");
+    // let title = document.createElement("tr"); 
+    // title.setAttribute("id", "board_title");
+    // let text = document.createTextNode("Πίνακας Τουρνουά"); 
+    // title.appendChild(text); 
+    // table_field.appendChild(title);
+    let board_headers = document.querySelectorAll("#board_headers th");
 
-    let header_row = document.createElement("tr"); 
+    // let header_row = document.createElement("tr"); 
     let headers = [{"header_id": "start_date", "header_name" : "Ημερομηνία Έναρξης"},
                     {"header_id" : "end_date", "header_name" : "Ημερομηνία Λήξης"}, 
                     {"header_id" : "title", "header_name" : "Τίτλος Τουρνουά"},	
                     {"header_id" : "join_right", "header_name" : "Επίπεδο Ικανοτήτων"},
                     {"header_id" : "age", "header_name" : "Ηλικιακή Κατηγορία"}]
     for (let i = 0; i<5; i++) { 
-        let header = document.createElement("th");
-        header.className = "table_header"; 
+        // let header = document.createElement("th");
+        // header.className = "table_header";
+        board_headers[i].className = "table_header";
         let text = document.createTextNode(headers[i].header_name);
-        header.appendChild(text);
-        header.setAttribute("id", headers[i].header_id);
-        header_row.append(header); 
+        board_headers[i].appendChild(text);
+        board_headers[i].setAttribute("id", headers[i].header_id);
+        // header_row.append(header); 
     }
-    table_field.appendChild(header_row);
+    // table_field.appendChild(header_row);
     
 }
 
@@ -294,29 +288,38 @@ function formatDate(date) {
 }
 
 
-function fillTable(tournaments) { 
-    tournaments.sort((a,b) => {return new Date(a.startdate) - new Date (b.startdate);})
-    for (let tour of tournaments){
-        let table_field = document.querySelector(".board");
-        let row = document.createElement("tr"); 
-        row.setAttribute("id", `row${tour.title}`);
-
-        for (let i = 0; i<rowLength; i++) { 
-            let cell = document.createElement("td"); 
-            cell.setAttribute("id", i);
-            tour.startdate = new Date(tour.startdate);
-            tour.enddate = new Date(tour.enddate);
-            if (i==0) cell.appendChild(document.createTextNode(formatDate(tour.startdate)));
-            if (i==1) cell.appendChild(document.createTextNode(formatDate(tour.enddate)));
-            if (i==2) cell.appendChild(document.createTextNode(tour.title));
-            if (i==3) cell.appendChild(document.createTextNode(tour.skilllevel));
-            if (i==4) cell.appendChild(document.createTextNode(tour.agerestrictions));
-            cell.contentEditable = true;
-            row.append(cell);
-        }
-        table_field.append(row);
+function fixDates (){
+    dates = document.querySelectorAll("#cell_date");
+    for (date of dates){
+        date.innerHTML = formatDate(date.innerHTML);
     }
 }
+
+
+// function fillTable(tournaments) { 
+//     // tournaments.sort((a,b) => {return new Date(a.startdate) - new Date (b.startdate);})
+
+//     for (let tour of tournaments){
+//         let table_field = document.querySelector(".board");
+//         let querySelect = 'tr #' + tour.tournamentid;
+//         let row = table_field.querySelector(querySelect);
+
+//         for (let i = 0; i<rowLength; i++) { 
+//             let cell = document.createElement("td"); 
+//             cell.setAttribute("id", i);
+//             tour.startdate = new Date(tour.startdate);
+//             tour.enddate = new Date(tour.enddate);
+//             if (i==0) cell.appendChild(document.createTextNode(formatDate(tour.startdate)));
+//             if (i==1) cell.appendChild(document.createTextNode(formatDate(tour.enddate)));
+//             if (i==2) cell.appendChild(document.createTextNode(tour.title));
+//             if (i==3) cell.appendChild(document.createTextNode(tour.skilllevel));
+//             if (i==4) cell.appendChild(document.createTextNode(tour.agerestrictions));
+//             cell.contentEditable = true;
+//             row.append(cell);
+//         }
+//         table_field.append(row);
+//     }
+// }
 
 let fetchAllTournaments = () => { 
     fetch('/tournaments/allTournaments')     //the fetched result is a list of strings
@@ -333,7 +336,8 @@ let renderAllTournaments = (tournaments) => {
 
 window.addEventListener('DOMContentLoaded', (event) => { 
     fetchAllTournaments();
-    addTableInfo();
+    addTableHeaders();
+    fixDates();
 });
 
 

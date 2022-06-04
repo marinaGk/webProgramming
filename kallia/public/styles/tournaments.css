@@ -1,0 +1,300 @@
+.tournaments_card { 
+    display: flex; 
+    flex-direction: column;
+
+    width: 75%;
+    height: 100%;
+    margin: auto
+}
+
+.tournaments_banner { 
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    position: relative;
+
+    width: 100%;
+    height: fit-content;
+    min-height: 600px;
+    background-color: white;
+    padding-bottom: 30px;
+}
+
+.tournaments_banner_title { 
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    position: relative;
+
+    width: 100%;
+    height: fit-content;
+    min-height: 300px;
+    padding-bottom: 30px;
+
+    background-image: url("../imgs/tournaments.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.tournaments_banner_title div { 
+    text-align: left;
+
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+
+    width: 80%;
+    padding:  40px 0px 0px 50px;
+    color: #0091d2;
+    position: absolute;
+    left: 0%;
+    word-wrap: normal;
+}
+
+.tournaments_banner_subtitle { 
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: fit-content;
+    min-height: 300px;
+    background-color: white;
+    padding-bottom: 30px;
+}
+
+.tournaments_banner_subtitle .title { 
+    width: 80%;
+    padding: 20px 0px 20px 0px;
+    color: #ca31a4;
+    position: relative;
+    left: 10%; 
+
+    word-wrap: normal;
+}
+
+.tournaments_banner_subtitle .title h1 { 
+    text-align: left; 
+
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.tournaments_banner_subtitle .subtitle { 
+    width: 80%;
+    color: #6c6f6f;
+    position: relative;
+    left: 10%;
+    padding-bottom: 40px;
+
+    word-wrap: normal;
+}
+
+.tournaments_banner_subtitle .subtitle p{ 
+    text-align: left;
+    
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.tournaments_info { 
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    background-color: white;
+}
+
+.tournaments_info_banner { 
+    width: 100%;
+    height: 60px;
+    background-color: #ca31a4;
+}
+
+.tournaments_info_banner h1{ 
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+     
+    color: white; 
+    width: 95%; 
+    margin:auto;
+}
+
+.tournaments_info_row { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.month_title { 
+    display: flex; 
+    flex-direction: column;
+
+    padding: 30px 0px 30px 0px;
+}
+
+.month_title h4 { 
+    text-align: center; 
+
+    margin: auto;
+
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: #0091d2;
+}
+
+.tournament_row { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.tournament_row span{ 
+    display: flex; 
+    flex-direction: column;
+
+    height: fit-content; 
+
+    width: 35%;
+    margin: 50px 0px 50px 0px;
+}
+
+.tournament_description .tournament_title{ 
+    color: currentColor;
+}
+
+.tournament_description .tournament_details{ 
+    color: black;
+}
+
+.tournament_poster{ 
+    font-family:'Times New Roman';
+    font-size: 15px;
+    text-align: center;
+    background-size: cover;
+    padding: 20px;
+    color: currentColor;
+    /* text-shadow: -1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px 1.2px 0 #000, 1.2px 1.2px 0 #000; */
+}
+
+/*those will be done with js*/
+#t1 { 
+    color: #fac300;
+}
+#t2 { 
+    color: #0091d2;
+}
+
+#t1 .tournament_poster { 
+    background-image: url("../imgs/tournament1.jpg");
+}
+
+/*.card .calendar-details {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 40px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.card .calendar-details .calendar-title{
+    font-family: sans-serif;
+    color: #0091d2;
+}
+
+.card .calendar {
+    width: 75%;
+    margin: auto;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    background-color: #8cccea;
+    box-shadow: -1px -1px 0 #0077af, 1px -1px 0 #0077af, -1px 1px 0 #0077af, 1px 1px 0 #0077af;
+}
+
+.card .calendar #banner {
+    font-family: 'Courier New';
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    text-shadow: -1.1px -1.1px 0 #005379, 1.1px -1.1px 0 #005379, -1.1px 1.1px 0 #005379, 1.1px 1.1px 0 #005379;
+}
+
+.card .calendar table {
+    border-collapse: collapse;
+    font-size: 16px;
+    color: white;
+    box-shadow: 4px 4px #6c6f6f;
+    position: relative;
+    bottom: 25px;
+}
+
+.card .calendar th, .card .calendar td{
+    border:1px solid #015d88;
+    height: 40px;
+    text-align: center;
+}
+
+.card .calendar td:nth-child(1) , .card .calendar td:nth-child(2) {
+    width: 170px;
+}
+
+.card .calendar td:nth-child(3) {
+    width: 490px;
+}
+
+.card .calendar td:nth-child(4) {
+    width: 180px;
+}
+
+.card .calendar td:nth-child(5) {
+    width: 180px;
+}
+
+.card .calendar th {
+    background-color: #0091d2;
+}
+
+.card .calendar td:nth-child(2n+1) {
+    background-color: #48a7d2;
+}
+
+.card .calendar td:nth-child(2n) {
+    background-color: #6dbbde;
+}
+
+a{
+    text-decoration: underline 1px;
+    text-underline-offset: 2px;
+    color: white;
+}
+
+a:hover{
+    text-decoration: underline 1px;
+    text-underline-offset: 2px;
+    color: rgb(35, 13, 240);
+}
+
+#scroll-up {
+    display: block;
+    height: 50px;
+    width: 50px;
+    right: 20px;
+    bottom: 20px;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-image: url("scroll-up-blue.png") , radial-gradient(white 26%,#3498db);
+    border-radius: 50%;
+    border: 0px;
+}*/
