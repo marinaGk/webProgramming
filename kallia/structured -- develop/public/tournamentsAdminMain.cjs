@@ -38,6 +38,31 @@ btn.appendChild(deleteMonthButton);
 buttons.appendChild(btn);
 
 
+//edit tournament button
+btn = document.createElement("div");
+btn.className = "admin_button";
+let editTournButton = document.createElement("button"); 
+editTournButton.setAttribute("id", "editTournamentSelectBtn"); 
+editTournButton.appendChild(document.createTextNode("Επεξεργασία τουρνουά"));
+btn.appendChild(editTournButton);
+buttons.appendChild(btn);
+
+
+// function checkCompleted () {
+//     let checkCompleted = document.querySelector(".check_completed");
+//     if (checkCompleted.innerHTML === "false"){
+//         alert("Τα στοιχεία που συμπληρώσατε δεν είναι εγκυρα!\nΕλέγξτε αν έχετε συμπληρώσει σωστά τα πεδία της φόρμας.\nΜην ξεχνάτε να συμπληρώσετε τα υποχρεωτικά πεδία.")
+//         checkCompleted.innerHTML = "true";
+//     }
+// }
+
+
+
+// window.addEventListener('DOMContentLoaded', (event) => { 
+//     checkCompleted();
+// });
+
+
 // let rows = document.querySelectorAll(".month_row");
 // console.log(rows);
 // let delMonth = document.createElement("button");

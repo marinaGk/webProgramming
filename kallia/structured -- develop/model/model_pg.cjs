@@ -88,23 +88,23 @@ let getTournaments = (callback) => {
 }
 
 
-// let getTournamentById = (tournamentId, callback) => {
-//     const query = { 
-//         text: 
-//         `select * from tournament where tournamentid = '${tournamentId}';`
-//     }
+let getTournamentById = (tournamentId, callback) => {
+    const query = { 
+        text: 
+        `select * from tournament where tournamentid = '${tournamentId}';`
+    }
 
 
-//     sql.query(query, (err, tournament) => { 
-//         if(err) { 
-//             callback(err.stack);
-//         }
-//         else { 
-//             callback(null, tournament.rows)  //returns results as rows
-//         }
-//     })
+    sql.query(query, (err, tournament) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, tournament.rows)  //returns results as rows
+        }
+    })
 
-// }
+}
 
 let getTournamentsNumber = (callback) => {
     const query = { 
@@ -226,5 +226,43 @@ let deleteMonth = (monthid, callback) => {
 }
 
 
+let updateTournament = (newTournament, callback) => {
+    if (newTournament.skilllevel == '') newTournament.skilllevel = null;
+    if (newTournament.agerestrictions == '') newTournament.agerestrictions = null;
+    if (newTournament.poster == '') {
+        newTournament.poster = null;
+        const query = { 
+            text: 
+            `update tournament
+             set title = '${newTournament.title}', startdate = '${newTournament.startdate}', enddate = '${newTournament.enddate}', skilllevel = ${newTournament.skilllevel}, agerestrictions = ${newTournament.agerestrictions}, details = '${newTournament.details}', poster = null
+             where tournamentid = '${newTournament.tournamentid}';`
+        }
+        sql.query(query, (err, res) => { 
+            if(err) { 
+                callback(err.stack);
+            }
+            else { 
+                callback(null, res.rows)  //returns results as rows
+            }
+        })}
+    else    {
+        const query = { 
+            text:
+            `update tournament
+             set title = '${newTournament.title}', startdate = '${newTournament.startdate}', enddate = '${newTournament.enddate}', skilllevel = ${newTournament.skilllevel}, agerestrictions = ${newTournament.agerestrictions}, details = '${newTournament.details}', poster = pg_read_binary_file('\\Users\\Public\\${newTournament.poster}')
+             where tournamentid = '${newTournament.tournamentid}';`
+        }
+        sql.query(query, (err, res) => { 
+            if(err) { 
+                callback(err.stack);
+            }
+            else { 
+                callback(null, res.rows)  //returns results as rows
+            }
+        })}
 
-module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getTournaments, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth};
+}
+
+
+
+module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getTournaments, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth, getTournamentById, updateTournament};
