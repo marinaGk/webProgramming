@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+        <script src="https://kit.fontawesome.com/154e0f30f5.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles/{{style}}">
         <link rel="stylesheet" href="styles/footer.css">
         <link rel="stylesheet" href="styles/navBar.css"> 
@@ -88,19 +89,51 @@
                     <a href="/booking">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a> 
                 </li>
             </ul>
-            <ul class = "connection_list navbar-nav col-2 p-0 m-0" id = "no_account">
-                <li class="accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
-                    <a href = "/login"><button id = "loginBtn">LOGIN</button></a>
-
-                </li>
-                <li class = "accButton col-lg-6 col-md-6 col-sm-6 p-0 m-0">
-                    <a href = "/signup"> <button id = "signupBtn">SIGN UP</button> </a>
+            <ul class = "connection_list col-2 p-0 m-0"> 
+                <li class = "connectedButton"> 
+                    <button> <p>{{userName}}</p> <i class="fa-solid fa-user"></i></button>
                 </li>
             </ul>
             <button class = "collapse_button col-2 p-0 m-0"> 
                 &#9776;
             </button>
         </nav>
+        <!--ACCOUNT VIEW-->
+        <div class = "accountmenu"> 
+            <div class = "accountmenu-container"> 
+                <div class = "account" state = "hidden"> 
+                    <ul class = "accountChoices"> 
+                        <li class = "accountChoice">
+                            <a class = "choice">Τα τουρνουά μου</a>
+                            <div class = "accountInfoDropdown">
+                                <ul class = "accountList"> 
+                                    <li class = "accountListItem"> 
+                                        Hello
+                                    </li>
+                                    <li class = "accountListItem">
+                                        Hello
+                                    </li>
+                                </ul>
+                            </div> 
+                        </li>      
+                        <li class = "accountChoice"> 
+                            <a class = "choice">Οι κρατήσεις μου</a>
+                            <div class = "accountInfoDropdown">
+                                <ul class = "accountList"> 
+                                    {{#each reservations}}
+                                    <li class = "accountListItem"> 
+                                        Ημερομηνία: {{reservationdate}} <br>
+                                        Ώρα: {{reservationtime}} <br>
+                                        Γήπεδο: {{courtid}}
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         {{{body}}}
 
@@ -164,5 +197,6 @@
             <script type = "application/javascript" src={{script}}></script>
         {{/each}}
         <script type = "text/javascript" src = "/scripts/sideNav.js"></script>
+        <script type = "text/javascript" src = "/scripts/accountMenu.js"> </script>
 
     </body>

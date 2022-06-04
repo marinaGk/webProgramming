@@ -82,16 +82,17 @@ let bookSlot = (userid, date, time, courtid, callback) => {
     const query = { 
         text: 
         `INSERT INTO reservation(reservationdate, reservationtime, reserveeid, courtid)
-        VALUES ($2, $3, $1, $4)`,
+        VALUES ($2, $3, $1, $4)
+        RETURNING *`,
         values: [userid, date, time, courtid]
     }
 
-    sql.query(query, (err) => { 
+    sql.query(query, (err, row) => { 
         if(err) { 
             callback(err.stack);
         }
         else { 
-            callback(null, true);
+            callback(null, row);
         }
     })
 
@@ -139,4 +140,24 @@ let courtReservations = (courtid, callback) => {
 
 }
 
-module.exports = {getUserByUsername, registerUser, getTablehours, bookSlot, deleteReservation, courtReservations};
+let accountReservations = (userid, callback) => { 
+
+    const query = { 
+        text: 
+        `SELECT * 
+        FROM reservation
+        WHERE reserveeid = $1`,
+        values: [userid],
+    }
+
+    sql.query(query, (err, reservations) => { 
+        if(err){ 
+            callback(err.stack)
+        }
+        else { 
+            callback(null, reservations.rows)
+        }
+    })
+}
+
+module.exports = {getUserByUsername, registerUser, getTablehours, bookSlot, deleteReservation, courtReservations, accountReservations};

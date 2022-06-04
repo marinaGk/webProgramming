@@ -10,8 +10,8 @@ body {
     display: flex; 
     flex-direction: row;
     flex-wrap: wrap;
-    position: left;
-
+    position: relative;
+    left: 0px;
     height: 100px;
     width: 100%;
     background-color: #0091d2;
@@ -78,12 +78,17 @@ body {
 .navbarGen .connection_list { 
     display: flex;
     flex-direction: row;
-    position: relative;
-    right: 0;
+    
+    position: absolute;
+    right: 0px;
+    
+    height: 100%;
+    
     list-style: none;
+    background-color: #fac300;
 }
 
-.navbarGen .connection_list button { 
+.navbarGen .connection_list .accButton button { 
     font-family: 'Comfortaa', sans-serif;
     font-weight: 400;
 
@@ -98,6 +103,38 @@ body {
     padding: 0px;
     text-align: center;
     cursor: pointer;
+}
+
+.navbarGen .connection_list .connectedButton { 
+    vertical-align: middle;
+    margin: auto;
+}
+
+.navbarGen .connection_list .connectedButton button{ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+
+    height: 100%;
+    width: 100%;
+
+    text-align: center;
+    color: rgb(51, 48, 50); 
+    background-color: #fac300;
+    border: none; 
+}
+
+.navbarGen .connection_list .connectedButton  p{
+    margin-bottom: 0px; 
+}
+
+.navbarGen .connection_list .connectedButton i  {
+    font-size: 30px;
+    color: rgb(51, 48, 50);
 }
 
 .navbarGen .collapse_button { 
@@ -128,8 +165,10 @@ body {
     flex-direction: column;
 
     max-width: 250px;
-    padding: 0px 0px 30px 0px;
+    padding: 30px 0px 30px 0px;
 
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
     background-color: #0091d2;
 }
 
@@ -138,7 +177,7 @@ body {
     flex-direction: column;
 
     width: 100%; 
-    padding: 20px 0px 0px 0px;
+    padding: 0px;
 
     list-style: none;
     color: white;
@@ -187,14 +226,141 @@ body {
     line-height: 2.5;
 }
 
+.accountmenu-container { 
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
+
+    width: 100%;
+    height: fit-content; 
+    
+    display: block; 
+    z-index: 500;
+}
+
+.account{ 
+    display: none;
+    flex-direction: column;
+
+    position: absolute; 
+    right: 0px;
+
+    max-width: 350px; 
+    width: 350px;
+    padding: 0px;
+
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #0091d2;
+}
+
+.accountmenu .accountChoices {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%; 
+    padding: 20px 0px 0px 0px; 
+
+    list-style: none; 
+    color: rgb(51, 48, 50);
+    background-color: #0091d2;
+} 
+
+.accountmenu .accountChoices .accountChoice { 
+    display: flex; 
+    flex-direction: column;
+
+    padding: 0px 10px 0px 10px;
+    height: 50px;
+    min-width: fit-content;
+    width: 100%; 
+    text-align: center;
+}
+
+.accountmenu .accountChoices .accountChoice a{ 
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    line-height: 2.5;
+}
+
+.accountChoice .accountInfoDropdown{ 
+    display: none;
+}
+
+.accountChoice:hover .accountInfoDropdown{ 
+    display: flex;
+}
+
+.accountChoice .accountInfoDropdown .accountList { 
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-height: 300px; 
+    overflow-y: scroll;
+
+    scrollbar-width: thin;       
+    scrollbar-color: rgb(51, 48, 50) #fac300;
+
+    list-style: none; 
+    color: white;
+    padding: 0px;
+
+    border-radius: 10px;
+    background-color: #fac300;
+    z-index: 600;
+}
+
+.accountList::-webkit-scrollbar {
+    width: 12px;
+}
+  
+.accountList::-webkit-scrollbar-track {
+    background: #fac300;
+}
+  
+.accountList::-webkit-scrollbar-thumb {
+    background-color: rgb(51, 48, 50);
+    border-radius: 5px;
+    border: 3px solid orange;
+}
+
+.accountInfoDropdown .accountList .accountListItem{ 
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+
+    color: rgb(51, 48, 50);
+
+    border-bottom: 1px solid rgb(51, 48, 50);
+
+}
+
+.accountInfoDropdown .accountList .accountListItem:last-child{ 
+    border: none;
+}
+
 @media only screen and (max-width: 992px) {
     .navbarGen .button_list {
         display: none;
     }
 
-    .navbarGen .connection_list {
+    .navbarGen #no_account {
         display: none;
     }
+
+}
+
+@media only screen and (max-width: 1200px) { 
+
+    .navbarGen .connection_list .connectedButton  p{ 
+        display: none;
+    }
+    
 }
 
 @media only screen and (min-width: 993px) {
@@ -207,8 +373,13 @@ body {
     .navbarGen {
         height: 80px;
     }
+
     .navbarGen .collapse_button{ 
         font-size: 35px;
+    }
+
+    .navbarGen .connection_list .connectedButton button{ 
+        font-size: 15px;
     }
 }
 

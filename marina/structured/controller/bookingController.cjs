@@ -6,6 +6,7 @@ let model = require('../model/model_pg.cjs');
 const max = 4; 
 const min = 1;
 let courtVariable = min;
+let accountReservations = [];
 
 function increment(req, res) { 
     if (courtVariable == max){ 
@@ -15,7 +16,6 @@ function increment(req, res) {
         courtVariable++;
     }
     res.redirect('/booking');
-    renderBooking(req, res);
 }
 
 function decrement(req, res) { 
@@ -26,7 +26,6 @@ function decrement(req, res) {
         courtVariable--;
     }
     res.redirect('/booking');
-    renderBooking(req, res);
 }
 
 function tablehours(req, res) { 
@@ -40,7 +39,7 @@ function tablehours(req, res) {
     });
 }
 
-function changeBooking(req, res) { 
+function changeBooking(req, res, next) { 
     let courtid = `C_${courtVariable}`;
     let date = req.params.datetime.substring(0, 10);
     let time = req.params.datetime.substring(10);
@@ -49,35 +48,32 @@ function changeBooking(req, res) {
             res.send(err);
         }
         else { 
-            model.courtReservations(courtid, function (err, rows) { 
+            next();
+            /*model.courtReservations(courtid, function (err, rows) { 
                 if (err) { 
                     res.send(err);
                 }
                 else { 
                     res.send(rows);
                 }
-            });
+            });*/
         }
     })
 }
 
-function makeBooking(req, res) {
+function makeBooking(req, res, next) {
     let courtid = `C_${courtVariable}`;
     let date = req.params.datetime.substring(0, 10);
     let time = req.params.datetime.substring(10);
-    model.bookSlot(req.session.loggedUserId, date, time, courtid, function(err, rows) { 
+    model.bookSlot(req.session.loggedUserId, date, time, courtid, function(err, result) { 
         if(err) { 
             res.send(err);
         }
         else{ 
-            model.courtReservations(courtid, function(err,rows) { 
-                if(err) { 
-                    res.send(err); 
-                }
-                else { 
-                    res.send(rows);
-                }
-            })
+            accountReservations.push(result.rows[0]);
+            console.log(result.rows[0])
+            console.log(accountReservations)
+            next();
         }
     })
 }
@@ -98,14 +94,27 @@ function getReservations(req, res) {
     });
 }
 
+function getAccountReservations(req, res) { 
+    model.accountReservations(req.session.loggedUserId, (err, rows) => { 
+        if(err) { 
+            res.send(err); 
+        }
+        else {
+            for (let i of rows) { 
+                accountReservations.push(i);
+            } 
+        }
+    })
+}
+
 function renderBookingAdmin(req, res) { 
     let scripts = [{script: '/scripts/confirm_form_popup.js'}];
-    res.render('bookingAdmin', {title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts});
+    res.render('bookingAdmin', {layout: 'signed.hbs', title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts, reservations: accountReservations});
 }
 
 function renderBooking(req, res) { 
     let scripts = [];
-    res.render('booking', {title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts});
+    res.render('booking', {layout: 'signed.hbs', title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts, reservations: accountReservations});
 }
 
 function renderChoice(req, res) { 
@@ -117,13 +126,14 @@ function renderChoice(req, res) {
     }
 }
 
-exports.renderBooking = renderBooking;
 exports.increment = increment;
 exports.decrement = decrement;
 exports.tablehours = tablehours;
 exports.renderBookingAdmin = renderBookingAdmin;
 exports.changeBooking = changeBooking;
-exports.renderChoice = renderChoice;
 exports.makeBooking = makeBooking;
 exports.getCurrentCourt = getCurrentCourt;
 exports.getReservations = getReservations;
+exports.renderChoice = renderChoice;
+exports.getAccountReservations = getAccountReservations;
+exports.accountReservations = accountReservations;

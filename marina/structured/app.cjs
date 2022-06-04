@@ -15,6 +15,7 @@ app.use(express.static('public'));
 
 app.use((req, res, next) => {
   res.locals.userId = req.session.loggedUserId;
+  res.locals.userName = req.session.loggedUserName;
   res.locals.adminRights = req.session.adminRights;
   next();
 })
@@ -24,7 +25,7 @@ app.use('/', routes);
 
 app.engine('hbs', exphbs.engine({
   extname: 'hbs', 
-  defaultLayout: 'main', 
+  defaultLayout: 'main.hbs', 
 }));
 
 app.set('view engine', 'hbs');

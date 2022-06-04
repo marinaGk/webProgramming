@@ -33,7 +33,7 @@ let register = (req, res) => {
 
 }
 
-let login = (req, res) => { 
+let login = (req, res, next) => { 
     userModel.getUserByUsername(req.body.username, (err, user) => { 
         if (user == undefined) { 
             let message = "Δεν βρέθηκε ο χρήστης"
@@ -46,6 +46,7 @@ let login = (req, res) => {
                     req.session.loggedUserName = user.accountname;
                     req.session.adminRights = user.adminrights;
                     res.redirect('/');
+                    next();
                 }
                 else { 
                     let message = "Ο κωδικός πρόσβασης είναι λάθος"
@@ -58,7 +59,6 @@ let login = (req, res) => {
 
 let checkAuthenticated = (req, res, next) => { 
     if (req.session.loggedUserId){ 
-        console.log("user is authenticated", req.originalUrl); 
         next();
     }
     else{ 

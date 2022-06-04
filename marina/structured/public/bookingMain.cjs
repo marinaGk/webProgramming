@@ -71,10 +71,8 @@ let fillCells = (reservations) => {
         else if (cell.getAttribute("availability") == "false") { 
             cell.innerHTML = "&#88;";
             cell.style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
-            //if admin here add listener to delete reservation
         }
     }
-
 }
 
 let identifyDataColumns = () => { 
@@ -89,6 +87,8 @@ let identifyDataColumns = () => {
             counter++;
         }
     }
+
+    fetchReservations();
 
 }
 
@@ -180,8 +180,9 @@ let renderCells = (reservations) => {
     fillCells(reservations);
 }
 
-function setCourt(court) { 
+let setCourt = (court) => { 
     currentCourt = court;
+    fetchTablehours();
 }
 
 let fetchReservations = () => { 
@@ -215,7 +216,7 @@ let fetchTablehours = () => {
 window.addEventListener('DOMContentLoaded', (event) => { 
     makeTable();
     fetchCurrentCourt();
-    fetchTablehours();
-    fetchReservations();
-});
+    //fetchTablehours();
+    //fetchReservations();
+})
 
