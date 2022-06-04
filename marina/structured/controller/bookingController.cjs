@@ -29,9 +29,9 @@ function decrement(req, res) {
     renderBooking(req, res);
 }
 
-function timeslots(req, res) {
-    model.getTimeslots(courtVariable, function (err, rows) { 
-        if (err) { 
+function tablehours(req, res) { 
+    model.getTablehours(function(err, rows) { 
+        if(err) { 
             res.send(err);
         }
         else { 
@@ -40,12 +40,59 @@ function timeslots(req, res) {
     });
 }
 
-function tablehours(req, res) { 
-    model.getTablehours(function(err, rows) { 
-        if(err) { 
+function changeBooking(req, res) { 
+    let courtid = `C_${courtVariable}`;
+    let date = req.params.datetime.substring(0, 10);
+    let time = req.params.datetime.substring(10);
+    model.deleteReservation(date, time, courtid, function(err, rows) { 
+        if (err) { 
             res.send(err);
         }
         else { 
+            model.courtReservations(courtid, function (err, rows) { 
+                if (err) { 
+                    res.send(err);
+                }
+                else { 
+                    res.send(rows);
+                }
+            });
+        }
+    })
+}
+
+function makeBooking(req, res) {
+    let courtid = `C_${courtVariable}`;
+    let date = req.params.datetime.substring(0, 10);
+    let time = req.params.datetime.substring(10);
+    model.bookSlot(req.session.loggedUserId, date, time, courtid, function(err, rows) { 
+        if(err) { 
+            res.send(err);
+        }
+        else{ 
+            model.courtReservations(courtid, function(err,rows) { 
+                if(err) { 
+                    res.send(err); 
+                }
+                else { 
+                    res.send(rows);
+                }
+            })
+        }
+    })
+}
+
+function getCurrentCourt(req, res) { 
+    res.send(`${courtVariable}`);
+}
+
+function getReservations(req, res) { 
+    let courtId = `C_${courtVariable}`;
+    model.courtReservations(courtId, (err, rows) => {
+        if(err) { 
+            res.send(err);
+        }
+        else {
             res.send(rows);
         }
     });
@@ -70,43 +117,6 @@ function renderChoice(req, res) {
     }
 }
 
-function changeBooking(req, res) { 
-    model.changeSlotAvailability(req.params.TimeSlotID, function(err, rows) { 
-        if (err) { 
-            res.send(err);
-        }
-        else { 
-            model.getTimeslots(courtVariable, function (err, rows) { 
-                if (err) { 
-                    res.send(err);
-                }
-                else { 
-                    res.send(rows);
-                }
-            });
-        }
-    })
-}
-
-function makeBooking(req, res) {
-    model.bookSlot(req.session.loggedUserId, req.params.TimeSlotID, function(err, rows) { 
-        if(err) { 
-            res.send(err);
-        }
-        else{ 
-            model.getTimeslots(courtVariable, function(err,rows) { 
-                if(err) { 
-                    res.send(err); 
-                }
-                else { 
-                    res.send(rows);
-                }
-            })
-        }
-    })
-}
-
-exports.timeslots = timeslots;
 exports.renderBooking = renderBooking;
 exports.increment = increment;
 exports.decrement = decrement;
@@ -115,3 +125,5 @@ exports.renderBookingAdmin = renderBookingAdmin;
 exports.changeBooking = changeBooking;
 exports.renderChoice = renderChoice;
 exports.makeBooking = makeBooking;
+exports.getCurrentCourt = getCurrentCourt;
+exports.getReservations = getReservations;

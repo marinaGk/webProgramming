@@ -2,86 +2,7 @@
 const sql = require('./db.pg.js');
 const bcrypt = require('bcrypt');
 
-//needs to be called with courts global variable
-let getTimeslots = (court, callback) => {
-    let courtId = `C_${court}`;
-    const query = { 
-        text: 
-        `SELECT timeslotid, availability, tabledate, tablehour 
-        FROM timeslot 
-        JOIN tabledates ON tabledateid = dayid 
-        JOIN tabletimes on tabletimeid = timeid 
-        WHERE courtid = '${courtId}' 
-        ORDER BY tabledate, tablehour;`
-    }
-
-    sql.query(query, (err, timeslots) => { 
-        if(err) { 
-            callback(err.stack);
-        }
-        else { 
-            callback(null, timeslots.rows)
-        }
-    })
-
-}
-
-let getTablehours = (callback) => { 
-
-    const query = { 
-        text: 
-        `SELECT tablehour FROM tabletimes ORDER BY tablehour;`
-    }
-
-    sql.query(query, (err, tablehours) => { 
-        if(err) { 
-            callback(err.stack);
-        }
-        else { 
-            callback(null, tablehours.rows);
-        }
-    })
-}
-
-let changeSlotAvailability = (timeslotid, callback) => { 
-
-    const query = { 
-        text: 
-        `UPDATE timeslot
-        SET availability = true 
-        WHERE timeslotid = '${timeslotid}'`
-    }
-
-    sql.query(query, (err) => { 
-        if(err) { 
-            callback(err.stack);
-        }
-        else { 
-            callback(null, true)
-        }
-    })
-}
-
-let bookSlot = (userid, timeslotid, callback) => { 
-    
-    const query = { 
-        text: 
-        `INSERT INTO reservation(timeslotid, reserveeid)
-        VALUES ($2, $1)`,
-        values: [userid, timeslotid]
-    }
-
-    sql.query(query, (err) => { 
-        if(err) { 
-            callback(err.stack);
-        }
-        else { 
-            callback(null, true);
-        }
-    })
-
-}
-
+//used by logincontroller
 let getUserByUsername = (username, callback) => { 
 
     const query = { 
@@ -138,72 +59,52 @@ let registerUser = (username, password, email, fullname, callback) => {
     })
 }
 
-let getTabledays = (callback) => { 
+//used by booking controller
+let getTablehours = (callback) => { 
 
     const query = { 
         text: 
-        `SELECT CAST (tabledate AS text) FROM tabledates ORDER BY tabledate`
+        `SELECT tablehour FROM tabletimes ORDER BY tabletimeid;`
     }
 
-    sql.query(query, (err, tabledates) => { 
+    sql.query(query, (err, tablehours) => { 
         if(err) { 
             callback(err.stack);
         }
         else { 
-            callback(null, tabledates.rows);
+            callback(null, tablehours.rows);
         }
     })
-
 }
 
-let changeDate = (date, dateid, callback) => { 
+let bookSlot = (userid, date, time, courtid, callback) => { 
     
     const query = { 
         text: 
-        `UPDATE tabledates SET tabledate = $1 WHERE tabledateid = $2`, 
-        values: [date, dateid],
+        `INSERT INTO reservation(reservationdate, reservationtime, reserveeid, courtid)
+        VALUES ($2, $3, $1, $4)`,
+        values: [userid, date, time, courtid]
     }
 
     sql.query(query, (err) => { 
         if(err) { 
-            console.log(err);
             callback(err.stack);
         }
         else { 
             callback(null, true);
         }
     })
+
 }
 
-let getReservations = (courtid, callback) => { 
+let deleteReservation = (date, time, courtid, callback) => { 
 
     const query = { 
         text: 
-        `SELECT reservation.timeslotid 
+        `DELETE 
         FROM reservation 
-        JOIN timeslot 
-        ON reservation.timeslotid = timeslot.timeslotid AND timeslot.courtid = $1`, 
-        values: [courtid],
-    }
-
-    sql.query(query, function(err, reservations){ 
-        if(err) {
-            console.log(err);
-            callback(err.stack);
-        }
-        else{
-            callback(null, reservations.rows);
-        }
-    })
-
-}
-
-let deleteReservation = (slot, callback) => { 
-
-    const query = { 
-        text: 
-        `DELETE FROM reservation WHERE timeslotid = $1`, 
-        values: [slot],
+        WHERE reservationdate = $1 AND reservationtime = $2 AND courtid = $3`, 
+        values: [date, time, courtid],
     }
 
     sql.query(query, (err, state) => { 
@@ -217,23 +118,25 @@ let deleteReservation = (slot, callback) => {
 
 }
 
-let updateReservation = (slot, new_slot, callback) => { 
-
+let courtReservations = (courtid, callback) => { 
+    
     const query = { 
         text: 
-        `UPDATE reservation SET timeslotid = $1 WHERE timeslotid = $2;`,
-        values: [new_slot, slot],
+        `SELECT * 
+        FROM reservation 
+        WHERE courtid = $1`, 
+        values: [courtid],
     }
 
-    sql.query(query, (err, state) => { 
-        if(err){ 
-            callback(err.stack);
+    sql.query(query, function(err, reservations){ 
+        if(err) { 
+            callback(err.stack)
         }
         else{ 
-            callback(null, true);
+            callback(null, reservations.rows)
         }
     })
 
 }
 
-module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getUserByUsername, registerUser, bookSlot, getTabledays, changeDate, getReservations, deleteReservation, updateReservation};
+module.exports = {getUserByUsername, registerUser, getTablehours, bookSlot, deleteReservation, courtReservations};

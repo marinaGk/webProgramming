@@ -26,8 +26,9 @@ let register = (req, res) => {
         })        
     }
     else{ 
-        let message_load = 'Συμπληρώστε όλα τα πεδία';
-        res.render('signup', {layout: 'formslayout', message:message_load})
+        let message_load = "Συμπληρώστε όλα τα πεδία";
+        alert()
+        res.render('signup', {layout: 'formslayout', message: "Fill all fields"})
     }
 
 }

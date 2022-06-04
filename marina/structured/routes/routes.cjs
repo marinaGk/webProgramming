@@ -4,8 +4,6 @@ const router = express.Router();
 const dotenv = require('dotenv');
 dotenv.config();
 
-const updates = require("../updatedatabase.cjs")
-
 //const tournamentsContoller = require('../controller/tournamentsController.cjs'); 
 
 const bookingController = require('../controller/bookingController.cjs');
@@ -56,13 +54,13 @@ router.post('/registerForm', loginController.register);
 
 //booking routers 
 router.get('/booking', loginController.checkAuthenticated, bookingController.renderChoice);
-
 router.get('/booking/courts/next', bookingController.increment);
 router.get('/booking/courts/previous', bookingController.decrement);
 router.get('/booking/hours', bookingController.tablehours);
-router.get('/booking/courts', bookingController.timeslots);
-router.get('/booking/make/:TimeSlotID', bookingController.makeBooking);
-router.get('/booking/change/:TimeSlotID', bookingController.changeBooking);
+router.get('/booking/courts', bookingController.getCurrentCourt);
+router.get('/booking/availability', bookingController.getReservations);
+router.get('/booking/make/:datetime', bookingController.makeBooking);
+router.get('/booking/change/:datetime', bookingController.changeBooking);
 
 
 module.exports = router;

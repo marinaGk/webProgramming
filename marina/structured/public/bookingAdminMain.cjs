@@ -2,17 +2,21 @@ let table = document.querySelector(".table");
 
 const tableWidth = 14;
 const tableHeight = 8;
+let currentCourt;
+let hoursArray = [];
 
 let changeBooking = (event) => { 
-    let timeslot = event.target.getAttribute("timeslotid");
+    let date = event.target.getAttribute("date"); 
+    let time = event.target.getAttribute("time");
+    let datetime = date+time;
     let modal_form = document.querySelector("#accept_decline .modal-container");
     modal_form.style.zIndex = "-1";
     modal_form.style.display = "none";
 
-    fetch('/booking/change/' + timeslot)
+    fetch('/booking/change/' + datetime)
     .then(
         (response) => response.json()
-        .then((json) => renderTimeslots(json))
+        .then((json) => fillCells(json))
     )
 }
 
@@ -22,19 +26,70 @@ let closeForm = () => {
     modal_form.style.display = "none";
 }
 
-let  confirmForm = (timeslotid) => { 
+let confirmForm = (date, time) => { 
     let modal_form = document.querySelector("#accept_decline .modal-container");
     modal_form.style.zIndex = "500";
     modal_form.style.display = "flex";
     let proceedWithChange = modal_form.querySelector("#proceedBtn"); 
-    proceedWithChange.setAttribute("timeslotid", timeslotid);
+    proceedWithChange.setAttribute("date", date);
+    proceedWithChange.setAttribute("time", time);
     proceedWithChange.addEventListener("click", changeBooking);
     let cancelChange = modal_form.querySelector("#cancelBtn");
     cancelChange.addEventListener("click", closeForm);
 }
 
 let getIdForBookingChange = (event) => { 
-    confirmForm(event.target.id);
+    confirmForm(event.target.getAttribute("date"), event.target.getAttribute("time"));
+}
+
+let fillCells = (reservations) => { 
+
+    const data = document.querySelectorAll(".data_row td"); 
+
+    for (let i of data) { 
+
+        let data_date = i.getAttribute("date");
+        let data_time = i.getAttribute("time");
+
+        i.setAttribute("availability", "true");
+        for (let k of reservations) { 
+            console.log("came here")
+            if (k.reservationdate == data_date) {
+                if(k.reservationtime == data_time) { 
+                    i.setAttribute("availability", "false");
+                    break;
+                } 
+            }
+        }
+    }
+
+    for (let cell of data) { 
+        if(cell.getAttribute("availability") == "true") { 
+            cell.innerHTML = "&#10003;";
+            cell.style.backgroundColor = '#f5f7f9';
+        }
+        else if (cell.getAttribute("availability") == "false") { 
+            cell.innerHTML = "&#88;";
+            cell.style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
+            cell.addEventListener("click", getIdForBookingChange)
+        }
+    }
+
+}
+
+let identifyDataColumns = () => { 
+
+    const datarows = document.querySelectorAll(".data_row"); 
+
+    for (let i of datarows) { 
+        let cells = i.querySelectorAll("td"); 
+        let counter = 0;
+        for (let k of cells) { 
+            k.setAttribute("time", hoursArray[counter]);
+            counter++;
+        }
+    }
+
 }
 
 let fillHourRow = (hourslots) => {
@@ -47,36 +102,16 @@ let fillHourRow = (hourslots) => {
 
         let cell = children[i+1];
         let hour = hourslots[i].tablehour;
-        hour = hour.substr(0, 5);
+        hoursArray.push(hour);
         let text = document.createTextNode(hour);
         let p = document.createElement('p'); 
         p.appendChild(text);
         cell.appendChild(p);
     }
-    
+    identifyDataColumns();
 }
 
-let fillDataColumns = (timeslots) => { 
-    let counter=0;
-    const data = document.querySelectorAll(".data_row td"); 
-    for (let i of timeslots) { 
-        let availability = i.availability;
-        data[counter].id = i.timeslotid;
-        if (availability == true) { 
-            data[counter].innerHTML = "&#10003;";
-            data[counter].style.backgroundColor = '#f5f7f9';
-        }
-        else if (availability == false) { 
-            let text = document.createTextNode("no");
-            data[counter].innerHTML = "&#88;";
-            data[counter].style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
-            data[counter].addEventListener("click", getIdForBookingChange);
-        }
-        counter++;
-    }
-}
-
-function fillDayColumn() { 
+let fillDayColumn = () => { 
 
     const month_cell = document.querySelector(".hours .cell0"); 
     let text = document.createTextNode("Για την επόμενη εβδομάδα");
@@ -89,14 +124,17 @@ function fillDayColumn() {
 
     for (let i = 0; i<days.length; i++) { 
         cellDate.setDate(new Date().getDate() + i);
-        console.log(cellDate);
         let text = document.createTextNode(cellDate.toLocaleDateString('el-GR', options));
         days[i].append(text);
     }
 
 }
 
-let fillRow = (row) => { 
+let fillRow = (day, row) => { 
+
+    let rowDate = new Date();
+    rowDate.setDate(new Date().getDate() + (day-1));
+    rowDate = rowDate.toISOString().slice(0,10);
 
     let cell = document.createElement("th");
 
@@ -106,6 +144,7 @@ let fillRow = (row) => {
         if (i != 0) { 
             cell = document.createElement("td");
             cell.style.colSpan = "1";
+            cell.setAttribute("date", rowDate);
         }
         cell.classList.add(`cell${i}`);
         cell.classList.add("bookingTableCell");
@@ -116,16 +155,16 @@ let fillRow = (row) => {
 }
 
 let makeTable = () => {
+
     for (let i = 0; i<tableHeight; i++) { 
         let row = document.createElement("tr");
-        console.log(typeof(row));
         if (i == 0) { 
             row.className = "hours";
         }
         else { 
             row.className = "data_row"
         }
-        fillRow(row);
+        fillRow(i, row);
         table.appendChild(row);
     }
 
@@ -133,19 +172,35 @@ let makeTable = () => {
 }
 
 //don't mess with those
-let renderTimeslots = (timeslots) => { 
-    fillDataColumns(timeslots);
-}
-
 let renderTablehours = (hourslots) => { 
     fillHourRow(hourslots);
 }
 
-let fetchTimeslots = () => { 
+let renderCells = (reservations) => { 
+    fillCells(reservations);
+}
+
+function setCourt(court) { 
+    currentCourt = court;
+}
+
+let fetchReservations = () => { 
+    fetch('booking/availability')
+    .then( 
+        (response) => response.json()
+        .then(
+            (json) => renderCells(json)
+        )
+    )
+}
+
+let fetchCurrentCourt = () => { 
     fetch('/booking/courts')
     .then(
         (response) => response.json()
-        .then((json) => renderTimeslots(json))
+        .then(
+            (json) => setCourt(json)
+        )
     )
 }
 
@@ -158,8 +213,11 @@ let fetchTablehours = () => {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => { 
-    fetchTimeslots();
-    fetchTablehours();
     makeTable();
+    //fetchTimeslots();
+    fetchCurrentCourt();
+    fetchTablehours();
+    fetchReservations();
 });
+
 

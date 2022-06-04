@@ -2,8 +2,8 @@
 //should be completed before rendering booking table
 let model = require("./model/model_pg.cjs");
 
-let today = new Date().toISOString().slice(0,10); //works at 12:00 AM - find way to force that
-
+let today = new Date().toISOString().slice(0,10); 
+console.log(new Date());//works at 12:00 AM - find way to force that
 //fetch dates from db : if D_1 date is yesterday, proceed
 //in model
 
@@ -14,8 +14,8 @@ function update() {
 //changes dates every day
 function fetchDays() { 
     model.getTabledays(function(err, rows) { 
+        console.log(today)
         if (rows[0].tabledate!=today) { 
-            console.log("changing booking database")
             let datetime = new Date();
             //changes days
             for (i = 0; i<7; i++) { 

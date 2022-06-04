@@ -22,35 +22,35 @@
 
     <body class = "container-fluid p-0 m-0 w-100">
         
-        <!--SIDENAV
+        <!--SIDENAV-->
         <div class = "sidenav">
-            <div class = "sidenav-container"> 
+            <div class = "sidenav-container" state = "hidden"> 
                 <div class = "sidenavbar"> 
                     <ul class = "side_button_list row m-0"> 
                         <li class = "side_navButton">
-                            <a href = "index.html">ΑΡΧΙΚΗ</a>
+                            <a href = "/">ΑΡΧΙΚΗ</a>
                         </li>
                         <li class = "side_navButton"> 
-                            <a href="tennis.html">ΤΕΝΝΙΣ</a>
+                            <a href="/tennis">ΤΕΝΝΙΣ</a>
                         </li>
                         <li class = "side_navButton"> 
-                            <a href="spaces.html">ΧΩΡΟΙ</a>
+                            <a href="/spaces">ΧΩΡΟΙ</a>
                         </li>
                         <li class = "side_navButton">
-                            <a href = "booking.html">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a>
+                            <a href = "/booking">ΚΡΑΤΗΣΗ ΓΗΠΕΔΟΥ</a>
                         </li> 
                     </ul>
                     <ul class = "side_connection_list row m-0">
                         <li class = "side_accButton">
-                            <button id = "loginBtn">LOGIN</button>
+                            <a href="/login"><button id = "loginBtn">LOGIN</button></a>
                         </li> 
                         <li class = "side_accButton">
-                            <button id = "signBtn">SIGN UP</button>
+                            <a href="/signup"><button id = "signupBtn">SIGN UP</button></a>
                         </li> 
                     </ul>
                 </div>
             </div>
-        </div>-->
+        </div>
         <!--NAVIGATION BAR-->
         <nav class = "navbarGen row m-0 p-0">
             <ul class = "button_list col-10 p-0 m-0">
@@ -163,5 +163,6 @@
         {{#each scripts}}
             <script type = "application/javascript" src={{script}}></script>
         {{/each}}
+        <script type = "text/javascript" src = "/scripts/sideNav.js"></script>
 
     </body>
