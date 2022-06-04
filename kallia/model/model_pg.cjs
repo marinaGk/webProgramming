@@ -72,7 +72,7 @@ let changeSlotAvailability = (timeslotid, callback) => {
 let getTournaments = (callback) => {
     const query = { 
         text: 
-        `select tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details, encode(poster::bytea,'base64') as poster from tournament ORDER BY tournamentid;`
+        `select tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details, encode(poster::bytea,'base64') as poster from tournament ORDER BY startdate;`
     }
 
 
@@ -88,6 +88,181 @@ let getTournaments = (callback) => {
 }
 
 
+let getTournamentById = (tournamentId, callback) => {
+    const query = { 
+        text: 
+        `select * from tournament where tournamentid = '${tournamentId}';`
+    }
 
 
-module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getTournaments};
+    sql.query(query, (err, tournament) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, tournament.rows)  //returns results as rows
+        }
+    })
+
+}
+
+let getTournamentsNumber = (callback) => {
+    const query = { 
+        text: 
+        `select count(*) from tournament;`
+    }
+
+
+    sql.query(query, (err, tournaments) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, tournaments.rows)  //returns results as rows
+        }
+    })
+
+}
+
+let addTournament = (newTournament, callback) => {
+    if (newTournament.skilllevel == '') newTournament.skilllevel = null;
+    if (newTournament.agerestrictions == '') newTournament.agerestrictions = null;
+    if (newTournament.poster == '') {
+        newTournament.poster = null;
+        const query = { 
+            text: 
+            `insert into tournament (tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details, poster)
+            values ('${newTournament.tournamentid}','${newTournament.title}', '${newTournament.startdate}', '${newTournament.enddate}', ${newTournament.skilllevel}, ${newTournament.agerestrictions}, '${newTournament.details}', null);`
+        }
+        sql.query(query, (err, res) => { 
+            if(err) { 
+                callback(err.stack);
+            }
+            else { 
+                callback(null, res.rows)  //returns results as rows
+            }
+        })}
+    else    {
+        const query = { 
+            text: 
+            `insert into tournament (tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details, poster)
+            values ('${newTournament.tournamentid}','${newTournament.title}', '${newTournament.startdate}', '${newTournament.enddate}', ${newTournament.skilllevel}, ${newTournament.agerestrictions}, '${newTournament.details}', pg_read_binary_file('\\Users\\Public\\${newTournament.poster}'));`
+        }
+        sql.query(query, (err, res) => { 
+            if(err) { 
+                callback(err.stack);
+            }
+            else { 
+                callback(null, res.rows)  //returns results as rows
+            }
+        })}
+
+}
+    // sql.query(query, (err, tournaments) => { 
+    //     if(err) { 
+    //         callback(err.stack);
+    //     }
+    //     else { 
+    //         callback(null, tournaments.rows)  //returns results as rows
+    //     }
+    // })
+
+
+let deleteTournament = (tournamentid, callback) => {
+    const query = { 
+        text: 
+        `delete from tournament where tournamentid = '${tournamentid}';`
+    }
+
+
+    sql.query(query, (err, res) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, res.rows)  //returns results as rows
+        }
+    })
+
+}
+
+
+let getMonths = (callback) => {
+    const query = { 
+        text: 
+        `select distinct monthname from 
+        (select distinct startdate, TO_CHAR(DATE(startdate), 'Month') as monthname FROM tournament order by startdate) as orderedmonths;`
+    }
+
+
+    sql.query(query, (err, res) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, res.rows)  //returns results as rows
+        }
+    })
+
+}
+
+
+let deleteMonth = (monthid, callback) => {
+    const query = { 
+        text: 
+        `delete from tournament where translate(TO_CHAR(DATE(startdate), 'Month'), ' ', '') in ('${monthid}');`
+    }
+
+
+    sql.query(query, (err, res) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, res.rows)  //returns results as rows
+        }
+    })
+
+}
+
+
+let updateTournament = (newTournament, callback) => {
+    if (newTournament.skilllevel == '') newTournament.skilllevel = null;
+    if (newTournament.agerestrictions == '') newTournament.agerestrictions = null;
+    if (newTournament.poster == '') {
+        newTournament.poster = null;
+        const query = { 
+            text: 
+            `update tournament
+             set title = '${newTournament.title}', startdate = '${newTournament.startdate}', enddate = '${newTournament.enddate}', skilllevel = ${newTournament.skilllevel}, agerestrictions = ${newTournament.agerestrictions}, details = '${newTournament.details}', poster = null
+             where tournamentid = '${newTournament.tournamentid}';`
+        }
+        sql.query(query, (err, res) => { 
+            if(err) { 
+                callback(err.stack);
+            }
+            else { 
+                callback(null, res.rows)  //returns results as rows
+            }
+        })}
+    else    {
+        const query = { 
+            text:
+            `update tournament
+             set title = '${newTournament.title}', startdate = '${newTournament.startdate}', enddate = '${newTournament.enddate}', skilllevel = ${newTournament.skilllevel}, agerestrictions = ${newTournament.agerestrictions}, details = '${newTournament.details}', poster = pg_read_binary_file('\\Users\\Public\\${newTournament.poster}')
+             where tournamentid = '${newTournament.tournamentid}';`
+        }
+        sql.query(query, (err, res) => { 
+            if(err) { 
+                callback(err.stack);
+            }
+            else { 
+                callback(null, res.rows)  //returns results as rows
+            }
+        })}
+
+}
+
+
+
+module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getTournaments, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth, getTournamentById, updateTournament};
