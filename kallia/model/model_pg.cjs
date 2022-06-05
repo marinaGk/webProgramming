@@ -146,7 +146,7 @@ let addTournament = (newTournament, callback) => {
         const query = { 
             text: 
             `insert into tournament (tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details, poster)
-            values ('${newTournament.tournamentid}','${newTournament.title}', '${newTournament.startdate}', '${newTournament.enddate}', ${newTournament.skilllevel}, ${newTournament.agerestrictions}, '${newTournament.details}', pg_read_binary_file('\\Users\\Public\\${newTournament.poster}'));`
+            values ('${newTournament.tournamentid}','${newTournament.title}', '${newTournament.startdate}', '${newTournament.enddate}', ${newTournament.skilllevel}, ${newTournament.agerestrictions}, '${newTournament.details}', ${newTournament.poster});`
         }
         sql.query(query, (err, res) => { 
             if(err) { 
@@ -264,5 +264,45 @@ let updateTournament = (newTournament, callback) => {
 }
 
 
+let joinTournament= (participantid, tournamentid, callback) => {
+    const query = { 
+        text: 
+        `insert into joins(participantid, tournamentid)
+         VALUES (${participantid}, '${tournamentid}');`
+    }
 
-module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getTournaments, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth, getTournamentById, updateTournament};
+
+    sql.query(query, (err, res) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, res.rows)  //returns results as rows
+        }
+    })
+
+}
+
+let getUserTournaments = (participantid, callback) => {
+    const query = { 
+        text: 
+        `select distinct * 
+        from joins join tournament on joins.tournamentid = tournament.tournamentid
+        where joins.participantid = '${participantid}';`
+    }
+
+
+    sql.query(query, (err, res) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, res.rows)  //returns results as rows
+        }
+    })
+
+}
+
+
+
+module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getTournaments, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth, getTournamentById, updateTournament, joinTournament, getUserTournaments};

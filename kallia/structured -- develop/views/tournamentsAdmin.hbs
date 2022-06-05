@@ -9,7 +9,7 @@
                 <button class = "close col-1 p-0">
                 </button> 
             </div>
-            <form class = "form" method= "GET" enctype="multipart/form-data" action= "/tournaments/addTournamentToDB">
+            <form class = "form" id= "addTour" method= "GET" action= "/tournaments/addTournamentToDB">
                 <div class = "inputs col m-0">
                     <div class="title row m-0 p-0"> 
                         <h1 style = "font-size: 32px;">
@@ -46,7 +46,8 @@
                             </div>
                             <div class = "field row mb-4 p-0"> 
                                 <label for = "poster" class = "field_name col-7 p-0"> Πόστερ: </label>
-                                <input name="poster" style = "max-height: 25.5px;" type="file" accept="image/png, image/jpeg, image/jpg" class = "field_input col-7 p-0">
+                                <input style = "max-height: 25.5px;" type="file" accept="image/png, image/jpeg, image/jpg" class = "field_input col-7 p-0" id="image">
+                                <input id="hidden_image" name="poster" type="hidden">
                                 <div style = "font-size: 15px; margin-top:10px;" class = "field_name col-7 p-0">
                                     Για να γίνει επιτυχές ανέβασμα ενός πόστερ, παρακαλώ επιλέξτε αρχεία που να βρισκονται στον φάκελο Public του υπολογιστή σας (στο path C:\Users\Public).
                                 </div>
@@ -297,5 +298,5 @@
 
 {{!-- ADMINNNNN --}}
 <script type = "application/javascript" src = "/tournamentsAdminMain.cjs"> </script>
-{{!-- <script type = "application/javascript" src = "/scripts/tournamentPopup.js"> </script> --}}
+<script type = "application/javascript" src = "/scripts/tournamentPopup.js"> </script>
 {{!-- /ADMINNNNN --}}

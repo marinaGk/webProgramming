@@ -8,6 +8,10 @@ dotenv.config();
 const exphbs = require('express-handlebars');
 //session here
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '5000kb', extended: true}));
+
 app.use(express.urlencoded({extended: false}));
 
 //Το template μας μπορεί να χρειάζεται να φορτώσει κάποια CSS ή JS
