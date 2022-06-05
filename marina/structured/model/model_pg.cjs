@@ -30,7 +30,7 @@ let registerUser = (username, password, email, fullname, callback) => {
     getUserByUsername(username, async(err, userIdbyUsername) => { 
 
         if(userIdbyUsername != undefined) { 
-            callback(null, null, {message : "Υπάρχει ήδη χρήστης με αυτό το όνομα"})
+            callback(null, null, "Υπάρχει ήδη χρήστης με αυτό το όνομα")
         }
         else { 
             try{ 
@@ -98,6 +98,26 @@ let bookSlot = (userid, date, time, courtid, callback) => {
 
 }
 
+let changeSlotAvailability = (userid, date, time, courtid, callback) => { 
+
+    const query = { 
+        text: 
+        `INSERT INTO reservation (reservationdate, reservationtime, courtid, reserveeid) 
+        VALUES ($1, $2, $3, $4)`,
+        values: [date, time, courtid, userid],
+    }
+
+    sql.query(query, (err, state) => { 
+        if(err){ 
+            callback(err.stack)
+        }
+        else{ 
+            callback(null, true);
+        }
+    })
+
+}
+
 let deleteReservation = (date, time, courtid, callback) => { 
 
     const query = { 
@@ -160,4 +180,4 @@ let accountReservations = (userid, callback) => {
     })
 }
 
-module.exports = {getUserByUsername, registerUser, getTablehours, bookSlot, deleteReservation, courtReservations, accountReservations};
+module.exports = {getUserByUsername, registerUser, getTablehours, bookSlot, changeSlotAvailability, deleteReservation, courtReservations, accountReservations};

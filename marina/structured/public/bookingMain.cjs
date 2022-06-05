@@ -182,6 +182,9 @@ let renderCells = (reservations) => {
 
 let setCourt = (court) => { 
     currentCourt = court;
+    console.log(currentCourt)
+    let court_info = document.querySelector(`#court${currentCourt}`); 
+    court_info.style.display= "block";
     fetchTablehours();
 }
 

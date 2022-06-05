@@ -22,7 +22,7 @@
 .spaces_banner #title { 
     width: 80%;
     padding: 20px 0px 20px 0px;
-    color: #ca31a4;
+    color: #fd8f76;
     position: relative;
     left: 10%; 
 
@@ -61,7 +61,8 @@
     flex-direction: column;
 
     width: 100%;
-    background-color: #fac300;
+    /*background-color: #fac300;*/
+    background-image: url("../imgs/spacesBackground.jpg");
 }
 
 .spaces_info_row { 
@@ -77,7 +78,7 @@
 
     width: 30%;
     background-color: white; 
-    color: #ca31a4;
+    color: #fd8f76;
     box-shadow: 5px 5px #6c6f6f;
     margin: 50px 0px 50px 0px;
 }

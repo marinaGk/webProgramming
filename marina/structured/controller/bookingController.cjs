@@ -7,6 +7,7 @@ const max = 4;
 const min = 1;
 let courtVariable = min;
 let accountReservations = [];
+let currentAccountReservations = [];
 
 function increment(req, res) { 
     if (courtVariable == max){ 
@@ -43,20 +44,26 @@ function changeBooking(req, res, next) {
     let courtid = `C_${courtVariable}`;
     let date = req.params.datetime.substring(0, 10);
     let time = req.params.datetime.substring(10);
+    model.changeSlotAvailability(req.session.loggedUserId, date, time, courtid, function(err, rows) { 
+        if(err) { 
+            res.send(err); 
+        }
+        else{ 
+            next();
+        }
+    })
+}
+
+function deleteBooking(req, res, next) { 
+    let courtid = `C_${courtVariable}`;
+    let date = req.params.datetime.substring(0, 10);
+    let time = req.params.datetime.substring(10);
     model.deleteReservation(date, time, courtid, function(err, rows) { 
         if (err) { 
             res.send(err);
         }
         else { 
             next();
-            /*model.courtReservations(courtid, function (err, rows) { 
-                if (err) { 
-                    res.send(err);
-                }
-                else { 
-                    res.send(rows);
-                }
-            });*/
         }
     })
 }
@@ -70,9 +77,8 @@ function makeBooking(req, res, next) {
             res.send(err);
         }
         else{ 
+            result.rows[0].courtid = result.rows[0].courtid.substr(2);
             accountReservations.push(result.rows[0]);
-            console.log(result.rows[0])
-            console.log(accountReservations)
             next();
         }
     })
@@ -94,17 +100,25 @@ function getReservations(req, res) {
     });
 }
 
-function getAccountReservations(req, res) { 
+function getAccountReservations(req, res, next) { 
     model.accountReservations(req.session.loggedUserId, (err, rows) => { 
         if(err) { 
             res.send(err); 
         }
         else {
+            currentAccountReservations = [];
             for (let i of rows) { 
-                accountReservations.push(i);
+                i.courtid = i.courtid.substr(2);
+                currentAccountReservations.push(i);
             } 
+            next();
         }
     })
+}
+
+function setGlobal(req, res, next) { 
+    accountReservations = currentAccountReservations;
+    exports.accountReservations = accountReservations;
 }
 
 function renderBookingAdmin(req, res) { 
@@ -130,10 +144,11 @@ exports.increment = increment;
 exports.decrement = decrement;
 exports.tablehours = tablehours;
 exports.renderBookingAdmin = renderBookingAdmin;
-exports.changeBooking = changeBooking;
+exports.deleteBooking = deleteBooking;
 exports.makeBooking = makeBooking;
 exports.getCurrentCourt = getCurrentCourt;
 exports.getReservations = getReservations;
 exports.renderChoice = renderChoice;
 exports.getAccountReservations = getAccountReservations;
-exports.accountReservations = accountReservations;
+exports.setGlobal = setGlobal;
+exports.changeBooking = changeBooking;

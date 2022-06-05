@@ -61,7 +61,7 @@
     flex-direction: column; 
     background-color: white;
     width: 100%;
-    padding: 50px 0px 90px 0px;
+    padding: 50px 0px 50px 0px;
 }
 
 .court_booking { 
@@ -162,6 +162,26 @@
     font-size: 20px;
     padding: 10px;
     line-height: 20px;
+}
+
+.info{ 
+    display: flex ;
+    flex-direction: column;
+    padding: 10px;
+    width: 80%;
+    position: relative;
+    margin: auto;
+}
+
+.info .current_court_info { 
+    width: 80%; 
+    margin: auto;
+    display: none;
+}
+
+.info .current_court_info p{ 
+    text-align: center;
+    font-style: italic;
 }
 
 .legend { 

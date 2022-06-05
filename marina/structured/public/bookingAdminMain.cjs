@@ -12,8 +12,22 @@ let changeBooking = (event) => {
     let modal_form = document.querySelector("#accept_decline .modal-container");
     modal_form.style.zIndex = "-1";
     modal_form.style.display = "none";
-
     fetch('/booking/change/' + datetime)
+    .then(
+        (response) => response.json()
+        .then((json) => fillCells(json))
+    )
+}
+
+let deleteBooking = (event) => { 
+    let date = event.target.getAttribute("date"); 
+    let time = event.target.getAttribute("time");
+    let datetime = date+time;
+    let modal_form = document.querySelector("#accept_decline .modal-container");
+    modal_form.style.zIndex = "-1";
+    modal_form.style.display = "none";
+
+    fetch('/booking/delete/' + datetime)
     .then(
         (response) => response.json()
         .then((json) => fillCells(json))
@@ -26,20 +40,29 @@ let closeForm = () => {
     modal_form.style.display = "none";
 }
 
-let confirmForm = (date, time) => { 
+let confirmForm = (date, time, command) => { 
     let modal_form = document.querySelector("#accept_decline .modal-container");
     modal_form.style.zIndex = "500";
     modal_form.style.display = "flex";
     let proceedWithChange = modal_form.querySelector("#proceedBtn"); 
     proceedWithChange.setAttribute("date", date);
     proceedWithChange.setAttribute("time", time);
-    proceedWithChange.addEventListener("click", changeBooking);
+    if(command=="delete"){ 
+        proceedWithChange.addEventListener("click", deleteBooking);
+    }
+    else if(command=="change"){ 
+        proceedWithChange.addEventListener("click", changeBooking);
+    }
     let cancelChange = modal_form.querySelector("#cancelBtn");
     cancelChange.addEventListener("click", closeForm);
 }
 
 let getIdForBookingChange = (event) => { 
-    confirmForm(event.target.getAttribute("date"), event.target.getAttribute("time"));
+    confirmForm(event.target.getAttribute("date"), event.target.getAttribute("time"), "change");
+}
+
+let getIdForBookingDelete = (event) => { 
+    confirmForm(event.target.getAttribute("date"), event.target.getAttribute("time"), "delete");
 }
 
 let fillCells = (reservations) => { 
@@ -67,11 +90,12 @@ let fillCells = (reservations) => {
         if(cell.getAttribute("availability") == "true") { 
             cell.innerHTML = "&#10003;";
             cell.style.backgroundColor = '#f5f7f9';
+            cell.addEventListener("click", getIdForBookingChange)
         }
         else if (cell.getAttribute("availability") == "false") { 
             cell.innerHTML = "&#88;";
             cell.style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
-            cell.addEventListener("click", getIdForBookingChange)
+            cell.addEventListener("click", getIdForBookingDelete)
         }
     }
 
@@ -89,6 +113,7 @@ let identifyDataColumns = () => {
             counter++;
         }
     }
+    fetchReservations();
 
 }
 
@@ -182,6 +207,7 @@ let renderCells = (reservations) => {
 
 function setCourt(court) { 
     currentCourt = court;
+    fetchTablehours();
 }
 
 let fetchReservations = () => { 
@@ -214,10 +240,9 @@ let fetchTablehours = () => {
 
 window.addEventListener('DOMContentLoaded', (event) => { 
     makeTable();
-    //fetchTimeslots();
     fetchCurrentCourt();
-    fetchTablehours();
-    fetchReservations();
+    //fetchTablehours();
+    //fetchReservations();
 });
 
 
