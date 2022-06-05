@@ -273,29 +273,6 @@ function addTableHeaders() {
     
 }
 
-function formatDate(date) {
-    var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
-
-    return [day, month, year].join('-');
-}
-
-
-function fixDates (){
-    dates = document.querySelectorAll("#cell_date");
-    console.log(dates);
-    for (date of dates){
-        date.innerHTML = formatDate(date.innerHTML);
-    }
-}
-
 
 // function fillTable(tournaments) { 
 //     // tournaments.sort((a,b) => {return new Date(a.startdate) - new Date (b.startdate);})
@@ -332,13 +309,11 @@ let fetchAllTournaments = () => {
 
 let renderAllTournaments = (tournaments) => {
     appendMonthsTournaments(tournaments);
-    // fillTable(tournaments);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => { 
     fetchAllTournaments();
     addTableHeaders();
-    fixDates();
 });
 
 

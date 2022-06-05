@@ -1,0 +1,158 @@
+.buttons { 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    position: relative; 
+    bottom: 0px;
+    padding: 20px 0px 20px 0px;
+}
+
+.admin_button{ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    height: fit-content; 
+    background-color: white;
+    padding: 20px 0px 20px 0px;
+}
+
+.admin_button button { 
+    position: relative;
+    left: 10%; 
+
+    width: 20%; 
+    height: 60px;
+
+    border: none; 
+    border-radius: 10px; 
+    color: white; 
+    background-color: grey; 
+}
+
+.tournaments_info { 
+    display: flex;
+    flex-direction: column;
+}
+
+.tournaments_info_row input { 
+    display: flex;
+    flex-direction: column;
+
+    min-height: 20px;
+    height: fit-content;
+    word-wrap: wrap;
+
+    margin: 20px 0px 20px 0px;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+#month_title { 
+    width: 50%; 
+    margin: auto;
+}
+
+.tournament_row { 
+    display: flex;
+    flex-direction: column;
+}
+
+.tournament_row .info_row { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.delete_row { 
+    position: relative; 
+}
+
+.delete_row .delete_button { 
+    display: none;
+
+    position: absolute; 
+    right: 0px;
+
+    width: 20px; 
+    height: 20px;
+    border: none; 
+    border-radius: 20px; 
+
+    background-color: red;
+    color:white;
+    line-height: 5px;
+
+}
+
+.tournament_row:hover { 
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.tournament_row:hover .delete_button{ 
+    display: block;
+}
+
+.month_row:hover { 
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.month_row:hover .delete_button { 
+    display: block;
+}
+
+.tournament_row input, .tournament_row textarea{ 
+    min-height: 20px;
+    height: fit-content;
+    word-wrap: wrap;
+
+    margin: 20px 0px 20px 0px;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.tournament_details_input { 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 200px;
+    word-wrap: wrap;
+}
+
+.board_row { 
+    display: flex; 
+    flex-direction: column;
+
+    padding: 50px 0px 50px 0px;
+}
+
+.board { 
+    margin: auto; 
+    width: 90%; 
+    font-size: 20px;
+}
+
+.board #board_title { 
+    font-size: 30px; 
+    color: pink;
+    width: 100%;
+}
+
+.board tbody { 
+    width: 80%; 
+    margin: auto; 
+}
+
+.board tr { 
+    width: 100%; 
+    height: 30px;
+    background-color: #f5f7f9;
+}
+
+.board th { 
+    width: 20%; 
+    height: 40px;
+}

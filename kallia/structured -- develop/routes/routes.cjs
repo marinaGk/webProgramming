@@ -78,9 +78,11 @@ router.get('/tournaments', tournamentsController.renderTournament);
 router.get('/tournamentForm', tournamentsController.renderTournamentForm);
 router.get('/tournaments/allTournaments', tournamentsController.allTournaments);
 router.get('/selectedTournament', tournamentsController.addTournamentToForm);
-router.get('/addTournamentToDB' , tournamentsController.addTournamentToDB);
-router.get('/deleteTournamentFromDB' , tournamentsController.deleteTournamentFromDB);
-router.get('/deleteMonthFromDB' , tournamentsController.deleteMonthFromDB);
+router.get('/tournaments/addTournamentToDB' , tournamentsController.addTournamentToDB);
+router.get('/tournaments/deleteTournamentFromDB' , tournamentsController.deleteTournamentFromDB);
+router.get('/tournaments/deleteMonthFromDB' , tournamentsController.deleteMonthFromDB);
+router.get('/editTournamentSelect' , tournamentsController.editTournamentSelect);
+router.get('/tournaments/editTournamentAtDB' , tournamentsController.editTournamentAtDB);
 
 
 

@@ -77,7 +77,13 @@ router.get('/booking/change/:TimeSlotID', bookingController.changeBooking);
 router.get('/tournaments', tournamentsController.renderTournament);
 router.get('/tournamentForm', tournamentsController.renderTournamentForm);
 router.get('/tournaments/allTournaments', tournamentsController.allTournaments);
-router.get('/selectedTournament', tournamentsController.addTournamentToForm, tournamentsController.renderTournamentForm);
+router.get('/selectedTournament', tournamentsController.addTournamentToForm);
+router.get('/tournaments/addTournamentToDB' , tournamentsController.addTournamentToDB);
+router.get('/tournaments/deleteTournamentFromDB' , tournamentsController.deleteTournamentFromDB);
+router.get('/tournaments/deleteMonthFromDB' , tournamentsController.deleteMonthFromDB);
+router.get('/editTournamentSelect' , tournamentsController.editTournamentSelect);
+router.get('/tournaments/editTournamentAtDB' , tournamentsController.editTournamentAtDB);
+
 
 
 // router.route('/tournaments').get((req, res) => { 

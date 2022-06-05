@@ -127,7 +127,7 @@ function newTournamentField_NE(tour, tourMonth) {
     //     list.remove("current_tourn");
     // }
     
-    tournament_row = createTournamentRow_NE();
+    tournament_row = createTournamentRow_NE(tour.tournamentid);
     //month = document.querySelector('.tournaments_info_row month${tourMonth}');
     let month = document.getElementById("month"+tourMonth);
     month.appendChild(tournament_row);
@@ -153,7 +153,7 @@ function newTournamentField_NE(tour, tourMonth) {
 
 // NE -> No Edit
 
-function createTournamentRow_NE() { 
+function createTournamentRow_NE(tournamentid) { 
 
     //tournaments_counter +=1; 
 
@@ -165,7 +165,7 @@ function createTournamentRow_NE() {
     for (let i in tournaments_list)
         tournaments_list[i].id = 'tournament'+i;
     let tournaments_counter = tournaments_list.length;
-    row.setAttribute('id', `tournament${tournaments_counter}`);
+    row.setAttribute('id', `tournament${tournamentid}`);
 
 
     // let deleteRow = document.createElement("div"); 
@@ -273,28 +273,6 @@ function addTableHeaders() {
     
 }
 
-function formatDate(date) {
-    var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
-
-    return [day, month, year].join('-');
-}
-
-
-function fixDates (){
-    dates = document.querySelectorAll("#cell_date");
-    for (date of dates){
-        date.innerHTML = formatDate(date.innerHTML);
-    }
-}
-
 
 // function fillTable(tournaments) { 
 //     // tournaments.sort((a,b) => {return new Date(a.startdate) - new Date (b.startdate);})
@@ -331,13 +309,11 @@ let fetchAllTournaments = () => {
 
 let renderAllTournaments = (tournaments) => {
     appendMonthsTournaments(tournaments);
-    fillTable(tournaments);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => { 
     fetchAllTournaments();
     addTableHeaders();
-    fixDates();
 });
 
 
