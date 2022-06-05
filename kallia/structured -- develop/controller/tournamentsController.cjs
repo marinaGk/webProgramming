@@ -78,6 +78,22 @@ function renderTournamentForm(req, res) {
     });
 }
 
+
+
+function renderUserTournaments(req,res) {
+    let scripts = [];
+    model.getUserTournaments('USER_1', function(err, tournaments) {
+        if(err) { 
+            res.send(err);
+        }
+        else {
+            fixDates(tournaments);
+            res.render('userTournaments', {title: "Villia Tennis Club | Your Tournaments", style: "userTournaments.css", tournaments: tournaments , scripts: scripts});
+        }
+    });
+}
+
+
 function allTournaments(req,res) {
     model.getTournaments(function(err, rows) { 
         if(err) { 
@@ -135,7 +151,6 @@ function addTournamentToDB (req,res) {
                             else {
                                 translate(months);
                                 if (addError){
-                                    console.log("HEREEEEEEEEEEEEEEEE",req.params);
                                     console.log(addError);
                                     // completed = "false";
                                     res.send("Τα στοιχεία που συμπληρώσατε δεν είναι εγκυρα! Ελέγξτε αν έχετε συμπληρώσει σωστά τα πεδία της φόρμας. Πηγαίνετε στην προηγούμενη σελίδα για να επαναλάβετε την προσπάθεια σας...");
@@ -307,7 +322,7 @@ function joinTournament (req,res) {
                 //         res.render('tournaments', {title: "Villia Tennis Club | Tournaments", style: "tournaments.css", tournaments: tournaments, months: months , scripts: scripts});
                 //     }
                 // });
-                res.redirect("/tournaments");
+                res.redirect("/tournamentForm");
             }
         }
     }); 
@@ -325,3 +340,4 @@ exports.deleteMonthFromDB = deleteMonthFromDB;
 exports.editTournamentSelect = editTournamentSelect;
 exports.editTournamentAtDB = editTournamentAtDB;
 exports.joinTournament =joinTournament;
+exports.renderUserTournaments = renderUserTournaments;

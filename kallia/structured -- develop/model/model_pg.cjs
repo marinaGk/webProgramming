@@ -283,6 +283,26 @@ let joinTournament= (participantid, tournamentid, callback) => {
 
 }
 
+let getUserTournaments = (participantid, callback) => {
+    const query = { 
+        text: 
+        `select distinct * 
+        from joins join tournament on joins.tournamentid = tournament.tournamentid
+        where joins.participantid = '${participantid}';`
+    }
 
 
-module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getTournaments, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth, getTournamentById, updateTournament, joinTournament};
+    sql.query(query, (err, res) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, res.rows)  //returns results as rows
+        }
+    })
+
+}
+
+
+
+module.exports = {getTimeslots, getTablehours, changeSlotAvailability, getTournaments, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth, getTournamentById, updateTournament, joinTournament, getUserTournaments};
