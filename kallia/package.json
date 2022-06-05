@@ -8,6 +8,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
+    "node-fetch": "^3.2.5",
     "nodemon": "^2.0.16",
     "pg": "^8.7.3",
     "session": "^0.1.0"
@@ -18,7 +19,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "debug": "nodemon --inspect ./start.cjs",
     "watch": "nodemon ./start.cjs",
-    "start": "node ./start.cjs"
+    "start": "node --max-http-header-size=1000000 ./start.cjs"
   },
   "keywords": [],
   "author": "",
