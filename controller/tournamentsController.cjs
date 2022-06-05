@@ -1,10 +1,13 @@
 const dotenv = require('dotenv');
+const { send } = require('express/lib/response');
 dotenv.config();
 
 let model = require('../model/model_pg.cjs');
-let loadpopup = null;
+
 const monthsGreek = {0: 'Ιανουάριος', 1: 'Φεβρουάριος', 2: 'Μάρτιος', 3: 'Απρίλιος', 4: 'Μάιος', 5: 'Ιούνιος', 6: 'Ιούλιος', 7: 'Αύγουστος', 8: 'Σεπτέμβριος', 9: 'Οκτώβριος', 10: 'Νοέμβριος', 11: 'Δεκέμβριος'}
 const monthsEnglish = {0: 'January', 1: 'February', 2: 'March', 3: 'April', 4: 'May', 5: 'June', 6: 'July', 7: 'August', 8: 'September', 9: 'October', 10: 'November', 11: 'December'}
+
+let loadpopup = null;
 
 
 function translate (months){
@@ -40,6 +43,18 @@ function fixDates (tournaments){
     }
 }
 
+function renderTournamentForm(req, res) { 
+    let scripts = [];
+    model.getTournaments(function(err, tournaments) { 
+        if(err) { 
+            res.send(err);
+        }
+        else {
+            res.render('tournamentForm', {layout: 'signed', title: "Villia Tennis Club | Join A Tournament", style: "booking.css", tournaments: tournaments , scripts: scripts});
+        }
+    });
+}
+
 function allTournaments(req,res) {
     model.getTournaments(function(err, rows) { 
         if(err) { 
@@ -59,7 +74,7 @@ function addTournamentToForm (req,res) {
             res.send(err);
         }
         else {
-            res.render('tournamentForm', {title: "Villia Tennis Club | Tournaments", style: "booking.css", tournaments: tournaments , selectedTournament: req.query.tournamentid, scripts: scripts});
+            res.render('tournamentForm', {layout: 'signed', title: "Villia Tennis Club | Tournaments", style: "booking.css", tournaments: tournaments , selectedTournament: req.query.tournamentid, scripts: scripts});
         }
     });
 }
@@ -70,7 +85,7 @@ function addTournamentToDB (req,res) {
             return console.error(err.message);
         else{
             const tournamentid = parseInt(number[0].count)+1;
-            const newTournament = {"tournamentid":"TOUR_"+ tournamentid+"_"+Math.floor(Math.random() * 101), "title":req.query.title, "startdate":req.query.startdate, "enddate":req.query.enddate, "skilllevel": req.query.skilllevel, "agerestrictions": req.query.agerestrictions, "details": req.query.details, "poster": req.query.poster};
+            const newTournament = {"tournamentid":"TOUR_"+ tournamentid+"_"+Math.floor(Math.random() * 101), "title":req.query.title, "startdate":req.query.startdate, "enddate":req.query.enddate, "skilllevel": req.query.skilllevel, "agerestrictions": req.query.agerestrictions, "details": req.query.details};
             
             model.addTournament(newTournament, function(addError, data) { 
                 model.getTournaments(function(err, tournaments) { 
@@ -92,8 +107,10 @@ function addTournamentToDB (req,res) {
                                 }
                                 else {
                                     console.log("form submitted");
+                                    // completed = "true";
                                     res.redirect("/tournaments");
                                 }
+                                // res.render('tournaments', {title: "Villia Tennis Club | Tournaments", style: "tournaments.css", tournaments: tournaments, months: months , scripts: scripts, completed: completed});
                             }
                         });
                     }
@@ -157,7 +174,7 @@ function editTournamentSelect(req,res) {
                         else {
                             translate(months);
                             loadpopup = "load";
-                            res.render('tournaments', {title: "Villia Tennis Club | Tournaments", style: "tournaments.css", tournaments: tournaments, months: months ,selected: selected[0], loadpopup: loadpopup, scripts: scripts});
+                            res.render('tournaments', {layout: 'signed', title: "Villia Tennis Club | Tournaments", style: "tournaments.css", tournaments: tournaments, months: months ,selected: selected[0], loadpopup: loadpopup, scripts: scripts});
                         }
                     });
                 }
@@ -171,7 +188,7 @@ function editTournamentAtDB (req,res) {
         if (err)
             return console.error(err.message);
         else{
-            const newTournament = {"tournamentid": req.query.tournamentid, "title":req.query.title, "startdate":req.query.startdate, "enddate":req.query.enddate, "skilllevel": req.query.skilllevel, "agerestrictions": req.query.agerestrictions, "details": req.query.details, "poster": req.query.poster};
+            const newTournament = {"tournamentid": req.query.tournamentid, "title":req.query.title, "startdate":req.query.startdate, "enddate":req.query.enddate, "skilllevel": req.query.skilllevel, "agerestrictions": req.query.agerestrictions, "details": req.query.details};
             
             model.updateTournament(newTournament, function(editError, data) { 
                 model.getTournaments(function(err, tournaments) { 
@@ -206,42 +223,56 @@ function editTournamentAtDB (req,res) {
     }); 
 }
 
-function renderTournamentForm(req, res) { 
-    let scripts = [];
+function renderTournamentAdmin(req, res) { 
+    let scripts = [{script: '/scripts/tournamentPopup.js'}]; 
     model.getTournaments(function(err, tournaments) { 
         if(err) { 
             res.send(err);
         }
         else {
-            res.render('tournamentForm', {title: "Villia Tennis Club | Join A Tournament", style: "booking.css", tournaments: tournaments , scripts: scripts});
+            fixDates(tournaments);
+            model.getMonths(function(err, months) {
+                if(err) { 
+                    res.send(err);
+                }
+                else {
+                    translate(months);
+                    res.render('tournaments', {layout: 'signed', title: "Villia Tennis Club | Tournaments", style: "tournamentsAdmin.css", tournaments: tournaments, months: months , scripts: scripts});                }
+            });
         }
     });
 }
 
-function renderTournamentAdmin(req, res) { 
-    let scripts = [{script: '/scripts/tournamentPopup.js'}]
-    res.render('tournamentsAdmin', {title: "Villia Tennis Club | Tournaments", style: "tournamentsAdmin.css", tournaments: tournaments, months: months , scripts: scripts});                
-}
-
 function renderTournament(req, res) { 
-
     let scripts = [{script: '/scripts/tournamentPopup.js'}]; 
-    res.render('tournaments', {title: "Villia Tennis Club | Tournaments", style: "tournamentsAdmin.css", tournaments: tournaments, months: months , scripts: scripts});                
-
+    model.getTournaments(function(err, tournaments) { 
+        if(err) { 
+            res.send(err);
+        }
+        else {
+            fixDates(tournaments);
+            model.getMonths(function(err, months) {
+                if(err) { 
+                    res.send(err);
+                }
+                else {
+                    translate(months);
+                    res.render('tournaments', {layout: 'signed', title: "Villia Tennis Club | Tournaments", style: "tournaments.css", tournaments: tournaments, months: months , scripts: scripts});                }
+            });
+        }
+    });
 }
 
 function renderChoice (req, res) { 
     if(req.session.adminRights) { 
         renderTournamentAdmin(req, res);
     }
-    else{ 
-        renderTournament();
+    else{
+        renderTournament(req, res);
     }
 }
 
-exports.renderChoice = renderChoice;
 exports.renderTournament = renderTournament;
-exports.renderTournamentAdmin = renderTournamentAdmin;
 exports.renderTournamentForm = renderTournamentForm;
 exports.allTournaments = allTournaments;
 exports.addTournamentToForm = addTournamentToForm;
@@ -250,3 +281,4 @@ exports.deleteTournamentFromDB = deleteTournamentFromDB;
 exports.deleteMonthFromDB = deleteMonthFromDB;
 exports.editTournamentSelect = editTournamentSelect;
 exports.editTournamentAtDB = editTournamentAtDB;
+exports.renderChoice = renderChoice;

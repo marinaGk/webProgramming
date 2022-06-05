@@ -14,7 +14,6 @@ CREATE TABLE ACCOUNT (
 
 CREATE TABLE COURT (
     CourtID varchar(100) NOT NULL, 
-    CourtType text,
     PRIMARY KEY (CourtID)
 );
 
@@ -26,29 +25,6 @@ CREATE TABLE TABLETIMES(
     PRIMARY KEY(TableTimeID)
 );
 
-/*TD_int where int is the same as order on reservations table and changes with each new day*/
-/*DONE*/
-/*CREATE TABLE TABLEDATES (
-    TableDateID varchar(100) NOT NULL, 
-    TableDate date NOT NULL,
-    PRIMARY KEY(TableDateID)
-);*/
-
- 
-/*TS_int where int is a combination of day and time ints, gets updated with each new day*/
-/*this one will be updated from server everyday at midnight: contents will be copied > table will be truncated > 
-then contents will be rewriten with all slots available and reservations will be applied*/
-/*CREATE TABLE TIMESLOT ( 
-    TimeSlotID varchar(100) NOT NULL, 
-	DayID varchar(100) NOT NULL, 
-    TimeID varchar(100) NOT NULL, 
-    Availability boolean DEFAULT TRUE NOT NULL, 
-    CourtID varchar(100) NOT NULL, 
-    FOREIGN KEY(TimeID) REFERENCES TABLETIMES(TableTimeID), 
-    FOREIGN KEY(DayID) REFERENCES TABLEDATES(TableDateID), 
-    FOREIGN KEY(CourtID) REFERENCES COURT(CourtID),
-    PRIMARY KEY(TimeSlotID)
-);*/
 
 /*RES_date_int where date is simplified date and int is lenght of selections, deleted when date past*/
 
@@ -72,6 +48,7 @@ CREATE TABLE TOURNAMENT (
     EndDate date, 
     SkillLevel integer, 
     AgeRestrictions integer,
+    Details text, 
     PRIMARY KEY(TournamentID)
 );
 

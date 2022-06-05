@@ -184,7 +184,7 @@ let accountReservations = (userid, callback) => {
 let getTournaments = (callback) => {
     const query = { 
         text: 
-        `select tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details, encode(poster::bytea,'base64') as poster from tournament ORDER BY startdate;`
+        `select tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details from tournament ORDER BY startdate;`
     }
 
 
@@ -238,12 +238,10 @@ let getTournamentsNumber = (callback) => {
 let addTournament = (newTournament, callback) => {
     if (newTournament.skilllevel == '') newTournament.skilllevel = null;
     if (newTournament.agerestrictions == '') newTournament.agerestrictions = null;
-    if (newTournament.poster == '') {
-        newTournament.poster = null;
         const query = { 
             text: 
-            `insert into tournament (tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details, poster)
-            values ('${newTournament.tournamentid}','${newTournament.title}', '${newTournament.startdate}', '${newTournament.enddate}', ${newTournament.skilllevel}, ${newTournament.agerestrictions}, '${newTournament.details}', null);`
+            `insert into tournament (tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details)
+            values ('${newTournament.tournamentid}','${newTournament.title}', '${newTournament.startdate}', '${newTournament.enddate}', ${newTournament.skilllevel}, ${newTournament.agerestrictions}, '${newTournament.details}');`
         }
         sql.query(query, (err, res) => { 
             if(err) { 
@@ -252,21 +250,7 @@ let addTournament = (newTournament, callback) => {
             else { 
                 callback(null, res.rows)  //returns results as rows
             }
-        })}
-    else    {
-        const query = { 
-            text: 
-            `insert into tournament (tournamentid, title, startdate, enddate, skilllevel, agerestrictions, details, poster)
-            values ('${newTournament.tournamentid}','${newTournament.title}', '${newTournament.startdate}', '${newTournament.enddate}', ${newTournament.skilllevel}, ${newTournament.agerestrictions}, '${newTournament.details}', pg_read_binary_file('\\Users\\Public\\${newTournament.poster}'));`
-        }
-        sql.query(query, (err, res) => { 
-            if(err) { 
-                callback(err.stack);
-            }
-            else { 
-                callback(null, res.rows)  //returns results as rows
-            }
-        })}
+        })
 
 }
 
@@ -328,38 +312,23 @@ let deleteMonth = (monthid, callback) => {
 let updateTournament = (newTournament, callback) => {
     if (newTournament.skilllevel == '') newTournament.skilllevel = null;
     if (newTournament.agerestrictions == '') newTournament.agerestrictions = null;
-    if (newTournament.poster == '') {
-        newTournament.poster = null;
-        const query = { 
-            text: 
-            `update tournament
-             set title = '${newTournament.title}', startdate = '${newTournament.startdate}', enddate = '${newTournament.enddate}', skilllevel = ${newTournament.skilllevel}, agerestrictions = ${newTournament.agerestrictions}, details = '${newTournament.details}', poster = null
-             where tournamentid = '${newTournament.tournamentid}';`
+
+    const query = { 
+        text:
+        `update tournament
+            set title = '${newTournament.title}', startdate = '${newTournament.startdate}', enddate = '${newTournament.enddate}', skilllevel = ${newTournament.skilllevel}, agerestrictions = ${newTournament.agerestrictions}, details = '${newTournament.details}')
+            where tournamentid = '${newTournament.tournamentid}';`
+    }
+    sql.query(query, (err, res) => { 
+        if(err) { 
+            callback(err.stack);
         }
-        sql.query(query, (err, res) => { 
-            if(err) { 
-                callback(err.stack);
-            }
-            else { 
-                callback(null, res.rows)  //returns results as rows
-            }
-        })}
-    else    {
-        const query = { 
-            text:
-            `update tournament
-             set title = '${newTournament.title}', startdate = '${newTournament.startdate}', enddate = '${newTournament.enddate}', skilllevel = ${newTournament.skilllevel}, agerestrictions = ${newTournament.agerestrictions}, details = '${newTournament.details}', poster = pg_read_binary_file('\\Users\\Public\\${newTournament.poster}')
-             where tournamentid = '${newTournament.tournamentid}';`
+        else { 
+            callback(null, res.rows)  //returns results as rows
         }
-        sql.query(query, (err, res) => { 
-            if(err) { 
-                callback(err.stack);
-            }
-            else { 
-                callback(null, res.rows)  //returns results as rows
-            }
-        })}
+    })
 
 }
+
 module.exports = {getUserByUsername, registerUser, getTablehours, bookSlot, changeSlotAvailability, deleteReservation, courtReservations, accountReservations, 
 getTournaments, getTournamentById, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth, updateTournament};

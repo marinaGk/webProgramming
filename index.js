@@ -1,3 +1,3 @@
-const app = require('./app.cjs');
+/*const app = require('./app.cjs');
 
-const server = app.listen(3000, () => { });
+const server = app.listen(3000, () => { });*/

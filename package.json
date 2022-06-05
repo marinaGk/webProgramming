@@ -1,8 +1,8 @@
 {
-  "name": "example_async",
+  "name": "tennis_club",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.cjs",
+  "description": "Tennis Club website for web programming course, 8th semester",
+  "main": "start.cjs",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
