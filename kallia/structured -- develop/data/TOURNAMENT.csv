@@ -1,2 +1,2 @@
-﻿TournamentID;Title;StartDate;EndDate;SkillLevel;AgeRestrictions;Details;Poster
-TOUR_1;Καλοκαιρινό τουρνουά;30/5/2022;6/6/2022;4;0;Πληροφορίες για το καλοκαιρινό τουρνουά;
+﻿TournamentID;Title;StartDate;EndDate;SkillLevel;AgeRestrictions
+TOUR_1;Καλοκαιρινό τουρνουά;30/5/2022;6/6/2022;4;0

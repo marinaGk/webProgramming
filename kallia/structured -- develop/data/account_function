@@ -6,9 +6,9 @@ CREATE FUNCTION separate_accounts() RETURNS TRIGGER AS $$
     BEGIN 
         RAISE NOTICE '%', NEW;
         IF (NEW.AdminRights) THEN
-            INSERT INTO ADMINACCOUNT(AdminName) VALUES (NEW.AccountName);
+            INSERT INTO ADMINACCOUNT(AdminAccountID) VALUES (NEW.AccountID);
         ELSE 
-            INSERT INTO USERACCOUNT(UserName) VALUES(NEW.AccountName);
+            INSERT INTO USERACCOUNT(UserAccountID) VALUES(NEW.AccountID);
         END IF;        
         RETURN NEW;
     END;

@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const { send } = require('express/lib/response');
 dotenv.config();
+const fs = require('fs');
 
 let model = require('../model/model_pg.cjs');
 
@@ -59,7 +60,7 @@ function renderTournament(req, res) {
                 }
                 else {
                     translate(months);
-                    res.render('tournaments', {title: "Villia Tennis Club | Tournaments", style: "tournaments.css", tournaments: tournaments, months: months , scripts: scripts});                }
+                    res.render('tournamentsAdmin', {title: "Villia Tennis Club | Tournaments", style: "tournamentsAdmin.css", tournaments: tournaments, months: months , scripts: scripts});                }
             });
         }
     });
@@ -134,6 +135,7 @@ function addTournamentToDB (req,res) {
                             else {
                                 translate(months);
                                 if (addError){
+                                    console.log("HEREEEEEEEEEEEEEEEE",req.params);
                                     console.log(addError);
                                     // completed = "false";
                                     res.send("Τα στοιχεία που συμπληρώσατε δεν είναι εγκυρα! Ελέγξτε αν έχετε συμπληρώσει σωστά τα πεδία της φόρμας. Πηγαίνετε στην προηγούμενη σελίδα για να επαναλάβετε την προσπάθεια σας...");
@@ -235,7 +237,7 @@ function editTournamentSelect(req,res) {
                         else {
                             translate(months);
                             loadpopup = "load";
-                            res.render('tournaments', {title: "Villia Tennis Club | Tournaments", style: "tournaments.css", tournaments: tournaments, months: months ,selected: selected[0], loadpopup: loadpopup, scripts: scripts});
+                            res.render('tournamentsAdmin', {title: "Villia Tennis Club | Tournaments", style: "tournaments.css", tournaments: tournaments, months: months ,selected: selected[0], loadpopup: loadpopup, scripts: scripts});
                         }
                     });
                 }
@@ -286,6 +288,33 @@ function editTournamentAtDB (req,res) {
 
 
 
+function joinTournament (req,res) {
+    model.joinTournament(req.session.loggedUserId, req.query.tournamentid, function(err, join) {
+        if (err)
+            return console.error(err.message);
+        else {
+            if(err) { 
+                res.send(err);
+            }
+            else {
+                // fixDates(tournaments);
+                // model.getMonths(function(err, months) {
+                //     if(err) { 
+                //         res.send(err);
+                //     }
+                //     else {
+                //         translate(months);
+                //         res.render('tournaments', {title: "Villia Tennis Club | Tournaments", style: "tournaments.css", tournaments: tournaments, months: months , scripts: scripts});
+                //     }
+                // });
+                res.redirect("/tournaments");
+            }
+        }
+    }); 
+}
+
+
+
 exports.renderTournament = renderTournament;
 exports.renderTournamentForm = renderTournamentForm;
 exports.allTournaments = allTournaments;
@@ -295,3 +324,4 @@ exports.deleteTournamentFromDB = deleteTournamentFromDB;
 exports.deleteMonthFromDB = deleteMonthFromDB;
 exports.editTournamentSelect = editTournamentSelect;
 exports.editTournamentAtDB = editTournamentAtDB;
+exports.joinTournament =joinTournament;
