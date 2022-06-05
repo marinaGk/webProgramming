@@ -35,13 +35,17 @@ function makeTable() {
 function fillRow(row) { 
 
     let cell = document.createElement("th");
+
     cell.style.width = "20%";
+
     for (let i = 0; i<tableWidth; i++) { 
         if (i != 0) { 
             cell = document.createElement("td");
+            cell.addEventListener("click", book);
             cell.style.colSpan = "1";
         }
         cell.id = `cell${i}`;
+
         row.appendChild(cell);
     }
 
@@ -51,7 +55,7 @@ function fillHourRow() {
 
     const hours = document.querySelector(".hours");
     let children = hours.children;
-    for (let i = 0; i < data_length; i++) {
+    for (let i = 0; i <data_length; i++) {
         let cell = children[i];
         let hour = availableHours[i];
         let text = document.createTextNode(hour);
@@ -123,4 +127,8 @@ function setCounterField() {
     field.innerHTML = "";
     let text = document.createTextNode(courtNum); 
     field.appendChild(text);
+}
+
+function book() { 
+    alert("Hello world");
 }

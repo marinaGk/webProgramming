@@ -1,0 +1,12 @@
+/*create view slots as 
+select * from timeslot where timeslotid='SC_1'*/
+
+/*create view slots_dates as
+select timeslotid, availability, timeid, tabledate FROM slots JOIN tabledates on 
+tabledates.tabledateid = slots.dayid*/
+
+/*create view slots_dates_times as
+select timeslotid, availability, tabledate, tablehour from slots_dates join 
+tabletimes on tabletimes.tabletimeid = slots_dates.timeid*/
+
+/*select * from slots_dates_times order by tabledate, tablehour*/

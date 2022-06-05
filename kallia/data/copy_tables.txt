@@ -1,0 +1,12 @@
+SET client_encoding TO 'UTF8';
+
+\COPY account FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\ACCOUNT.csv' DELIMITER ';' CSV HEADER;
+\COPY adminaccount FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\ADMINACCOUNT.csv' DELIMITER ';' CSV HEADER;
+\COPY useraccount FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\USERACCOUNT.csv' DELIMITER ';' CSV HEADER;
+\COPY court FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\COURT.csv' DELIMITER ';' CSV HEADER;
+\COPY tabledates FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\TABLEDATES.csv' DELIMITER ';' CSV HEADER;
+\COPY tabletimes FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\TABLETIMES.csv' DELIMITER ';' CSV HEADER;
+\COPY tournament FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\TOURNAMENT.csv' DELIMITER ';' CSV HEADER;
+\COPY joins FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\joins.csv' DELIMITER ';' CSV HEADER;
+\COPY timeslot FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\TIMESLOT.csv' DELIMITER ';'
+\COPY reservation FROM 'C:\Users\KALLIOPE\Desktop\web programming\project-new5\webProgramming-develop\marina\structured\data\RESERVATION.csv' DELIMITER ';' CSV HEADER;

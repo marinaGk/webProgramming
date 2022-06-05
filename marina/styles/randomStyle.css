@@ -1,0 +1,75 @@
+.sidenav-container { 
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+
+    width : 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    display: none;
+}
+
+.sidenavbar { 
+    display : flex;
+    flex-direction: column;
+
+    max-width: 250px;
+    padding: 0px 0px 30px 0px;
+
+    background-color: #0091d2;
+}
+
+.sidenavbar .side_button_list{ 
+    display: flex;
+    flex-direction: column;
+
+    width: 100%; 
+    padding: 20px 0px 0px 20px;
+
+    list-style: none;
+    color: white;
+    background-color: #0091d2;
+}
+
+.sidenavbar .side_connection_list { 
+    display: flex;
+    flex-direction: column;
+
+    width: 100%; 
+    padding-left: 20px;
+
+    list-style: none;
+    color: white; 
+}
+
+.sidenavbar .side_button_list .side_navButton { 
+    height: 50px;
+    min-width: fit-content;
+    width: 100%; 
+    text-align: center;
+}
+
+.sidenavbar .side_connection_list .side_accButton button{ 
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    height: 50px;
+    width: 100%;
+    min-width: fit-content;
+    border: none; 
+    color: white; 
+    background-color: #0091d2;
+}
+
+.sidenavbar .side_button_list a { 
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    line-height: 2.5;
+}
+
+
