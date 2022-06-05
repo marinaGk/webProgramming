@@ -10,20 +10,6 @@ CREATE TABLE ACCOUNT (
     PRIMARY KEY(AccountID)
 );
 
-CREATE TABLE USERACCOUNT ( 
-	UserAccountID SERIAL NOT NULL, 
-    UserName varchar(100) NOT NULL, 
-    FOREIGN KEY(UserName) REFERENCES ACCOUNT (AccountName),
-    PRIMARY KEY(UserAccountID)
-);
-
-CREATE TABLE ADMINACCOUNT  (
-	AdminAccountID SERIAL NOT NULL, 
-    AdminName varchar(100) NOT NULL, 
-    FOREIGN KEY(AdminName) REFERENCES ACCOUNT (AccountName),
-    PRIMARY KEY(AdminAccountID)
-); 
-
 /*C_int where int is the same as order on reservations table*/ 
 
 CREATE TABLE COURT (
@@ -72,7 +58,7 @@ CREATE TABLE RESERVATION (
     ReservationTime varchar(5) NOT NULL, 
     CourtID varchar(100) NOT NULL,
     ReserveeID integer NOT NULL,
-    FOREIGN KEY(ReserveeID) REFERENCES USERACCOUNT (UserAccountID),
+    FOREIGN KEY(ReserveeID) REFERENCES ACCOUNT (AccountID),
     FOREIGN KEY(CourtID) REFERENCES COURT (CourtID), 
     PRIMARY KEY(ReservationID) 
 );
@@ -92,7 +78,7 @@ CREATE TABLE TOURNAMENT (
 CREATE TABLE joins ( 
     ParticipantID integer NOT NULL, 
     TournamentID varchar(100) NOT NULL, 
-    FOREIGN KEY(ParticipantID) REFERENCES USERACCOUNT(UserAccountID), 
+    FOREIGN KEY(ParticipantID) REFERENCES ACCOUNT(AccountID), 
     FOREIGN KEY(TournamentID) REFERENCES TOURNAMENT(TournamentID)
 );
 
