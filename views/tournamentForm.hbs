@@ -1,0 +1,79 @@
+<div class = "booking_main row m-0">
+    <div class = "booking_card p-0"> 
+        <div class = "booking_banner row m-0">
+            <h1 id = "title" class = "row">
+                Συμμετοχή σε τουρνουά
+            </h1>
+            <p id = "subtitle" class = "row"> 
+                Παρακάτω θα βρείτε την φόρμα την οποία θα πρέπει να συμπληρώσετε προκειμένου να συμμετάσχετε σε ένα ή και περισσότερα από τα τουρνουά μας.
+                Αν θέλετε, μπορειτε να συμπληρώσετε στο πλαίσιο για σχόλια όλα όσα έχετε να μας πείτε σχετικά με το τουρνουά που θα διαλέξετε (π.χ. αν θέλετε να
+                συμμετάσχετε συγκεκριμένες μέρες ή την κατηγορία/ηλικία παιχτών στην οποία θέλετε να ενταχθείτε) κατά την διάρκεια του τουρνουά. Για περαιτέρω απορίες,
+                επικοινωνήστε μαζι μας μέσω τηλεφώνου ή e-mail. Προσοχή: για να συμμετάσχετε στα τουρνουά μας, θα πρέπει, αρχικά, να κάνετε εγγραφή στην ιστοσελίδα!<br>
+            </p>
+        </div> 
+        <div class = "booking_info row m-0"> 
+            <div class = "court_booking row m-0">
+                <form class = "form" method= "GET" enctype="multipart/form-data" action= "tournamentForm/joinTournament">
+                    <div class = "inputs col m-0">
+                        <div class="title row m-0 p-0"> 
+                            <h1 style = "font-size: 32px;">
+                                ΦΟΡΜΑ ΔΗΛΩΣΗΣ ΣΥΜΜΕΤΟΧΗΣ ΣΕ ΤΟΥΡΝΟΥΑ
+                            </h1> 
+                        </div>
+                        <div class = "row">
+                            <div class = "col-6">
+                                <div class = "field row mb-4 p-0"> 
+                                    <label for = "first-name" class = "field_name col-7 p-0"> Όνομα<span style = "color:red">*</span> </label>
+                                    <input type="text" name="first-name" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                </div>
+                                <div class = "field row mb-4 p-0"> 
+                                    <label for = "last-name" class = "field_name col-7 p-0"> Επώνυμο<span style = "color:red">*</span> </label>
+                                    <input type="text" name="last-name" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                </div>
+                                <div class = "field row mb-4 p-0">
+                                    <label for = "gender" class = "field_name col-7 p-0"> Φύλο<span style = "color:red">*</span> </label>
+                                    <div class = "field_name col-7 p-0">
+                                        <input type="radio" name="gender" class = "col-0 p-0" value="male" checked>&nbsp;Άνδρας
+                                        <input type="radio" name="gender" class = "col-0 p-0" style = "margin-left : 30px;" value="female">&nbsp;Γυναίκα
+                                        <input type="radio" name="gender" class = "col-0 p-0" style = "margin-left : 30px;" value="other">&nbsp;Άλλο
+                                    </div>
+                                </div>
+                                <div class = "field row mb-4 p-0"> 
+                                    <label for = "birthday" class = "field_name col-7 p-0"> Έτος γεννήσεως<span style = "color:red">*</span> </label>
+                                    <input type="date" name="birthday" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                </div>
+                                <div class = "field row mb-4 p-0"> 
+                                    <label for = "mobilephone" class = "field_name col-7 p-0"> Κινητό τηλέφωνο<span style = "color:red">*</span> </label>
+                                    <input type="text" name="mobilephone" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                </div>
+                            </div>
+                            <div class = "col-6">
+                                <div class = "field row mb-4 p-0"> 
+                                    <label for = "telephone" class = "field_name col-7 p-0"> Σταθερό τηλέφωνο </label>
+                                    <input type="text" name="telephone" class = "field_input col-7 p-0" oninvalid="setCustomValidity('Αυτό το πεδίο είναι υποχρεωτικό.')" required>
+                                </div>
+                                <div class = "field row mb-4 p-0"> 
+                                    <label for = "tournament" class = "field_name col-7 p-0"> Τουρνουά<span style = "color:red">*</span> </label>
+                                    <select name="tournament" id = {{selectedTournament}} class = "field_input col-7 p-0">
+                                        {{#each tournaments}}
+                                            <option id = {{tournamentid}} value = {{tournamentid}}>{{title}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class = "field row mb-4 p-0"> 
+                                    <label for = "comments" class = "field_name col-7 p-0"> Σχόλια </label>
+                                    <textarea name="comments" rows="5" class = "field_input col-7 p-0" placeholder="Εισάγετε εδώ τα σχόλιά σας&#10;(π.χ. μέρες που δεν μπορείτε να συμμετάσχετε)"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type = "submit" class = "submit"> 
+                        Υποβολή
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type = "application/javascript" src = "/tournamentForm.cjs"> </script>

@@ -1,0 +1,5 @@
+﻿ReservationID;TimeSlotID;ReserveeID
+R_1;TS_23;1
+R_2;TS_15;1
+R_3;TS_102;1
+R_4;TS_200;1
