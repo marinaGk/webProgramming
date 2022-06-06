@@ -330,5 +330,45 @@ let updateTournament = (newTournament, callback) => {
 
 }
 
+//below are functions added after handing project in 
+let joinTournament= (participantid, tournamentid, callback) => {
+    const query = { 
+        text: 
+        `insert into joins(participantid, tournamentid)
+         VALUES (${participantid}, '${tournamentid}');`
+    }
+
+
+    sql.query(query, (err, res) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, res.rows)  
+        }
+    })
+
+}
+
+let getUserTournaments = (participantid, callback) => {
+    const query = { 
+        text: 
+        `select distinct * 
+        from joins join tournament on joins.tournamentid = tournament.tournamentid
+        where joins.participantid = '${participantid}';`
+    }
+
+
+    sql.query(query, (err, res) => { 
+        if(err) { 
+            callback(err.stack);
+        }
+        else { 
+            callback(null, res.rows)  //returns results as rows
+        }
+    })
+
+}
+
 module.exports = {getUserByUsername, registerUser, getTablehours, bookSlot, changeSlotAvailability, deleteReservation, courtReservations, accountReservations, 
-getTournaments, getTournamentById, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth, updateTournament};
+getTournaments, getTournamentById, getTournamentsNumber, addTournament, deleteTournament, getMonths, deleteMonth, updateTournament, joinTournament, getUserTournaments};

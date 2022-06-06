@@ -111,6 +111,8 @@ router.get('/tournaments/deleteTournamentFromDB' , tournamentsController.deleteT
 router.get('/tournaments/deleteMonthFromDB' , tournamentsController.deleteMonthFromDB);
 router.get('/editTournamentSelect' , tournamentsController.editTournamentSelect);
 router.get('/tournaments/editTournamentAtDB' , tournamentsController.editTournamentAtDB);
+router.get('/tournamentForm/joinTournament' , tournamentsController.joinTournament);
+router.get('/userTournaments', loginController.checkAuthenticated, tournamentsController.renderUserTournaments);
 
 module.exports = router;
 

@@ -1,7 +1,10 @@
+let modal;
+
 let addTournamentBtn = document.querySelector("#addTournamentBtn");
 let deleteTournamentBtn = document.querySelector("#deleteTournamentBtn");
 let deleteMonthBtn = document.querySelector("#deleteMonthBtn");
 let editTournamentSelectBtn = document.querySelector("#editTournamentSelectBtn");
+
 
 addTournamentBtn.addEventListener("click", addTournamentPopup);
 deleteTournamentBtn.addEventListener("click", deleteTournamentPopup);
@@ -23,6 +26,7 @@ function addTournamentPopup() {
 
 }
 
+
 function deleteTournamentPopup() { 
 
     let popup = document.querySelector("#deleteTournament");
@@ -36,6 +40,7 @@ function deleteTournamentPopup() {
 
 }
 
+
 function deleteMonthPopup() { 
 
     let popup = document.querySelector("#deleteMonth");
@@ -48,6 +53,7 @@ function deleteMonthPopup() {
     modal.style.display = "flex";
 
 }
+
 
 function editTournamentSelectPopup() { 
 
@@ -70,6 +76,7 @@ function checkValue () {
     }
 }
 
+
 function editTournamentPopup() { 
 
     let popup = document.querySelector("#editTournament");
@@ -83,6 +90,12 @@ function editTournamentPopup() {
 
 }
 
+function closePopup() { 
+
+    modal.style.zIndex = "-1";
+    modal.style.display = "none";
+
+}
 
 window.addEventListener('DOMContentLoaded', (event) => { 
     checkValue();

@@ -146,7 +146,7 @@ function setGlobal(req, res, next) {
 }
 
 function renderBookingAdmin(req, res) { 
-    let scripts = [{script: '/scripts/confirm_form_popup.js'}];
+    let scripts = [];
     res.render('bookingAdmin', {layout: 'signed.hbs', title: "Villia Tennis Club | Booking", style: "/booking.css", courtVariable: courtVariable, scripts: scripts, reservations: accountReservations});
 }
 

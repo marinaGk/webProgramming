@@ -1,0 +1,26 @@
+
+<div class = "booking_main row m-0">
+    <div class = "booking_card p-0"> 
+        <div class = "booking_banner row m-0">
+            <h1 id = "title" class = "row">
+                ΤΑ ΤΟΥΡΝΟΥΑ ΜΟΥ
+            </h1>
+            <p id = "subtitle" class = "row"> 
+                Σε αυτή την σελίδα μπορείτε να βρείτε τις κρατήσεις που έχουν γίνει για το τουρνουά μας . Οι κρατήσεις θα απασχολούν τα γήπεδα νο.2,3 και 4. 
+                Οι κρατήσεις γηπέδων αφορούν το διάστημα 17.00 έως 22.00 σε ακέραιες ώρες (π.χ  17.09 ή 17.30 και όχι 17.15 ή 17.45).
+                Η διάρκεια των μονών παιχνιδιών είναι 60' και των διπλών 90'.
+            </p>
+            <p id = "my_tournaments" class = "row">
+                {{#each tournaments}}
+                <div class="each_tournament">
+                    • <span style = "font-size: 24px; color:#ca31a4">{{title}}: &nbsp;&nbsp;&nbsp;{{startdate}} - {{enddate}} <br></span>
+                    {{details}}<br>
+                </div>
+                {{/each}}
+            </p>
+        </div> 
+        <div class = "booking_info row m-0"> 
+        </div>
+    </div>
+</div>
+

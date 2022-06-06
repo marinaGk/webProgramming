@@ -1,4 +1,12 @@
+//ONE FOR APPENDING A TOURNAMENT
+//ONE FOR DELETING A TOURNAMENT
+//ONE FOR CHANGING A TOURNAMENT
+//ONE FOR DELETING A MONTH
+
+//and, shall I add, one to rule them all 
+
 const buttons = document.querySelector(".buttons");
+
 
 //add tournament button
 let btn = document.createElement("div");
@@ -39,3 +47,5 @@ editTournButton.appendChild(document.createTextNode("Επεξεργασία το
 btn.appendChild(editTournButton);
 buttons.appendChild(btn);
 
+
+let addTour = document.querySelector("#addTour");
